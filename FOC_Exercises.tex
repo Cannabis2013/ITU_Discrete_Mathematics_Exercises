@@ -1,0 +1,720 @@
+% !TeX spellcheck = en_GB
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{mathrsfs}
+\usepackage{tikz}
+\usepackage{enumitem}
+
+\usetikzlibrary{arrows}
+\usepackage{setspace}
+
+\pagestyle{empty}
+
+\DeclareMathAlphabet{\mathpzc}{OT1}{pzc}{m}{it}
+
+% Remove "New paragraph" indentation
+
+\setlength{\parindent}{0px} 
+
+% Math section related
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+
+\newcommand{\cent}[1]{\begin{center}#1\end{center}}
+\newcommand{\mAlign}[1]{\begin{align*}#1\end{align*}}
+\newcommand{\mat}[2]{\begin{equation} \label{#2}#1\end{equation}}
+
+\newcommand{\doubleR}{\mathbb{R}}
+\newcommand{\doubleZ}{\mathbb{Z}}
+\newcommand{\doubleN}{\mathbb{N}}
+\newcommand{\doubleQ}{\mathbb{Q}}
+\newcommand{\doubleC}{\mathbb{C}}
+
+\newcommand{\In}{\! \in \!}
+
+\newcommand{\stackedFunc}[1]{\begin{cases}#1 \end{cases}}
+
+\newcommand{\afb}[3]{\ensuremath{_#1 \textbf{#2}_#3}}
+\newcommand{\vek}[3]{\ensuremath{\begin{bmatrix} #1\\ #2\\ #3\end{bmatrix}}}
+\newcommand{\vekt}[2]{\ensuremath{\begin{bmatrix} #1\\ #2\end{bmatrix}}}
+\newcommand{\mediumMatrix}[9]{\ensuremath{
+		\begin{bmatrix}
+			#1 & #2 & #3 \\
+			#4 & #5 & #6 \\
+			#7 & #8 & #9
+\end{bmatrix}}}
+\newcommand{\smallMatrix}[4]{\ensuremath{\begin{bmatrix}
+			#1 & #2 \\
+			#3 & #4
+\end{bmatrix}}}
+
+\newcommand{\script}[1]{\mathpzc{#1}}
+
+% Text macros
+\newcommand{\Domain}{\textbf{Domain of exercise: }}
+\newcommand{\Prove}{\textbf{Statement to prove: }}
+\newcommand{\Remark}{\textbf{Statement to consider: }}
+\newcommand{\Assign}{\textbf{Assignment description: }}
+\newcommand{\Solution}{\textbf{My solution: }}
+\newcommand{\QED}{\boxed{}}
+\newcommand{\Exercise}[1]{\subsection{Exercise #1}}
+
+
+% Document meta data
+\author{Martin Hansen}
+\date{10-09-2020}
+\title{Exercise document \\ \small Discrete Mathematics}
+
+\begin{document}
+	\maketitle
+	
+	\pagebreak
+	
+	\section{Chapter 4 : Direct Proof And Counterexample}
+	\Exercise{4.1.2}
+	Assume $c$ is a particular integer.
+	\begin{enumerate}[label=\textbf{\alph*.}]
+		\item Is $-6c$ an even integer?
+		
+		Yes, we can deduce that when rewriting the above to:
+		
+		$2\cdot (-3c) $
+		
+		\item Is $8c+5$ an odd integer?
+		
+		No, as any odd integer added to an even integer is odd. We can show that by an example:\\
+		
+		For any integer $k$ and $r$ we have:
+		\cent{$2k + (2r+1) = 2k + 2r + 1 = 2(k+r) + 1$}
+		
+		As we see, any sum of an even and odd integer is odd.
+		
+		\item Is $(c^2 + 1) - (c^2 - 1) - 2$ an even integer?
+		
+		We can try to expand and reduce:
+		
+		\cent{$(c^2 + 1) - (c^2 - 1) - 2 = c^2 + 1 - c^2 + 1 - 2 = 0$}
+		
+		As we can write zero as:
+		
+		\cent{$2s = 0, \quad s = 0$}
+		
+		$(c^2 + 1) - (c^2 - 1) - 2$ is even.
+	\end{enumerate}
+	
+	\Exercise{4.1.13}
+	\Prove
+	For every integer $n$, if $n$ is odd then $\frac{n-1}{2}$ is odd.\\
+	
+	\Solution
+	We rewrite by the Law of Fraction that says $\frac{a+b}{c} = \frac{a}{c} + \frac{b}{c}$:
+	
+	\cent{$\frac{n - 1}{2} = \frac{n}{2} - \frac{1}{2}$}
+	
+	Let's substitute $n$ for $2\cdot (4k) + 1$ as we assume that $n$ is an odd integer which is preceded by an even integer which is a multiplum of at least 4 (think of 17 which is preceded by 16 and can be divided by 2 two times, as it is a multiplum of at least 4). We can then reduce:
+	
+	\cent{$\frac{4k +1}{2} - \frac{1}{2} = \frac{4k}{2} + \frac{1}{2} - \frac{1}{2} = 2k$}
+	
+	We can here see, that for any odd integers which is preceded by any integers that is a multiplum of 4, that the statement to prove is not true.\\
+	\QED
+	
+	\Exercise{4.1.20}
+	\Prove
+	The average of any two odd integers is odd.\\
+	
+	\Solution
+	
+	We formalize this in mathematical notation:
+	
+	\cent{$\frac{m +n }{2} = 2s + 1$}
+	
+	By inserting the following substitutes:
+	
+	\mAlign{m &= 4k + 1, \quad  k \geq 0\\
+				  n &= 4r -1, \quad r > 0}
+	
+	Let's just take a look at the numinator. We want to find the sums of odd integers which is divisible by 2 more than one time. This means, we want to find any sums that is a multiplum of 4. We can write this as:
+	
+	\cent{$(2k+1)+(2r+1)=4s$}
+	
+	For any integer $k$, $r$ and $s$.\\
+	
+	Let's try to find all the kombinations of $k$ and $r$ that satisfies our equation.\\
+	
+	First we reduce the left hand side:
+	
+	\cent{$(2k+1)+ (2r+1) = 2k + 2r + 2 = 2(k+r + 1 )$}
+	
+	Then we divide the equation by 2:
+	
+	\cent{$k+r+1=2s$}
+	
+	And subtract by 1:
+	
+	\cent{$k+r=2s-1$}
+	
+	If the sum $k+r$ is odd, then any sum of odd integers that can be written in terms of $k$ and $r$, and which sum is odd, is a multiplum of 4. We know for an example, that any sum comprise an even and odd integer is odd.\\
+	
+	These odd numbers can be written as:
+		
+	\cent{$m = 2k+1, \quad n = 2r+1 $}
+	
+	So we can formalize the given assertion by another integer $u$ as:
+	
+	\cent{$\frac{(2k+1) + (2r+1)}{2} = 2u +1$}
+	
+	Then we want to consider the equation for all sums $k+r$ that comprise an even and odd integer. We know by the previous procedure that it equals $4s$:
+	
+	\cent{$\frac{4s}{2} = 2s \neq 2u +1$}
+	
+	Here we see, that any integer which is a multiplum of 4, is an even integer. Furthermore, we can show by dividing by 2 on both sides, that if $2s$ is odd, then $s$ is not an integer:
+	
+	\cent{$s=u+\frac{1}{2}$}
+	
+	\QED
+	
+	\Exercise{4.2.5}
+	\Prove
+	If $a$ and $b$ are any odd integer, then $a^2 + b^2$ is even.\\
+	
+	\Solution
+	We can write two odd integers $m$ and $n$ as terms of $q$ and $r$:
+	\cent{$m = 2q+1, \quad n = 2r+1$}
+	
+	The sum of its squares can be written and reduced as the following:
+	
+	\mAlign{(2q+1)^2 + (2r+1)^2 &= 4q^2 + 1 + 2q + 4r^2 + 1 +2r \\
+					&= 4q^2+2q + 4r^2 + 2r +2 \\
+					&= 2(3q +3r +1)}
+	We can see, that the result is a multiplum of 2.\\
+	\QED
+	
+	\Exercise{4.2.11}
+	
+	\Prove
+	If $n$ is any odd integer,then $(-1)^n = -1$.\\
+	
+	\Solution
+	We write an odd integer $n$ in terms of any integer $q$ as:
+	
+	\cent{$n = 2q+r$}
+	
+	Then by the Law of Exponents we have:
+	
+	\cent{$(-1)^{2q + 1} = (-1)^{2q} \cdot (-1)$}
+	
+	First we can consider $(-1)^{2q}$ and use the Law of Exponents to show, that $-1$ to the power of any even integer is even:
+	
+	\cent{$((-1)^2)^q = 1^q = 1$}
+	
+	As $(-1)^2 = 1$, and 1 to the power of any integer $q$ is just 1.\\
+	
+	Then we insert this into the original equation and we have:
+	
+	\cent{$(-1)^{2q} \cdot (-1) = -1$}
+	
+	\QED
+	
+	\Exercise{4.2.23}
+	
+	\Prove
+	The product of any even integer and any integer is even.\\
+	
+	\Solution
+	
+	It is easy to show, that the product of two even integers is even, so we will show that any product comprise at least one even integer, is even. We consider $m$ and $n$ in terms of $q$ and $r$:
+	
+	\cent{$m = 2q$, \quad $n = 2r+1$}
+	
+	Then we can by simple arithmetic deduce that the product is indeed even:
+	
+	\cent{$ 2q \cdot (2r+1) = 4qr+2q = 2q(2r+1) $}
+	
+	\QED
+	
+	\Exercise{4.2.25}
+	
+	\Prove
+	The difference of any two integers is even.\\
+	
+	Let $m$ and $n$ be two even integers in terms of $q$ and $r$: 
+	
+	\cent{$m = 2q, \quad n = 2r$}
+	
+	Then by simple arithmetic we have:
+	\cent{$2q - 2r = 2(q-r)$}
+	
+	Which shows that any difference of two even integers is a multiplum of 2, and therefore even.
+	\QED
+	
+	\Exercise{4.2.26}
+	\Prove
+	For all integers $a$, $b$ and $c$, if $a$, $b$ and $c$ is consecutive, then $a+b+c$ is even.\\
+	
+	\Solution
+	We know that any sum of an even and odd integer is odd. So let's try to define $a$, $b$ and $c$ such that $a$ and $c$ is even and $b$ is odd:
+	
+	\mAlign{a &= 2q\\
+					b &= m + 1 = 2q+1 \\
+					c &= n + 1 = 2q+2}
+	Let's sum them up:
+	
+	\cent{$(2q) + (2q+1) + (2q+2) = 6q+3$}
+	
+	We know, that the sum of any even and odd integer is odd. So the statement doesn't hold.
+	
+	\QED
+	
+	\Exercise{4.2.35}
+	\textbf{Solution to prove:}
+	If $mn$ is a perfect square, then $m$ and $n$ is perfect squares.\\
+	
+	\Solution
+	By the Law of Exponents we have:
+	\cent{$ m^2 n^2=(mn)^2$}
+	
+	Where $m$ and $n$ are positive integers. But this doesn't prove that all integers that are perfect squares is restricted to be products of perfect squares. We can consider 16 which can be written as the following products:
+	
+	\cent{$16 = 2 \cdot 8 = 4^2 = (2 \cdot 2)^2 = 2^2 \cdot 2^2$}
+	
+	We can easily show that any product comprise perfect squares is a perfect squares. But then we have to show, that it isn't a requirement for perfect squares to be products of other perfect squares. In fact, we can consider all perfect squares which can be written as a multiplum of 2:
+	
+	\cent{$S = \{q,r \in \doubleN | q^2 = 2r\}$}
+	
+	Then we observe, that all even integers can be written as  a product of 2, which definetily is not a perfect square (in fact, 2 can be written as the square of an irrational number), and some other integer $q$.\\
+	\QED
+	
+	\Exercise{4.2.39}
+	
+	\Prove
+	Suppose that integers $m$ and $n$ are perfect squares. Then $m+n+2\sqrt{mn}$ is also a perfect square. Why?\\
+	
+	\Solution
+	We define perfect squares as positive integers $k \in \doubleN^+$ that can be written on the form:
+	
+ 	\cent{$k = q^2$}
+ 	
+ 	For any integer $q \in \doubleZ$.\\
+ 	
+ 	Then it follows, that we can write two integers $m$ and $n$ that are perfect squares as:
+ 	
+ 	\cent{$m = q^2, \quad n = r^2$}
+	
+	The statement to prove, is just the quadratic of the sum of $q$ and $r$ expanded:
+	 \cent{$(q+r)^2$} 
+	 
+	 We can deduce that by expansion and power elimination:
+	 
+	\cent{$(q+r)^2 = q^2+r^2 + 2qr =q^2+r^2 + 2\sqrt{q^2 r^2} $}
+	
+	\QED	 
+	
+	\Exercise{4.3.10}
+	
+	\Prove
+	Assume that $m$ and $n$ are both integers and that  $n\neq 0$. Explain why $(5m -12n)/(4n)$ must be a rational number.\\
+	
+	\Solution
+	let's rewrite the given statement by the Law of Fractions and try to do some reduction:
+	
+	\cent{$\frac{5m-12n}{4n} = \frac{5m}{4n} - \frac{12n}{4n} = \frac{5m}{4n} - 3 $}
+	
+	The statement now consists of another fraction and an integer. Let's look at the definition of $\doubleQ$:
+	
+	\cent{$\doubleQ = \{p \in \doubleZ, q \in \doubleN^+, r \in \doubleR | \frac{p}{q} = r\}$}
+	
+	We notice that the first part of the statement is a form that aligns perfect with the definition of $Q$, and if we consider the following for $m \neq 4$ then we have a rational number that is not an integer:
+	
+	\cent{$\frac{5m}{4n} \in \doubleQ$} 
+	
+	Any sum of a rational number that is not an integer (remember, that all integers is also rational numbers, but not the other way around) and an integer, is another rational number.\footnote{I will prove that in a later exercise.}\\
+	\QED
+	
+	\Exercise{4.3.14}
+	
+	\Prove
+	The cube of any rational number is a rational number
+	
+	\Solution
+	
+	Let's express the statement to prove by using universal quantifiers:
+	
+	\cent{$\forall x \In \doubleQ \exists y \In \doubleQ : x^3 = y$}
+	
+	Which says: \textit{For all rational numbers there exists another rational number such that its cubic representation is another rational number}.\\
+	
+	Then we can take a closer look at the definition of some arbitrary number $k$:
+	
+	\cent{$k = \frac{p}{q}, \quad p \In \doubleZ, q \In \doubleN^+$}
+	
+	$k$ is an integer if $p$ can be written as a multiplum of $q$:
+	
+	\cent{$k = \frac{pr}{q}, \quad r \In \doubleZ$}
+	
+	If that's the case, any cube of an integer is another integer, and as integers is also rational numbers, then the cube of $k$ is also a rational number.\\
+	
+	If that's not the case, then $k$ is just another rational number. In both cases, $k$ is a rational number.\\
+	\QED
+	
+	\Exercise{4.3.22}
+	
+	\Prove
+	If $a$ is any odd integer, then $a^2 + a$ is even.\\
+	
+	\Solution
+	First we have to show that the square of any odd number is also odd. Consider an odd integer $m$:
+	
+	\cent{$m = 2q + 1$}
+	
+	And its square:
+	
+	\cent{$m^2 = (2q+1)^2 = 4q^2+1+4q = 2(2q^2 + 2q) + 1$}
+	
+	It's clear that it is also odd.\\
+	
+	Then we can insert $m$ in the statement to prove and reduce and refactor:
+	
+	\mAlign{(2q+1)^2 + (2q+1) &= (2q+1)((2q+1) + 1) = (2q+1)(2q+2) \\
+					&= 4q^2 +4q + 2q +2 = 4q^2 +6q + 2 \\
+					&= 2(2q^2+3q + 1)}
+				
+	We see that we end up with an integer divisible by 2.\\
+	\QED
+	
+	\Exercise{4.3.28}
+	
+	\Prove
+	Suppose $a$, $b$, $c$ and $d$ are integers and $a \neq c$. Suppose also that $x$ is a real number that satisfies the equation:
+	
+	\cent{$\frac{ax+b}{cx+d} = 1$}
+	
+	Must $x$ be a rational number? If yes, express $x$ as a ratio of two integers.\\
+	
+	\Solution
+	Yes. $x$ must be rational and can be written as a rational number by using some arithmetic.\\
+	
+	We first multiply with $cx+d$ and then subtract $ax - d$, all on both sides:
+	 
+	\cent{$\frac{ax+b}{cx+d} = 1 \leftrightarrow ax+b = cx+d \leftrightarrow b - d = cx - ax$}
+	
+	Then we can refactor and divide by $c-a$ so we get:
+	
+	\cent{$b -d = x(c-a) \leftrightarrow \frac{b-d}{c-a} = x$}
+	
+	And here you have $x$ as a ratio between two integers $b-d$ and $c-a$.\\
+	\QED
+	
+	\Exercise{4.7.7}
+	
+	\Prove
+	There is no least rational number.\\
+	
+	\Solution
+	We can formulate its negation as:
+	
+	\cent{$\forall x \In \doubleQ \exists y \in \doubleQ(\neg(y \geq x))$}
+	
+	Which says, that for alle rational number there do exist a rational number there is lesser than all other rational numbers.\\
+	
+	Let's imagine we have this particular $y \in \doubleQ$.  It must be on the form:
+	
+	\cent{$y = \frac{p}{r}$}
+	
+	Furthermore, we assume $y$ is negative. Then we can consider the relations of rational number in terms of numeric values. That is, the numeric value of $y$ must be very large as it is the least rational number. \\
+	
+	Then we can consider another negative rational number $z$ in the domain of $\doubleQ$:
+	
+	\cent{$z = \frac{q}{r}$}
+	
+	And in accordance with our assumptions on $y$ we assume that $|y| > |z|$.\\
+	
+	But, as we are comparing the numeric values of $y$ and $z$ and determine their size relations according to these, what about the sum of each of their numeric value?\\
+	
+	Imagine a third negative rational number in the domain of $\doubleQ$ which numerical value equals the sum of the numerical value of $y$ and $z$:
+	
+	\cent{$|\script{z}| = |y| + |z|$}
+	
+	If that rational number exists, and it can be proved that it does, and it is negative, that means $y$ can't be the least rational number as $|\script{z}| > |y|$, and therefore; $\script{z} < y$.\\
+	\QED
+	
+	\Exercise{4.7.22}
+	
+	\Remark
+	If $r^2$ is a real number then $r$ is also a real number.
+	
+	\Solution
+	We can prove this false by contradiction. We can assert that there doesn't exist a number that is not real and which square is real. Then we can arbitrarily select a particular number that is not real, for example a complex number, and then proceed until a contradiction occurs. We can for an example consider an arbitrary and particular complex number $ib$ which square is $-b^2$. As $b$ is real, then there must exist a number not contained in $\doubleR$ which square is real.\\
+	
+	On the contrary, we can also provide a proof of contraposition. A proof of not all squares of complex numbers is complex will imply that the statement is not true.\\
+	
+	\Exercise{4.7.24}
+	
+	\Prove
+	The reciprocal of any irrational real number is irrational\\
+	
+	\Solution
+	
+	An irrational number can't be written on the form:
+	
+	\cent{$\frac{p}{q}$}
+	
+	Often we denote these with mathematical symbols or expressions to indicate that we have a number which exact location on a numberline can't be illustrated. Therefore we use symbols like $e$, $\pi$ or $\sqrt{2}$ to denote these numbers. We will reference any particular but arbitrarily irrational number by the lowercase greek letter delta; $\delta$.\\
+	
+	Let $\delta$ be any particular but arbitrarily chosen irrational number then we have its reciprocal as:
+	
+	\cent{$\frac{1}{\delta}$}
+	
+	As we can't write $\delta$ in terms of $p$ and $q$, then its reciprocal must also be irrational of this. But what if we assume that its reciprocal is rational? That implies that $\delta$ can be written on the form $\frac{p}{q}$, and then we have:
+	
+	\cent{$\frac{1}{\delta} = \frac{q}{p}, \quad q \neq 0$}
+	
+	Then by some simple arithmetic we have:
+	
+	\cent{$\frac{1}{\delta} = \frac{q}{p} \leftrightarrow 1=\frac{q\delta}{p} \leftrightarrow p = q \delta  \leftrightarrow \frac{p}{q} = \delta$}
+	
+	And that is a contradiction as we original assumed $\delta$ to be irrational, but here it is rational which can't be true.\\
+	\QED
+	
+	\Exercise{4.7.27}
+	
+	\Prove
+	For any positive real numbers $r$ and $s$, $\sqrt{r+s} \neq \sqrt{r} + \sqrt{s}$\\
+	
+	\Solution
+	We assume that it's not true. Our assertion is that the following is true:
+	
+	\cent{$\sqrt{r+s} = \sqrt{r} + \sqrt{s}$}
+	
+	Let's raise both sides to the power of 2 and expand the parenthesis if necessary:
+	
+	\cent{$r + s = (\sqrt{r} + \sqrt{s})^{2} = r + s + 2 \sqrt{rs}$}
+	
+	Let's subtract $r+s$ on both sides and then divide by 2:
+	
+	\cent{$0 = \sqrt{rs}$}
+	
+	Then we can now see that something is not right. If we again raise both sides to the power of 2 we'll get:
+	
+	\cent{$0 = rs$}
+	
+	Which implies that at least one of the real numbers must be zero. Therefore, we reject our assertion and concludes that the statement to prove is true.\\
+	\QED
+	
+	\section{Chapter 6 - Set Theory}
+	
+	\Exercise{6.1.1}
+	
+	\Assign
+	For any given set $A$ and $B$, determine if one of the following is true:
+	\begin{itemize}
+		\item Is $A \subseteq B $ or $A \subset B$?
+		\item Is $B \subseteq A$ or $B \subset A$?
+	\end{itemize}
+
+	\Solution
+	
+	\begin{enumerate}[label = \textbf{a.}]
+		\item $A = \{2,\{2\},(\sqrt{2})^2\}, B = \{2,\{2\},\{\{2\}\}\}$\\
+		
+		As $(\sqrt{2})^2$ is $2$, $A$ is indeed a subset of $B$. As $B$ contains the element $\{\{2\}\}$ which is not an element of $A$, $A$ is also a proper subset of $B$.\\
+		
+		As of this, $B$ can't be a subset of any kind of $A$.
+		
+		\item $A = \{3, \sqrt{5^2 - 4^2}, 24 \%  7\}, B = \{8 \% 5\}$\\
+		
+		Let's evaluate the individual elements of $A$:
+		
+		\mAlign{\sqrt{5^2 - 4^2} &= \sqrt{25 - 16} = \sqrt{9} = 3\\
+						24\%7 &= 3}
+		And then for $B$:
+		
+		\mAlign{8 \% 5 = 3}
+		
+		As we can see, $A\subseteq B$ and $B \subseteq A$, which mean they are identical.
+		
+		\item $A = \{\{1,2\},\{2,3\}\}, B = \{1,2,3\}$\\
+		
+		As $\{1,2\}$ and $\{2,3\}$ is elements different from each element of $B$, then $A$ and $B$ are disjoint sets.
+		
+		\item $A = \{a,b,c\}, B = \{\{a\},\{b\},\{c\}\}$\\
+		
+		The same applies as $A$ comprise elements not in $B$, and vice verca. Then $A$ and $B$ are disjoint sets.
+		
+		\item  $A = \{\sqrt{16},\{4\}\}, B = \{4\}$\\
+		
+		$B$ is a proper subset of $A$ as $B$ has only one element $4$ that also equals $\sqrt{16}$ which is an element of $A$. But $A$ contains the element $\{4\}$ which is not an element of $B$.
+		
+		\item $A = \{x \In \doubleR | \cos{x} \in \doubleZ\}, B = \{x \In \doubleR | \sin{x} \in \doubleZ\}$\\
+		
+		Let $\script{A} = \{x \In \doubleR\ | -1 \leq x \leq 1\}$ be the codomain of the periodic functions $cos(x)$ and $sin(x)$ and let $\script{B} = \{x \In \doubleZ | x \in \script{A}\}$ be all the integers of $\script{A}$.\\
+		
+		Then we have:
+		
+		\cent{$\script{B} = \{-1,0,1\}$}
+		
+		We can then check that each element is indeed an element of both $A$ and $B$:
+		
+		\mAlign{cos(\pi + k \cdot 2\pi) &= -1, \quad k \In \doubleZ\\
+						sin(\frac{3\pi}{2} + k \cdot 2\pi) &= -1,  \quad k \In \doubleZ\\
+						cos(\frac{\pi}{2} + k \pi) &= 0, \quad k \In \doubleZ\\
+						sin(k\pi) &= 0, \quad k \In \doubleZ\\
+						cos(k \cdot 2 \pi) &= 1,\quad k \In \doubleZ\\
+						sin(\frac{\pi}{2} + k \cdot 2 \pi) &= 1,\quad k \In \doubleZ}
+					
+		\QED
+	\end{enumerate}	
+	
+	\Exercise{6.1.4} 
+		
+	\Prove
+	Let $A = \{n,r \In \doubleZ | n = 5r\}$ and $B = \{n,s \In \doubleZ | n = 20s\}$, prove or disprove each of the following statements:
+	\begin{itemize}
+		\item $A \subseteq B$
+		\item $B \subseteq A$
+	\end{itemize}
+
+	\cent{$A \cap B = \{x,y \In \doubleZ | 20x = y\}$}
+	
+	\Solution
+	Let's prove $A \subseteq B$. First we have to consider the set of elements of $A$ and $B$. All elements in $A$ and $B$ is a multiplum of 5 as $20$ can be written as $5 \cdot 4$, but what are the intersection of $A$ and $B$?\\
+	
+	$A$ comprise elements which is integers divisible by 5. $B$ comprise elements that are integers and  divisible by 20, and as such only contains every 20. element of $A$. That suggests that  $A \cap B = B$ and the difference $A - B$ must be all elements that are integers that is divisible by 5 but not 20.\\
+	
+	Let's try to find some particular but arbitrary element $x$ that is an element of $A$ but not of $B$. We know that any element in $A$ is on the form $x = 5r$, and any element $y$ of $B$ is on the form $y = 20s $. We want to find values of $r$ and $s$ that satisfies the following equation:
+	
+	\mat{5r\neq20s, \quad r,s \In \doubleZ}{eqone}
+	
+	We can isolate $s$ and see if we can determine a value of $x$ where $s$ is not an integer (that is, we want to be able to write $s$ as a rational number):
+	
+	\cent{$\frac{5r}{20} = s$}
+	
+	For $x = 5r=15$ we have $r=3$, which will express $s$ as a ratio between two integers:
+	
+	\cent{$\frac{15}{20} = s$}
+	
+	As we are able to present $s$ as a rational number, $x=15$ is therefore not an element of $B$. So here we have an element that is an element of $A$ but not of $B$. What about the other way around? Has $B$ elements that are not elements of $A$? We'll do the same but now isolate $r$ in \eqref{eqone}:
+	
+	\cent{$r = \frac{20s}{5} = 4s $}
+	
+	Here we can see, that we aren't able to present $r$ as an ratio of two integers, as $r$ is an integer for all possible values of $s$. Therefore, $B$ contains no elements that aren't elements of $A$.\\
+	
+	As of this, we know that $A$ contains elements not in $B$, and every element of $B$ is also an element of $A$, and therefore: $B$ is a proper subset of $A$.\\
+	\QED
+	
+	\Exercise{6.1.8}
+	
+	\Assign
+	Write any given set in descriptive words and then write the sets in terms of $A$ and $B$ and the use of set symbols. Assume an universal set $U$.\\
+	
+	\Solution
+	\begin{enumerate}[label=\textbf{\Alph*.}]
+		\item $\{x \in U | x \In A \text{ and } x \In B\}$
+		
+		\cent{$A \cap B$}
+		
+		\item $\{x \In U | x \In A \text{ or } x \In B\}$
+		
+		\cent{$A \cup B$}
+		
+		\item $\{x \In U | x \In A \text{ and } x \notin B \}$
+		
+		\cent{$A - B$}
+		
+		\item $\{x \In U | x \notin A \}$
+		
+		\cent{$A^c = U - A$}
+		
+		\end{enumerate}
+		
+		\Exercise{6.1.10}
+		
+		\Domain
+		\cent{$A = \{1,3,5,7,9\}, \quad B = \{3,6,9\}, \quad C = \{2,4,6,8\}$}
+				
+		
+		\begin{enumerate}[label = \textbf{\alph*.}]
+			\item $A \cup B$
+			$A \cup B = \{1,3,5,6,7,9\}$
+			
+			\item $A \cap B$
+			
+			$A \cap B$ = \{3,9\}
+			
+			\item $A \cup C$
+			
+			\cent{$A \cup C = 1,2,3,4,5,6,7,8,9$}
+			
+			\item $A \cap C$
+			
+			\cent{$A \cap C = \emptyset$}
+			
+			\item $A-B$
+			
+			\cent{$A-B = \{1,5,7\}$}
+			
+			\item $B-A$
+			
+			\cent{$B - A = \{6\}$}
+			
+			\item $B \cup C$
+			
+			\cent{$B \cup C = \{2,3,4,6,8,9\}$}
+			
+			\item $B \cap C$
+			
+			\cent{$B \cap C = \{6\}$}
+		\end{enumerate}
+		
+		\Exercise{6.1.31}
+		
+		\Domain
+		
+		\cent{$A = \{1,2\}, \quad B = \{2,3\}$}
+		
+		\begin{enumerate}[label = \textbf{\alph*.}]
+			\item $\script{P}(A \cap B)$
+			
+			\cent{$\script{P}(A \cap B) = \{\emptyset,2,\{2\}\}$}
+			
+			\item $\script{P}(A)$
+			
+			\cent{$\script{P} = \{\emptyset,1,2,\{1,2\}\}$}
+			
+			\item $\script{P}(A \cup B)$
+			
+			\cent{$\script{P}(A \cup B) = \{\emptyset,1,2,3,\{1,2\},\{2,3\},\{1,3\},\{1,2,3\}\}$}
+			
+			\item $\script{P}(A \times B)$
+			
+			\cent{$\script{P}(A \times B) = \{\emptyset,(1,2),(1,3),(2,2),(2,3),\{(1,2),(1,3),(2,2),(2,3)\}\}$}
+			
+			Note: The above is not complete. There is about at least 11 combinations of subsets available.
+		\end{enumerate}
+	
+	\Exercise{6.2.1}
+	
+	\begin{enumerate}[label=\textbf{\alph*.}]
+		\item To say that an element is in $A \cap (B \cup C)$ means that it is in $A$ and in $B \cup C$.
+		
+		\item To say that an element is in $(B \cap C) \cup A$ means that it is in $B \cap C$ or in $A$.
+		
+		\item To say that an element is in $A - (B \cap C)$ means that it is in $A$ and not in $B\cap C$.
+		
+		\item To prove  that $(A \cup B) \cap C \subseteq A \cup (B \cap C )$, we suppose $x$ is any element in $(A \cup B) \cap C$. Then we must show that $x \In A \cup (B \cap C )$.
+		
+		\item If $A$, $B$, and $C$  are any sets such that $B \subseteq C$, to prove that $A \cap B \subseteq A \cap C$, we suppose that $x$ is any element in $A \cap B$. Then we must show  that $x \In (A \subseteq C)$.
+	\end{enumerate}
+	
+	\Exercise{6.2.2}
+	
+	\begin{enumerate}[label=\textbf{\alph*.}]
+		\item Suppose $A$ and $B$ are any sets. To show that $A-B \subseteq A$, we must show that every element in $A-B$ is in $A$. But any element in $A-B$ is in $A$ and not in $B$.
+		
+		\item Suppose $A$ and $B$ are any sets and $x\In A-B$. \textit{[We must show that $x \In A-B$]} By definition of set difference, $x \In A$ and $x \notin B$. In particular, $x \In A$ \textit{[which is what what to be shown]}
+	\end{enumerate}
+\end{document}
