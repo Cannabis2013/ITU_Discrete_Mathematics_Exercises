@@ -1,6 +1,8 @@
 % !TeX spellcheck = en_GB
 \documentclass{article}
 
+\bibliography{Sources.bib}
+
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
 \usepackage{amsmath}
@@ -14,6 +16,7 @@
 \usepackage{setspace}
 
 \pagestyle{empty}
+
 
 \DeclareMathAlphabet{\mathpzc}{OT1}{pzc}{m}{it}
 
@@ -72,6 +75,16 @@
 
 \begin{document}
 	\maketitle
+	
+	\pagebreak
+	
+	\begin{center}
+		\Large Introduction
+	\end{center}
+	
+	Most of the material contained in this document is based on the book "Discrete Mathematics with Applications - Metric version - Fifth Edition" by Susanna S. Epp. This includes exercises, theorems, examples and other related stuff.\\
+	
+	I don't take any responsibility for any of the exercises in this document with regard to correctnes of these. This means, that the document will probably not undertake any peer review by individuals that posses mathematical skills to an acceptable degree to properly judge the correctness of the methods used in this document. As of this, using any material from this document is done by the readers own risk.
 	
 	\pagebreak
 	
@@ -506,6 +519,8 @@
 	\QED
 	
 	\section{Chapter 6 - Set Theory}
+	\subsection*{Note}
+	In this chapter we let $U$ denote the universal set.
 	
 	\Exercise{6.1.1}
 	
@@ -715,6 +730,262 @@
 	\begin{enumerate}[label=\textbf{\alph*.}]
 		\item Suppose $A$ and $B$ are any sets. To show that $A-B \subseteq A$, we must show that every element in $A-B$ is in $A$. But any element in $A-B$ is in $A$ and not in $B$.
 		
-		\item Suppose $A$ and $B$ are any sets and $x\In A-B$. \textit{[We must show that $x \In A-B$]} By definition of set difference, $x \In A$ and $x \notin B$. In particular, $x \In A$ \textit{[which is what what to be shown]}
+		\item Suppose $A$ and $B$ are any sets and $x\In A-B$. \textit{[We must show that $x \In A-B$]} By definition of set difference, $x \In A$ and $x \notin B$. In particular, $x \In A - B$ \textit{[which is what what to be shown]}
 	\end{enumerate}
+
+	\Exercise{6.2.3}
+	
+	\Prove
+	For any given sets $A$, $B$, and $C$, if $A \subseteq B$ and $B \subseteq C$, then $A \subseteq C$. 
+	
+	\Solution
+	We have to show that, if $A$ is a subset of  $B$, which means that any element of $A$ is also an element of $B$, then $A$ is also a subset of any set in which $B$ is a subset.\\
+	
+	Let $x$ be any particular but arbitrary element of $A$, if $A \subseteq B$, then $x$ is also an element of $B$.  In fact, this applies for all elements of $A$. Then we assume that $B$ is also a subset of some other particular but arbitrary set $C$. This means that all elements of $B$, which also includes the elements of $A$, in particular our chosen $x$, is also elements of $C$. Then it follows that $A$ must be a subset of $C$.\\
+	\QED 
+	
+	\Exercise{6.2.6}
+	
+	\Prove
+	For any given set $A$, $B$, and $C$, prove:
+	
+	\cent{$A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$}
+	
+	\Solution
+	Let's assume that $B$ and $C$ contains elements that also are elements of $A$. Let $N$ be all the elements of $B$ and $C$ that also are elements of $A$. Then by definition of intersection, $A \cap (B \cup C)$  must be the set $N$.\\
+	
+	If we take a look on the right hand side, let $P$ be the set of elements that are elements of $A$ and elements of $B$. And let $Q$ be the set of elements that are elements of $A$ and elements of $C$. The union of $P$ and $Q$ must be the set $N$, as $N$ comprise all elements that are elements of $A$, $B$, and $C$.\\
+	\QED
+	
+	\Exercise{6.2.10}
+	
+	\Prove
+	For any given sets $A$, $B$, and $C$, prove:
+	
+	\cent{$(A \cup B) \cap C \subseteq A \cup (B \cap C)$}
+	
+	\Solution
+	
+	Let $N$ comprise elements of $A$ and $B$ such that, for some particular but arbitrary element $x$ of $N$, $x$ is either an element of $A$ or $B$, and an element of $C$. Then by definition of intersection, $(A \cup B) \cap C$ must be the set $N$. \\
+	
+	If we proceed to the right hand side, then we let $P$ be all the elements that are elements of $B$ but also elements of $C$. We notice, that $P$ must  be a subset of $N$, and we can define the completion of $P$ with regard to $N$ as:
+	
+	\cent{$P^c = N - P$}
+	
+	We know that the completion of $P$ with regard to $N$ must comprise elements that are elements of $A$ and $C$, and as such we can consider $P^c$ as a subset of $A$.\\
+	
+	By definition of union, we let $Q = A \cup P$, and we have to remember that $A$ might contain elements not in $P^c$, as we don't know if $A$ is a subset of $C$. And that implies that $N$ must be a subset of $Q$, and we have shown that the following holds:
+	
+	\cent{$(A \cup B) \cap C \subseteq A \cup (B \cap C)$}
+	
+	In fact, and the following steps is actual  redundant as it only will establish the fact, that the left handside is equal the right handside, if we assume that  $A \subseteq C$, then we can rewrite the right hand side with regard to the following identity:\footnote{We'll prove this identity in another exercise}
+	
+	\cent{$A \cap U = A$}
+	
+	And substitute $A$ by $A \cap C$:
+	
+	\cent{$(A \cup B) \cap C \subseteq (A \cap C) \cup (B \cap C)$}
+	
+	And here in accordance with what we have shown in exercise 6.2.6,  we can replace $\subseteq$ with $=$ so we have:
+	\cent{$(A \cup B) \cap C = (A \cap C) \cup (B \cap C)$}
+	\QED
+	
+	\Exercise{6.2.11}
+	
+	\Prove
+	For all sets $A$, $B$, and $C$, prove the following:
+	
+	\cent{$ A \cap (B-C) \subseteq (A \cap B) - (A \cap C) $}
+	
+	\Solution
+	To begin with, we assume that $B$ and $C$ is partial disjoints sets, which means that they aren't subset of each other but the intersection between them is not the empty set. We can for an example assume $B \subseteq C$, then we have to operate with $\emptyset$ as $B - C = \emptyset$\\
+	
+	By definition of difference of any sets $\script{A}$ and $ \script{B} $, the difference of $B$ and $C$ is all the elements that only is elements of $B$ but not elements of $C$. Then we let $N$ be all the elements that are elements of $A$ and elements of the difference of $B$ and $C$. We note that some elements excluded by the denition of difference might also be elements of $A$, but are excluded as consequence of difference.\\
+	
+	If we proceed to $(A \cap B) - (A \cap C)$, we let $P$ be all the elements of $A$ that are also elements of $B$, and $Q$ all the elements of $A$ that are also elements of $C$. As we noted previously, $N$ contains all the elements that are elements of $A$, and elements of $B -C$. If we look at $P$ and $Q$, we can establish the fact, that $N$ must be the completion of $Q$ with regard to $P$, as $P$ comprise elements that might also be elements of $C$ (We excluded these by definition of difference previously). The difference of $P$ and $Q$ must of this indeed be $N$ such that:
+	
+	\mat{N = P-Q}{NcompQ}
+	
+	And we have to remember, that any set is a subset of itself such that  $N \subseteq N$. If we substitute our definitions in \eqref{NcompQ} we have:
+	\cent{$ A \cap (B-C) \subseteq (A \cap B) - (A \cap C) $}
+	
+	\QED
+	
+	\Exercise{6.2.12}
+	
+	\Prove
+	For any set $A$, $B$, and $C$, prove the following:
+	
+	\cent{$(A \cup B) - C \subseteq (A-C) \cup (B-C)$}
+	
+	\Solution
+	Let $N$ be the completion of $C$ with regard  to $A\cup B$. By definition $N$ must comprise elements that are elements of $A \cup B$ but not elements of $C$. That is:
+	
+	\cent{$ N = \{x \In U | (x \In A \vee x \In B) \wedge x \notin C\} $}
+	
+	Then we define the set $P$ as all the elements that are elements of $A$ but not of $C$, and $Q$ as all the elements that are elements of $B$ but not of $C$:
+	
+	\cent{$P = \{x \In U | x \In A \wedge x \notin C\}, \quad Q = \{x \In U | x \In B \wedge x \notin C\}$}
+	
+	Again, it is clear to us, that $N$ must be the union of $P$ and $Q$, and that implies that $N$ is a subset of $P \vee Q$.\\
+	\QED
+	
+	\Exercise{6.1.23}
+	
+	\Prove
+	Find the mistake in the following proof:\\
+	
+	For all sets $A$, $ B $, and $ C $, if $ A \subseteq B $ and $ B \subseteq C $, then $ A \subseteq C $.\\
+	
+	\Solution
+	We don't know if $x$ in the first two steps is the same $x$, as he introduce $x$ in both steps in words like  "there is an element..". That lacks clarity in terms of context, as it is clear that $x$ is an element of  $A$ in the first step, but is $x$ also an element of $A$ in the second step? In the second step he should have written somethin like "then there is an element $ x $ that is element of $ B $ but also an element of $ A $..", and then we know for sure, that $x$ is an element of $A$.\\
+	
+	Also we might prefer to write $x$ as a set of elements of any particular set that is in the solution domain. For an example:
+	
+	\begin{center}
+		\textit{"Assume $ x $ to be all the elements of $ A $, if $ A \subseteq B$ then $x$ must also be elements of $B$, and since $B \subseteq C$, then $x$ must also be elements of $C$. Hence there are elements $x$ such that $ x \In A $ and $ x \In C $ and so $ A \subseteq C $."}
+	\end{center}
+
+	\Exercise{6.3.[1-4]}
+	
+	\Prove
+	For all given sets, disprove all given identities of them by counterexample
+	
+	\Solution
+	\begin{enumerate}
+		\item $ (A \cup B) \cap C = A \cup (B \cap C) $
+		
+		Assume $A \notin \emptyset$ and $C \In \emptyset$ then we have:
+		
+		\cent{$ (A \cup B) \cap \emptyset = A \cup (B \cap \emptyset) $}
+		
+		As $X \cap \empty = \empty$ and $X \cup \emptyset = X$ then we have:
+		
+		\cent{$ \emptyset = A $}
+		
+		But this can't be as we assumed $A \notin \emptyset$. Hence the identity is false.
+		
+		\item $(A \cup B)^c = A^c \cup B^c$
+		
+		By the identity $ A^c = U-A $ we have:
+		
+		\cent{$U - (A \cup B) = (U-A) \cup (U-B)$}
+		
+		Then assume $A \not \subseteq \emptyset$ and $B \subseteq \emptyset$.\\
+		
+		By our assumptions we have:
+		
+		\cent{$ U - (A \cup \emptyset) = (U-A) \cup (U-\emptyset) $}
+		
+		As $X \cup Y = X$ if, and only if, $Y \subseteq X$:
+		
+		\cent{$ U - A = (U-A) \cup U = U $}
+		
+		Then $A$ must be the emptyset, but that contradicts our assumption on $A$. Hence the identity is false.
+		
+		\item if $ A \not \subseteq B $, and $ B \not \subseteq C $, then $ A \not \subseteq C $
+		
+		Assume $A \subseteq C$ but $A \not \subseteq B$, and $B \not \subseteq C$. This must imply that $B \not \subseteq (A \cup C)$ and hence we see, that $A$ is a subset of $C$ but not a subset of $B$.
+		
+		\item $ (B \cup C) \subseteq A \to (A-B) \cap (A-C) = \emptyset $
+		
+		Assume $C \subseteq \emptyset$, $A \neq \emptyset$, and $B \subseteq \emptyset$. Then we have:
+		
+		\cent{$ (\emptyset \cup \emptyset) \subseteq A \to (A-\emptyset) \cap (A-\emptyset) = \emptyset $}
+		
+		Hence we have:
+		
+		\cent{$ \emptyset \subseteq A \to A = \emptyset $}
+		
+		But since $A \neq \emptyset$ this can't be true.
+		
+ 	\end{enumerate}
+ 	
+ 	\Exercise{6.3.[5-10]}
+ 	
+ 	For any given sets $A$, $B$, and $C$, prove each given statement that it is either true or false.
+ 	
+ 	\begin{enumerate}
+ 		\item $ A - (B - C) = (A-B)-C $
+ 		
+ 		Assume $A\neq \emptyset$, $B = \emptyset$, $C \neq \emptyset$, and $C \subseteq A$, then we can write the statement as:
+ 		
+ 		\cent{$A - (\emptyset - C) = (A-\emptyset)-C$}
+ 		
+ 		And as $X - \emptyset = X$ and $\emptyset - X = \emptyset$ we have:
+ 		
+ 		\cent{$A = A-C$}
+ 		
+ 		This can't be true, as $C \neq \emptyset$ and $B \subseteq A$. Hence the statement is false.
+ 		
+ 		\item $ A \cap (A \cup B) = A $
+ 		
+ 		Here we use that $X \cap Y = A$ if, and only if, $X \subseteq Y$,  and as we can safely assume that $A \subseteq (A \cup B)$
+ 		the statement holds.
+ 		
+ 		\item $ (A-B) \cap (C-B) = A - (B \cup C)  $
+ 		
+ 		Let's assume the given statement true for any sets $A$, $B$, and $C$, and proceed until contradiction.\\
+ 		
+ 		First we assume $A \neq \emptyset$, $A \cap B = \emptyset$, $ A \cap C = \emptyset $, and $B \subseteq C$, then $A-B = A$:
+ 		
+ 		\cent{$ A \cap (C-B) = A - (B \cup C)  $}
+ 		
+ 		As $A$ and $C$ is two disjoint sets, then $A$ and the completion of $B$ with regard to $C$ must also be disjoint. Then we have:
+ 		
+ 		\cent{$ \emptyset = A - (B \cup C)  $}
+ 		
+ 		And as $A \cap B = A \cap C = \emptyset$, then $A \cap (B \cup C) = \emptyset$: 		
+ 		
+ 		\cent{$ \emptyset = A - \emptyset = A  $}
+ 		
+ 		Again, this contradicts our assumption on $A$, as $A \neq \emptyset$.\\
+ 		
+ 		\item $ A^c \subseteq B \to A \cup B = U $
+ 		
+ 		Let's see if we can use some methods from logic to prove this false. The given statement is on the following form:
+ 		
+ 		\cent{$\phi \to \psi$}
+ 		
+ 		And the formula is only false for $\phi = true$ and $\psi = false$.\\
+ 		
+ 		Then we can define $\phi$ and $\psi$ as:
+ 		
+ 		\cent{$\phi : A^c \subseteq B, \quad \psi : A \cup B = U$}
+ 		
+ 		\cent{$(A^c \subseteq B) \to (A \cup B = U) $}
+ 		
+ 		For simplicity reasons we assume that both sets are either $\emptyset$ or $U$, and that means that $A^c$ is either $U$ or the $\emptyset$. This makes it appropriate to use it in the domain of logic as we simply then, can write $\psi$ as $A \vee B$. That is, $\psi$ is only false for $A = B = \emptyset $.\\
+ 		
+ 		We note that $\phi$ can be written as $A \leq B$, and we have to remember that $A^c$ in $\phi$ depends on $A$ in $\psi$. That means, that we have to negate $A$ in $\phi$. As of this, we can rewrite the statement in terms of logical connectives and atoms as: 
+ 		
+ 		\cent{$(\neg A \to B) \to (A \vee B)$}
+ 		
+ 		To prove the given statement false is equivalent to prove the above formula false. If we can't, then the statement is valid for all interpretations of $A$ and $B$.\\
+ 		
+ 		As with previosly observations in mind, we first have to find an interpretation that makes $\psi$  false, and there is only one interpretation: $A$ and $B$ false. Then we have to find an interpretation that makes $\phi$ true, and there is only one to choose among, the interpretation we found before. Therefore, we can evaluate $\phi$ for $A=false$ and $B = false$. As $\neg A = true$ and $B = false$, we can observe that $\phi$ is false. Hence there don't exist any interpretation that will make $\phi \to \psi$ false, and we can conclude that the statement is valid.
+ 		
+ 		\item $(A\subseteq C) \wedge (B \subseteq C) \to ((A \cup B) \subseteq C)$
+ 		
+ 		Again, we can rewrite the statement in terms of logical connectives and atoms:
+ 		
+ 		\cent{$(A \to C) \wedge (B \to C) \to ((A \vee B) \to C)$}
+ 		
+ 		First we'll try to find a particular interpretation that makes the formula false. As we did in the previous exercise, we'll split the formula into parts in terms of $\phi$ and $\psi$:
+ 		
+ 		\cent{$\phi = (A \to C) \wedge (B \to C), \quad \psi = (A \vee B) \to C $}
+ 		
+ 		And as before, we have a formula on the form:
+ 		
+ 		\cent{$\phi \to \psi$}
+ 		
+ 		We want to find an interpretation that makes $\phi$ true and $\psi$ false. We know with certainty that $C$ must be false for any interpreations in order to make $\psi$ false. In fact, there must exist exactly three interpretations with potential to make the whole formula false. Two interpretations where either $A$ is true or $B$ is true, and one where both are true.\\
+ 		
+ 		If we look at $\phi$, we observe that for any true value of either $A$ and $B$, as we are dealing with a conjunction, will make $phi$ false, and therefore the whole formula true. Hence there doesn't exist an interpretation that makes the statement false, and therefore we conclude that the statement valid.
+ 	\end{enumerate}
+ 	
+ 	\Exercise{7.1.2}
+ 	
 \end{document}
+
+ 
