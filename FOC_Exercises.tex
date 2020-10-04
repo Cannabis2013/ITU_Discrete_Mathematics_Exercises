@@ -9,7 +9,9 @@
 \usepackage{amssymb}
 \usepackage{mathtools}
 \usepackage{mathrsfs}
+\usepackage{pgf}
 \usepackage{tikz}
+\usetikzlibrary{arrows}
 \usepackage{enumitem}
 
 \usetikzlibrary{arrows}
@@ -1115,10 +1117,11 @@
  		All images of $A \cap B$ must also be subsets of the range of $f(A)$ and $f(B)$.\\ 
  		
  		Hence by definition of intersection, $f(A \cap B) \subseteq f(A) \cap f(B)$.\\
- 		
  		\item $f(A) \cap f(B) \subseteq f(A \cap B)$
  		
- 		The intersection of $f(A)$ and $f(b)$ must in fact also be a subset of $f(A \cap B)$. Hence $f(A) \cap f(B) = f(A \cap B)$.
+ 		The intersection of $f(A)$ and $f(b)$ must in fact also be a subset of $f(A \cap B)$.\\
+ 		
+ 		Hence $f(A) \cap f(B) = f(A \cap B)$.
  		
  		\item $ f(A-B) = f(A) - f(B), \quad A \subseteq X, B \subseteq X $
  		
@@ -1126,6 +1129,257 @@
  		
  		Hence  $ f(A-B) = f(A) - f(B), \quad A \subseteq X, B \subseteq X $.
  	\end{enumerate}
+ 	
+ 	\Exercise{7.2.1}
+ 	
+ 	\Remark
+ 	Consider the two statements that is part of the definition of an ono-to-one relation:
+ 	
+ 	\cent{$\forall x_1, x_2 \In X ((x_1 = x_2) \to (f(x_1) = f(x_2) ))$}
+ 	\cent{$\forall x_1, x_2 \In X ((x_1 \neq x_2) \to (f(x_1) \neq f(x_2)))$}
+ 	
+ 	Give a description of why they can be considered equivalent.\\
+ 	
+ 	\Solution
+ 	The first formalization says, that if two particular but arbitrarily chosen preimages from the set $X$ is identical, then their images with regard to some injective function $f$ is also identical.\\
+ 	
+ 	The second says, that if two particular but arbitrarily chosen preimages from the set $X$ is not identical, then their images with regard to some injective function $f$ is also not identical.\\
+ 	
+ 	They are equivalent as they are both true for any evaluation of any elements $x_1,x_2 \In X$. Furthermore, they are also both consequences of the following statement:
+ 	
+ 	\cent{$\forall y \In Y \exists_0^1 x \In X : (x,y)$} 	
+ 	 
+ 	 Here we use a slightly modified variant of the existential quantifier, as we define it with limits. That is, there exists no less that 0 elements and no more than 1 elements. The statement says:
+ 	 
+ 	 \begin{center}
+ 	 	\textit{For all elements in a set $Y$, there exists at most 1 element of the set $X$ such that their exist a map of  $x$  and $y$}
+ 	 \end{center}
+ 	
+ 	\Exercise{7.2.2}
+ 	
+ 	\Remark
+ 	Let $X = \{a,b,c,d\}$ and $Y = \{e,f,g\}$. Let $f : X \mapsto Y$ and $g : X \mapsto Y$ be defined as:
+ 	
+ 	\cent{$f = \{(a,f),(b,g),(c,e), (d,e)\}$}
+ 	\cent{$g = \{(a,f),(b,f),(c,e), (d,f)\}$}
+ 	
+ 	Is $f$ and $g$ ono-to-one or onto?\\
+ 	
+ 	\Solution
+ 	Both functions is onto, as they violates the principle of ono-to-one which states: \textit{"Each elements in the codomain of some function $f$ is mapped to at most one element in the domain of $f$"}. We can see that by picking two mappings from $f$ and observe that $(c,e)$ and $(d,e)$ violates that principle as $e$ is mapped to both $c$ and $d$.\\
+ 	
+ 	There are three elements of the domain of $g$ that all maps to the same element in the codomain of $g$. That is, $a$, $b$, and $d$, that all maps to the element $f$ in the codomain.
+ 	
+ 	\Exercise{7.2.8}
+ 	
+ 	\Remark
+ 	Let $X = \{a,b,c\}$ and $Y = \{d,e,f,g\}$. Let $f : X \mapsto Y$ and $g : X \mapsto Y$ be defined as:
+ 	
+ 	\cent{$f = \{(a,d),(b,f),(c,f)\}$}
+ 	\cent{$g = \{(a,f),(b,d),(c,e)\}$}
+ 	
+ 	Is $f$ and $g$ ono-to-one or onto?\\
+ 	
+ 	\Solution
+ 	
+ 	Again, starting from $f$, we can pick $(b,f)$ and $(c,f)$ and conclude that $f$ is indeed not one-to-one. But we also notice, that not every element of the codomain of $f$ is mapped to an element of the domain of $f$. Then it is neither onto.\\
+ 	
+ 	As no element of the codomain of $g$ has multiple mappings, we can quickly conclude that $f$ is indeed one-to-one. And as not all elements of the codomain of $g$ is mapped to an element of the domain of $g$, then it is certainly not onto.
+ 	
+ 	\Exercise{7.2.12}
+ 	
+ 	\Remark
+ 	Let $f : \doubleZ \to \doubleZ$, $g : \doubleR \to \doubleR $ be defined as $f(n) = 2-3n$ and $g(x) = 3-3x$, respectively. Prove for each function if they are ono-to-one or onto.\\
+ 	
+ 	\Solution
+ 	
+ 	We can prove by counterexample that $f$ is one-to-one but not onto. We know by looking at the definition of $f$, that each element of its codomain is mapped to at most one element of its domain. That doesn't rule anything out except that we now know for sure, that $f$ is definetily one-to-one. We know at least that the range of $f$ must comprise only a third of all the elements of its domain. That it maps every element of its domain to every third element of its codomain.\\
+ 	
+ 	Let's try to find an element of the codomain that is not mapped to an element of the domain. For an example let's assume that there do exist an integer $n$ that maps to 0 and proceed until contradiction:
+ 	
+ 	\cent{$2-3n=0 \Leftrightarrow -3n=-2 \Leftrightarrow n = \frac{3}{2}$}
+ 	
+ 	The only value of $n$ that maps to 0 is not an integer, hence there exists elements of its domain that is not mapped to some unique element of its domain and therefore is $f$ one-to-one but not onto.\\
+ 	
+ 	Let's proceed to $g$. As $g$ is a monotonically  decreasing linear function of $x$, then by definition of monotonicity, there do not exist two elements in the domain of $g$ that maps to an identical element in the codomain of $g$. In fact, every element of its codomain is assigned to only one unique element of its domain. Therefore, $g$ is bijective in terms of that it is both one-to-one and onto.
+ 	
+ 	\Exercise{8.2.1}
+ 	
+ 	\Remark
+ 	Let $A=\{0,1,2,3\}$. For each given relation, determine their properties by drawing their directed graphs.\\
+ 	
+ 	\Solution
+ 	For $R_1$ we can draw the following graph:\\
+ 	
+ 	\begin{center}
+ 		\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2cm,
+ 			thick,main node/.style={circle,fill=blue!20,draw,
+ 				font=\sffamily\Large\bfseries,minimum size=5mm}]
+ 			
+ 			\node[main node] (A) {$0$};
+ 			\node[main node] (B) [right of=A] {$1$};
+ 			\node[main node] (C) [below of=A] {$2$};
+ 			\node[main node] (D) [below of=B] {$3$};
+ 			
+ 			\path[every node/.style={font=\sffamily\small,
+ 				fill=white,inner sep=1pt}]
+ 			(A) edge [loop above] (A)
+ 			(A) edge [bend left=20] (B)
+ 			(A)edge (D)
+ 			(B) edge [loop above] (B)
+ 			(B) edge [bend left=20] (A)
+ 			(C) edge (D)
+ 			(D) edge [loop below] (D);
+ 		\end{tikzpicture}
+ 	\end{center}
+ 	
+ 	$R_1$ is not reflexive as every vertex doesn't include an edge loop (an arrow that goes from the vertex to the itself). Neither is it symmetric as not all vertices is connected by arrows that goes to and from another arrow. And last, the graph doesn't satisfy the property of transivity, as not all vertices are connected.\\
+ 	\pagebreak
+ 	
+ 	$R_2$ has the following graph:
+ 	
+ 	\begin{center}
+ 		\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2cm,
+ 			thick,main node/.style={circle,fill=blue!20,draw,
+ 				font=\sffamily\Large\bfseries,minimum size=5mm}]
+ 			
+ 			\node[main node] (A) {$0$};
+ 			\node[main node] (B) [right of=A] {$1$};
+ 			\node[main node] (C) [below of=A] {$2$};
+ 			\node[main node] (D) [below of=B] {$3$};
+ 			
+ 			\path[every node/.style={font=\sffamily\small,
+ 				fill=white,inner sep=1pt}]
+ 			(A) edge [loop above] (A)
+ 			(A) edge (B)
+ 			(B) edge [loop above] (B)
+ 			(C) edge [loop below] (C)
+ 			(B) edge (C)
+ 			(C) edge (D);
+ 		\end{tikzpicture}
+ 	\end{center}
+ 	
+ 	This relation doesn't satisfy any properties as not all vertices have an edge loop, and all the vertices are connected in one direction only, and last there is a distinct path from $0$ to $3$.\\
+ 	
+ 	Let's look at the graph of $R_3$:
+ 	
+ 	\begin{center}
+ 		\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2cm,
+ 			thick,main node/.style={circle,fill=blue!20,draw,
+ 				font=\sffamily\Large\bfseries,minimum size=5mm}]
+ 			
+ 			\node[main node] (B) [left of=C] {$1$};
+ 			\node[main node] (C) [right of=B] {$2$};
+ 			
+ 			\path[every node/.style={font=\sffamily\small,
+ 				fill=white,inner sep=1pt}]
+ 			(B) edge [bend left=20] (C)
+ 			(C) edge [bend left=20] (B);
+ 		\end{tikzpicture}
+ 	\end{center}
+ 	
+ 	This relation however seems to satisfy the reflexive property as every vertex has an edge loop. Furthermore it must also be symmetric as every vertex is connected to another vertex by two arrows going out and in. And last, it also seems to be an transitive relation.\\
+ 	
+ 	The graph of $R_4$:
+ 	
+ 	\begin{center}
+ 		\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2cm,
+ 			thick,main node/.style={circle,fill=blue!20,draw,
+ 				font=\sffamily\Large\bfseries,minimum size=5mm}]
+ 			
+ 			\node[main node] (A) [left of =B] {$1$};
+ 			\node[main node] (B) [right of =A] {$2$};
+ 			\node [main node] (C)  [below of=A] {$3$};
+ 			\path[every node/.style={font=\sffamily\small,
+ 				fill=white,inner sep=1pt}]
+ 			(A) edge [bend left=20] (B)
+ 			(B) edge [bend left=20] (A)
+ 			(A) edge [bend left=20] (C)
+ 			(C) edge [bend left=20] (A);
+ 			
+ 		\end{tikzpicture}
+ 	\end{center}
+ 	
+ 	$R_4$ doesn't seem to satisfy any property as no vertex has a loop edge, neither is all connected, and last; no triangle connection is present as by definition of transivity.\\
+ 	\pagebreak
+ 	
+ 	The graph of $R_5$:
+ 	
+ 	\begin{center}
+ 		\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2cm,
+ 			thick,main node/.style={circle,fill=blue!20,draw,
+ 				font=\sffamily\Large\bfseries,minimum size=5mm}]
+ 			
+ 			\node[main node] (A) [left of =B] {$0$};
+ 			\node[main node] (B) [right of =A] {$1$};
+ 			\node [main node] (C)  [below of=A] {$2$};
+ 			\path[every node/.style={font=\sffamily\small,
+ 				fill=white,inner sep=1pt}]
+ 			(A) edge [loop above] (A)
+ 			(A) edge (B)
+ 			(A) edge (C)
+ 			(B) edge (C);
+ 		\end{tikzpicture}
+ 	\end{center}
+ 
+ 	$R_5$ is neither reflexive or symmetric as only one vertex contains an edge loop, and while all vertices might be connected, they are not connected bidirectional. But $R_5$ is transitive as all vertices are connected.\\
+ 	
+ 	The graph of $R_6$:
+ 	
+ 	\begin{center}
+ 		\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2cm,
+ 			thick,main node/.style={circle,fill=blue!20,draw,
+ 				font=\sffamily\Large\bfseries,minimum size=5mm}]
+ 			
+ 			\node[main node] (A) [left of =B] {$0$};
+ 			\node[main node] (B) [right of =A] {$1$};
+ 			\node [main node] (C)  [below of=A] {$2$};
+ 			\path[every node/.style={font=\sffamily\small,
+ 				fill=white,inner sep=1pt}]
+ 			(A) edge (B)
+ 			(A) edge (C);
+ 		\end{tikzpicture}
+ 	\end{center}
+ 
+ 	$R_6$ has no properties as none of them are satisfies. We'll make it short for now.
+ 	
+ 	The graph of $R_7$:
+ 	
+ 	\begin{center}
+ 		\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2cm,
+ 			thick,main node/.style={circle,fill=blue!20,draw,
+ 				font=\sffamily\Large\bfseries,minimum size=5mm}]
+ 			
+ 			\node[main node] (A) [above left of =C] {$0$};
+ 			\node[main node] (B) [above right of =C] {$2$};
+ 			\node [main node] (C)  [below left of=B] {$3$};
+ 			\path[every node/.style={font=\sffamily\small,
+ 				fill=white,inner sep=1pt}]
+ 			(A) edge (C)
+ 			(B) edge (C);
+ 		\end{tikzpicture}
+ 	\end{center}
+ 	
+ 	Again, no properties satisfied.\\
+ 	
+ 	Let's take a look on the last relation $R_8$:
+ 	
+ 	\begin{center}
+ 		\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2cm,
+ 			thick,main node/.style={circle,fill=blue!20,draw,
+ 				font=\sffamily\Large\bfseries,minimum size=5mm}]
+ 			
+ 			\node[main node] (A) [left of =B] {$0$};
+ 			\node[main node] (B) [right of =A] {$1$};
+ 			\path[every node/.style={font=\sffamily\small,
+ 				fill=white,inner sep=1pt}]
+ 			(A) edge [loop above] (A)
+ 			(B) edge [loop above] (B);
+ 		\end{tikzpicture}
+ 	
+ 	\end{center}
+ 
+ No properties satisfied.
 \end{document}
 
  
