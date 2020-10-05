@@ -1300,7 +1300,23 @@
  		\end{tikzpicture}
  	\end{center}
  	
- 	$R_4$ doesn't seem to satisfy any property as no vertex has a loop edge, neither is all connected, and last; no triangle connection is present as by definition of transivity.\\
+ 	$R_4$ is not reflexive as no vertex contains an edge loop. That is:
+ 	
+ 	\cent{$\forall x,y \In A \exists(x,y) \In \doubleR^2  : (x,y)  \In R_4 \to x \neq y$}
+ 	
+ 	That says: \textit{"For all elements $x$ and $y$ of $A$, there exists a pair of reals of $x$ and $y$ such that, if it is an element of $R_4$, then $x$ and $y$ are not equal }.\\
+ 	
+ 	$R_4$ is symmetric as:
+ 	
+ 	\cent{$ \forall x,y \In A  \exists (x,y) \In \doubleR^2 : (x,y) \In R_4 \to (y,x) \In R_4  $}
+ 	
+ 	That says: For all elements $x$ and $y$ of $A$, there exists a pair of reals such that, if a pair of  $x$ and $y$ is an element of $R_4$, then a pair of $y$ and $x$ is also an element of $R_4$.\\
+ 	
+ 	$R_4$ is not transitive as:
+ 	
+ 	\cent{$ \exists x,y,z \In A : (x,y) \In R_4 \to (y,z) \In R_4 \to (x,z) \notin R_4 $}
+ 	
+ 	That says: \textit{"There exist an element of $A$ such that, if there exists a relation from $x$ to $y$, and if then, there exists a relation from $y$ to $z$", then there do not exists a relation from $x$ to $z$}.
  	\pagebreak
  	
  	The graph of $R_5$:
@@ -1376,10 +1392,23 @@
  			(A) edge [loop above] (A)
  			(B) edge [loop above] (B);
  		\end{tikzpicture}
- 	
  	\end{center}
  
  No properties satisfied.
+ 
+ \Exercise{8.2.2}
+ 
+ \Remark
+ Let $R$ be a relation on $\doubleR$ such that $(x,y) \In R \leftrightarrow x \geq y $. Determine if $R$ satisfy any properties and justify your answer.\\
+  
+ \Solution
+ $R$ must satisfy the property of reflexivity, as $R$ contain pairs $(x,x)$ for any element $x$ of $\doubleR$, since $x \geq x$.\\
+ 
+ $R$ is not symmetric, as we for a particular element $x,y$ of $R$, can't find a particular element of $R$, such that $x < y$.\\
+ 
+ $R$ is transitive, as we can find some particular elements of $R$ such that, for any element $x$, $y$, and $z$ of $R$, if $x \geq y$, and $y \geq z$, then $x \geq z$. That means:
+ 
+ \cent{$\forall x,y,z \In R \exists (a,b) \In \doubleR^2 : ((y,z) \In R \to (x,y) \In R \to (x,z) \In R) \wedge x \geq y \geq z $}
 \end{document}
 
  
