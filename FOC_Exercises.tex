@@ -23,7 +23,6 @@
 \usetikzlibrary{arrows}
 \usepackage{enumitem}
 
-
 \usepackage{helvet}
 \renewcommand{\familydefault}{\sfdefault}
 
@@ -58,7 +57,12 @@
 
 \newcommand{\In}{\! \in \!}
 
-\newcommand{\stackedFunc}[1]{\begin{cases}#1 \end{cases}}
+\newcommand{\stackedFunc}[3]{
+	\begin{cases}
+		#1 \\
+		#2 \\
+		#3
+	\end{cases}}
 
 \newcommand{\afb}[3]{\ensuremath{_#1 \textbf{#2}_#3}}
 \newcommand{\vek}[3]{\ensuremath{\begin{bmatrix} #1\\ #2\\ #3\end{bmatrix}}}
@@ -79,21 +83,63 @@
 % Text macros
 \newcommand{\Domain}{\textbf{Domain of exercise: }}
 \newcommand{\Prove}{\textbf{Statement to prove: }}
-\newcommand{\assignmentDescription}{\textbf{Statement to consider: }}
+\newcommand{\assignmentDescription}{\textbf{Assignment description: }}
 \newcommand{\Assign}{\textbf{Assignment description: }}
 \newcommand{\myRemark}{\textbf{Remarks: }}
-\newcommand{\solution}{\textbf{My solution: }}
+\newcommand{\solution}{\textbf{Solution candidate: }}
 \newcommand{\QED}{\boxed{}}
 \newcommand{\Section}[1]{\section{#1}}
 \newcommand{\Exercise}[1]{\subsection{Exercise #1}}
 \newcommand{\defaultEnumerateLabel}{\textbf{\alph*.}}
-\newcommand{\modInline}{\text{\textbf{mod\,}}}
+\newcommand{\modInline}{\text{mod\,}}
 \newcommand{\modFunc}{\text{\,\textbf{mod}\,}}
 \newcommand{\emptyItem}{\item \,\\}
 \newcommand{\myItem}[1]{\item #1\\}
 \newcommand{\parenthesis}[1]{\left( #1 \right)}
+\newcommand{\Ceil}[1]{\left \lceil{#1}\right \rceil }
+\newcommand{\Floor}[1]{\left \lfloor{#1}\right \rfloor }
+\newcommand{\decimal}[1]{(#1)_{10}}
+\newcommand{\binary}[1]{(#1)_2}
+\newcommand{\hexadec}[1]{(\text{#1})_{16}}
 
+% Tikz related
 
+\newcommand{\drawNode}[3]{
+	\node[main node] (#1)[#3] {#2};
+}
+\newcommand{\connectNodes}[3]{
+	(#1) edge [#3] (#2)
+}
+
+\newcommand{\drawTree}[2]{
+	\begin{center}
+		\begin{tikzpicture}[auto,>=stealth',shorten >=0pt,auto,node distance=1cm,
+			thick,main node/.style={circle,fill=blue!20,draw,
+				font=\sffamily\tiny\bfseries,inner sep=0.7mm}]
+			#1
+			\path[every node/.style={font=\sffamily\small,
+				fill=white,inner sep=0pt}]
+			#2;
+		\end{tikzpicture}
+\end{center}
+}
+
+\newcommand{\drawGraph}[3]{
+	\begin{center}
+		\begin{tikzpicture}[auto,>=stealth',shorten >=0pt,auto,node distance=#3,
+			thick,main node/.style={rectangle,fill=blue!20,draw,
+				font=\sffamily\tiny\bfseries,inner sep=0.7mm}]
+			#1
+			\path[every node/.style={font=\sffamily\small,
+				fill=white,inner sep=0pt}]
+			#2;
+		\end{tikzpicture}
+	\end{center}
+}
+
+\newcommand{\letterEnumeration}[1]{\begin{enumerate}[label = \defaultEnumerateLabel]
+		#1
+\end{enumerate}}
 
 % Document meta data
 \author{Martin Hansen}
@@ -2861,36 +2907,2124 @@
 	
 	Which means, the only full binary tree with seven leaves has six internal vertices. Not five. And as of this, we can't draw the tree according to the given specification.
 	
+	\section{Number theory}
+	
+	\Exercise{4.1.13}
+	\assignmentDescription
+	Let $a$ and $b$ be with the following equivalence relations:
+	
+	\cent{$a \equiv 4 (\modInline 13), \quad b \equiv 9 (\modInline 13)$}
+	
+	\solution
+	
+	\begin{enumerate}[label=\defaultEnumerateLabel]
+		\myItem{$c \equiv 9a (\modInline 13)$}
+		
+		\cent{$a \equiv 4(\modInline 13)$}
+		\cent{$9a \equiv 9\cdot 4(\modInline 13) = 36(\modInline 13)$}
+		\cent{$36 \modFunc 13 = 10$}
+		\cent{$ c = 10$}
+		
+		\myItem{$c \equiv 11b (\modInline 13)$}
+		
+		\cent{$b \equiv 9 (\modInline 13)$}
+		\cent{$11b\equiv 9 \cdot 11 (\modInline 13)$}
+		\cent{$99 \modFunc 13 = 8$}
+		\cent{$c = 8$}
+		
+		\myItem{$c \equiv a+b (\modInline 13)$}
+		\cent{$a \equiv 4 (\modInline 13)$}
+		\cent{$b \equiv 9 (\modInline 13)$}
+		\cent{$a+b\equiv 4+9 (\modInline 13)$}
+		\cent{$13 \modFunc 13 = 0$}
+		\cent{$c = 0$}
+		
+		\myItem{$c \equiv 2a+3b (\modInline 13)$}
+		
+		\cent{$a \equiv 4 (\modInline 13)$}
+		\cent{$b \equiv 9 (\modInline 13)$}
+		\cent{$2a+3b\equiv 2 \cdot 4+3 \cdot 9 (\modInline 13)$}
+		\cent{$35 \modFunc 13 = 9$}
+		\cent{$c = 9$}
+		
+		\myItem{$c \equiv a^2 + b^2 (\modInline 13)$}
+		
+		\cent{$a \equiv 4 (\modInline 13)$}
+		\cent{$b \equiv 9 (\modInline 13)$}
+		\cent{$a^2+b^2\equiv 4^2+9^2 (\modInline 13)$}
+		\cent{$97 \modFunc 13 = 6$}
+		\cent{$c = 6$}
+		
+		\myItem{$c \equiv a^3 - b^3 (\modInline 13)$}
+		
+		\cent{$a \equiv 4 (\modInline 13)$}
+		\cent{$b \equiv 9 (\modInline 13)$}
+		\cent{$a^2+b^2\equiv 4^3-9^3 (\modInline 13)$}
+		\cent{$-665 \modFunc 13 = 11$}
+		\cent{$c = 11$}
+		
+	\end{enumerate}
+	
+	\Exercise{4.1.21}
+	
+	\assignmentDescription
+	Calculate the remainder for each given expression\\
+	
+	\solution
+	\begin{enumerate}[label=\defaultEnumerateLabel]
+		
+		\myItem{$13 \modFunc 3$}
+		
+		We calculate the resultw by simple arithmetic:
+		
+		\cent{$13 \modFunc 3 = 13 -  3 \cdot  \Floor{\dfrac{13}{3}} = 13 - 3 \cdot 4 = 13-12=1$}
+		
+		\myItem{$-97 \modFunc 7$}
+		
+		\cent{$-97 = -70 -27$}
+		
+		\cent{$(-70-27) \modFunc 7 = ((-70 \modFunc 7) + (-27 \modFunc 7)) \modFunc 7 $}
+		
+		\cent{$ 1 \modFunc 7 = 1 $}
+		
+		\myItem{$155 \modFunc 19$}
+		
+		We can express $155$ as a sum of integers:
+		
+		\cent{$155 =  50 + 50 + 55$}
+		
+		Then we use, that the following applies for modulo arithmetic:
+		
+		\cent{$(k_1  + \dots + k_n) \modFunc m = ((k_1 \modFunc m) + \dots + (k_n \modFunc m)) \modFunc m$}
+		
+		We insert our sum and get:
+		\small
+		\cent{$ (50 + 50 + 55) \modFunc 19 = ((50 \modFunc 19) + (50 \modFunc 19) + (55 \modFunc 19)) \modFunc 19$}
+		\normalsize
+		
+		And calculate our result:
+		
+		\cent{$(12 + 12 + 17) \modFunc 19  = 41 \modFunc 19 = 3$}
+		
+		\myItem{$-223 \modFunc 23$}
+		
+		\cent{$-223 = -200 - 23 = -100-100-23$}
+		\small
+		\cent{$(-100-100-23) \modFunc 23 = ((-100 \modFunc 23) + (-100 \modFunc 23)) \modFunc 23$}
+		\normalsize
+		
+		\cent{$((-100 \modFunc 23) + (-100 \modFunc 23)) \modFunc 23 = (15+15) \modFunc 23$}
+		
+		\cent{$30 \modFunc 23 = 7$}
+		
+	\end{enumerate}
+	
+	\Exercise{4.1.29}
+	\assignmentDescription
+	Determine for each given integer, if it is congruent to $5$ modulo $17$.\\
+	
+	\solution
+	
+	As $5 \modFunc 17 = 5$, we will compare this with the results for each given integer.\\
+	\begin{enumerate} [label=\defaultEnumerateLabel]
+		\myItem{Determine for the integer 80}
+		
+		First, we calculate $80 \modFunc 17$.\\
+		
+		Let's first, write 80 as a sum of lesser integers:
+		\cent{$ 80  = 20 + 20 + 20 + 20$}
+		
+		Then we calculate $80 \modFunc 17$:
+		\tiny
+		\mAlign{(20+20+20+20) \modFunc 17 &= ((20 \modFunc 17) + (20 \modFunc 17) + (20 \modFunc 17) + (20 \modFunc 17)) \modFunc 17 \\
+						&= (3+3+3+3) \modFunc17 = 12 \modFunc 17 = 12}
+		\normalsize
+		
+		80 is not congruent to $5 \modFunc 17$.\\
+		
+		\myItem{Determine if 103 is congruent to $5 \modFunc 17$}
+		
+		\cent{$103 = 50 + 50 + 3$}
+		\tiny
+		\mAlign{(50+50+3) \modFunc 17 &= ((50 \modFunc 17) + (50 \modFunc 17) + (3 \modFunc 17)) \modFunc 17\\
+						&= (16+16+3) \modFunc 17 = 35 \modFunc 17 = 1}
+		\normalsize
+		
+		103 is not congruent to $5 \modFunc 17$.\\
+		
+		\myItem{Determine of -29 is congruent to $5 \modFunc 17$}
+		
+		\cent{$-29 \modFunc 17 = 5$}
+		
+		-29 is congruent to $5 \modFunc 17$.\\
+		
+		\myItem{Determine if -122 is congruent to $5 \modFunc 17$}
+		
+		\cent{$-122 = - 50 - 50 - 22$}
+		
+		\tiny
+		\mAlign{(- 50 - 50 - 22) \modFunc 17 &= ((-50 \modFunc 17) +(-50 \modFunc 17) + (-22 \modFunc 17) )  \\
+					&= (1+1+12) \modFunc 17 = 14 \modFunc 17 = 14 }
+		\normalsize
+		
+		-122 is not congruent to $5 \modFunc 17$.\\
+	\end{enumerate}
+	
+	\Exercise{4.1.38}
+	\assignmentDescription
+	Let $n$ be an integer. Prove the following equivalencies:
+	
+	\cent{$n \In \doubleZ \to n^2 \equiv 0 \vee n^2 \equiv 1 (\modInline 4)$}
+	
+	\solution
+	Let $n$ be an arbitrary integer on the following form:
+	
+	\cent{$n = 2k + r, \quad r \in \{0,1\}$}
+	
+	$n$ is even for $r= 0$, otherwise odd.\\
+	
+	Then we assume $n^2$ is congruent to some integer $c$. We can write this on the form $a=b+ks$:
+	
+	\cent{$n^2 = c + 4s$}
+	
+	We insert our definition of $n$:
+	
+	\cent{$(2k+r)^2 = c + 4s$}
+	
+	And by some simple arithmetic we get:
+	
+	\cent{$4k^2 + r^2 + 4kr - 4s = c$}
+	
+	Then we now have to refactor the expression on the right-hand side according to certain values of $r$. We know that $n$ is even for $r=0$:
+	
+	\cent{$4k^2 - 4k = 4(k^2 - k - s) = c$}
+	
+	By acknowledging the fact, that $c$ is a multiplum of 4, it is clear to us, that $c$ modulo $4$ is indeed 0.\\
+	
+	Then we can check for $r=1$ for the case $n$ is odd:
+	
+	\cent{$4k^2 + 1 + 4k -4s = 4(k^2+k-s)+1 = c$}
+	
+	Again, it is obvious that $c$ modulo $4$ must be 1, as any square of an integer is preceded by a number of multiplum 4.\\
+	
+	\QED
+	
+	\Exercise{4.1.39}
+	
+	\assignmentDescription
+	if $ m $ is a positive integer of the form $ 4k + 3 $ for some nonnegative integer $ k $, then $ m $ is not the sum of the squares of two integers.\\
+	
+	\solution
+	Let's consider two integers $a$ and $b$ of the following form:
+	
+	\cent{$\doubleN_0 = 2k+r \quad r \In \{0,1\}$}
+	
+	We assume that the sum of $a$ squared and $b$ squared is an integer $c$ of the form $\doubleN_0 = 4k+3$, such that:
+	
+	\cent{$a^2 +b^2 = c$}
+	
+	Then we have:
+	
+	\cent{$(2s+r)^2 + (2t+u)^2 = 4k + 3$}
+	
+	And by expansion we'll get:
+	
+	\cent{$4s^2 + r^2 +4sr + 4t^2 + u^2 + 4tu = 4k + 3$}
+	
+	And if we rewrite by the factor of $4$:
+	
+	\cent{$4(s^2+sr+t^2+tu) + r^2 + u^2 = 4k + 3$}
+	
+	And if we substitute the content inside the parenthesis for an integer $k$ we have:
+	
+	\cent{$4k + r^2 + u^2 = 4k + 3$}
+	
+	By subtraction we'll get:
+	
+	\cent{$r^2 + u^2 = 3$}
+	
+	Which within the domain of integers has no solutions no matter the constraints put on $r$ and $u$.\\
+	\QED
+	\Exercise{4.2.1}
+	\assignmentDescription Calculate the binary expansion for each given decimal expansion.\\
+	
+	\solution
+	
+	\begin{enumerate}[label= \defaultEnumerateLabel]
+		\myItem{$\decimal{231}$}
+		
+		\mAlign{
+			231 &= 2 \cdot 115+1 \\
+			115 &= 2 \cdot 57 + 1 \\
+			57 &= 2 \cdot 28 + 1 \\
+			28 &= 2 \cdot 14 + 0 \\
+			14 &= 2 \cdot 7 + 0 \\
+			7 &= 2 \cdot 3 + 1 \\
+			3 &= 2 \cdot 1 + 1 \\
+			1 &= 2 \cdot 0 + 1}
+		
+		\cent{$ \decimal{231}=\binary{11100111}$}
+		
+		\myItem{$\decimal{4532}$}
+		
+		\mAlign{
+			4532 &= 2 \cdot 2226 + 0 \\
+			2226 &= 2 \cdot 1133 + 0 \\
+			1133 &= 2 \cdot 566 + 1 \\
+			566 &= 2 \cdot 283 + 0\\
+			283 &= 2 \cdot 141 + 1 \\
+			141 &= 2 \cdot 70 + 1 \\
+			70 &= 2 \cdot 35 + 0 \\
+			35 &= 2 \cdot 17 + 1 \\
+			17 &= 2 \cdot 8 + 1\\
+			8 &= 2 \cdot 4 + 0 \\
+			4 &= 2 \cdot 2 + 0 \\
+			2 &= 2 \cdot 1 + 0 \\
+			1 &= 2 \cdot 0 + 1
+		}
+		
+		\cent{$\decimal{4532} = \binary{1000110110100}$}
+		
+		\myItem{$\decimal{97644}$}
+		\mAlign{
+			97644 &= 2 \cdot 48983+ 0 \\
+			48983 &= 2 \cdot 24491 + 1 \\
+			24491 &= 2 \cdot 12245 + 1 \\
+			12245 &= 2 \cdot 6122 + 1 \\
+			6122 &= 2 \cdot 3061 + 0 \\
+			3061 &= 2 \cdot 1530 + 1 \\
+			1530 &= 2 \cdot 765 + 0\\
+			765 &= 2 \cdot 382 + 1 \\
+			382 &= 2 \cdot 191 + 0 \\
+			191 &= 2 \cdot 95 + 1 \\
+			95 &= 2 \cdot 47 + 1 \\
+			47 &= 2 \cdot 23 + 1 \\
+			23 &= 2 \cdot 11 + 1 \\
+			11 &= 2 \cdot 5 + 1 \\
+			5 &= 2 \cdot 2 + 1 \\
+			2 &= 2 \cdot 1 + 0 \\
+			1 &= 2 \cdot 0 + 1
+		}
+	\cent{$\decimal{97644} = \binary{10111111010101110}$}
+	\end{enumerate}
+	
+	\Exercise{4.2.7}
+	
+	\assignmentDescription
+	
+	Calculate the binary expansion for each given hexadecimal expansion.\\
+	
+	\solution
+	
+	\begin{enumerate}[label=\defaultEnumerateLabel]
+		\myItem{$\hexadec{80E}$}
+		Let's determine the binary reprentation for each digit:
+		\cent{$\hexadec{8} = \binary{1000}$}
+		\cent{$\hexadec{0} = \binary{0000}$}
+		\cent{$\hexadec{E} =  \binary{1110}$}
+		Then we concatenate all the binary digits into one string:
+		\cent{$\hexadec{80E} = \binary{100000001110}$}
+		
+		\myItem{$\hexadec{135AB}$}
+		We'll again determine the binary representation of each digit:
+		\cent{$\hexadec{1} = \binary{0001}$}
+		\cent{$\hexadec{3} = \binary{0011}$}
+		\cent{$\hexadec{5} = \binary{0101}$}
+		\cent{$\hexadec{A} = \binary{1010}$}
+		\cent{$\hexadec{B} = \binary{1011}$}
+		And concetenate all binary digits into one string:
+		\cent{$\hexadec{135AB} = \binary{10011010110101011}$}
+		
+		\myItem{$\hexadec{ABBA}$}
+		Determine all the binary digits:
+		\cent{$\hexadec{A} = \binary{1010}$}
+		\cent{$\hexadec{B} = \binary{1011}$}
+		\cent{$\hexadec{B} = \binary{1011}$}
+		\cent{$\hexadec{A} = \binary{1010}$}
+		And calculate by concetenation:
+		\cent{$\hexadec{ABBA} = \binary{1010101110111010}$}
+		
+		\myItem{$\hexadec{DEFACED}$}
+		
+		\cent{$\hexadec{D} = \binary{1101}$}
+		\cent{$\hexadec{E} = \binary{1110}$}
+		\cent{$\hexadec{F} = \binary{1111}$}
+		\cent{$\hexadec{A} = \binary{1010}$}
+		\cent{$\hexadec{C} = \binary{1100}$}
+		\cent{$\hexadec{E} = \binary{1110}$}
+		\cent{$\hexadec{D} = \binary{1101}$}
+		
+		\cent{$\hexadec{ABBA} = \binary{1101111011111010110011101101}$}
+	\end{enumerate}
+	
+	\Exercise{4.2.9}
+	\assignmentDescription Convert $\hexadec{ABCDEF)}$ to its binary representation.\\
+	
+	\solution
+	Same procedure as the preceding assignment:
+	\cent{$\hexadec{A} = \binary{1010}$}
+	\cent{$\hexadec{B} = \binary{1011}$}
+	\cent{$\hexadec{C} = \binary{1100}$}
+	\cent{$\hexadec{D} = \binary{1101}$}
+	\cent{$\hexadec{E} = \binary{1110}$}
+	\cent{$\hexadec{F} = \binary{1111}$}
+	
+	\cent{$\hexadec{ABCDEF} = \binary{101010111100110111101111}$}
+	
+	
+	\Exercise{4.2.21}
+	
+	\assignmentDescription Calculate the sum and product of each given numbers
+	
+	\solution
+	\begin{enumerate}[label=\defaultEnumerateLabel]
+		\myItem{$\binary{1000111}, \binary{1110111}$}
+		
+		first, we'll calculate the sum.\\
+		
+		\cent{$a_0 + b_0 = 2 c_0 + s_0 = 2 \cdot 1 + 0$}
+		\cent{$a_1 + b_1 + c_0 = 1 + 1 + 1 = 2 \cdot 1 + 0$}
+		\cent{$a_2 +b_2 + c_1 = 1 + 1 + 1 = 2 \cdot 1 + 0$}
+		\cent{ $a_3 + b_3 + c_2 = 0 + 0 + 1 = 2 \cdot 0 + 1$}
+		\cent{$a_4 + b_4 + c_3 = 0 + 1 + 0 = 2 \cdot 0 + 1 $}
+		\cent{$a_5 + b_5 + c_4 = 0 + 1 + 0 = 2 \cdot 0 + 1$}
+		\cent{$a_6 + b_6 + c_5 = 1 + 1 + 0 = 2 \cdot 1 + 0$}
+		\cent{$a_7 + b_7 + c_6 = 0 + 0 + 1 = 2 \cdot 0 + 1$}
+		
+		\cent{$\binary{1000111} + \binary{1110111} = \binary{10111000}$}
+		
+		Then we'll multiply them.\\
+		
+		\cent{$\binary{1000111} \cdot 1 \cdot 2^0 = \binary{0000001000111}$}
+		\cent{$\binary{1000111} \cdot 1 \cdot 2^1 = \binary{0000010001110}$}
+		\cent{$\binary{1000111} \cdot 1 \cdot 2^2 = \binary{0000100011100}$}
+		\cent{$\binary{1000111} \cdot 0 \cdot 2^3 = \binary{0000000000000}$}
+		\cent{$\binary{1000111} \cdot 1 \cdot 2^4 = \binary{0010001110000}$}
+		\cent{$\binary{1000111} \cdot 1 \cdot 2^5 = \binary{0100011100000}$}
+		\cent{$\binary{1000111} \cdot 1 \cdot 2^6 = \binary{1000111000000}$}
+		The sum of all these:
+		\cent{$\binary{10001000000001}$}
+		
+		\myItem{$\binary{11101111}, \binary{10111101}$}
+		
+		\cent{$a_0 + b_0 = 1 + 1 = 2 \cdot 1 + 0$}
+		\cent{$a_1 + b_1 + c_0 = 1 + 0 +1 = 2 \cdot 1 + 0 $}
+		\cent{$a_2 + b_2 + c_1 = 1 + 0 +1 = 2 \cdot 1 + 0 $}
+		\cent{$a_3 + b_3 + c_2 = 1 + 1 +1 = 2 \cdot 1 + 1 $}
+		\cent{$a_4 + b_4 + c_3 = 0 + 1 +1 = 2 \cdot 1 + 0 $}
+		\cent{$a_5 + b_5 + c_4 = 1 + 1 +1 = 2 \cdot 1 + 1 $}
+		\cent{$a_6 + b_6 + c_5 = 1 + 0 +1 = 2 \cdot 1 + 0 $}
+		\cent{$a_7 + b_7 + c_6 = 1 + 1 +1 = 2 \cdot 1 + 1 $}
+		\cent{$a_8 + b_8 + c_7 = 0 + 0 +1 = 2 \cdot 0 + 1 $}
+		
+		\cent{$\binary{11101111} + \binary{10111101} = \binary{11010100}$}
+		Let the multiplication begin:
+		\cent{$\binary{11101111} \cdot 1 \cdot 2^0 = \binary{000000011101111}$}
+		\cent{$\binary{11101111} \cdot 0 \cdot 2^1 = \binary{000000000000000}$}
+		\cent{$\binary{11101111} \cdot 0 \cdot 2^1 = \binary{000000000000000}$}
+		\cent{$\binary{11101111} \cdot 1 \cdot 2^2 = \binary{000001110111100}$}
+		\cent{$\binary{11101111} \cdot 1 \cdot 2^3 = \binary{000011101111000}$}
+		\cent{$\binary{11101111} \cdot 1 \cdot 2^4 = \binary{000111011110000}$}
+		\cent{$\binary{11101111} \cdot 1 \cdot 2^5 = \binary{001110111100000}$}
+		\cent{$\binary{11101111} \cdot 0 \cdot 2^6 = \binary{000000000000000}$}
+		\cent{$\binary{11101111} \cdot 1 \cdot 2^7 = \binary{111011110000000}$}
+		
+		Result:
+		
+		\cent{$\binary{11101111} \cdot \binary{10111101} = \binary{1011000001110011}$}
+		
+	\end{enumerate}
+	\Exercise{4.2.24}
+	\assignmentDescription
+	For each given hexadecimal, calculate sum and product. \\
+	
+	\solution
+	
+	\begin{enumerate}[label = \defaultEnumerateLabel]
+		\myItem{$\hexadec{1AE}, \hexadec{BBC}$}
+		
+		Let's first convert base16 to base10:
+		
+		\cent{$\hexadec{1AE} = 14 \cdot 16^0 + 10 \cdot 16^1 + 16^2 =  14 + 160 + 256 = 14 + 416 = 430$}
+		\cent{$\hexadec{BBC} = 12 \cdot 16^0 + 11 \cdot 16^1 + 11 \cdot  16^2 = 12 + 176+ \cdot 2816 = 3004$}
+		
+		Then sum the two decimals:
+		
+		\cent{$430+3004 = 3434$}
+		
+		And convert the result to base16:
+		
+		\cent{$3434 = 16 \cdot 214 + 10$}
+		\cent{$214 = 16 \cdot 13 + 6 $}
+		\cent{$13 = 16 \cdot 0 + 13 $}
+		\cent{$0 = 16 \cdot 0 + 0$}
+		
+		The result in base16:
+		
+		\cent{$\decimal{3434} = \hexadec{D6A}$}
+		
+		Then we calculate the product in base10:
+		
+		\cent{$3004 \cdot 430$}
+		
+		We ommit the first digit as it will result in a lot of zero's:
+		
+		\cent{$3004 \cdot 3 = 90120$}
+		\cent{$3004 \cdot 4 = 1201600$}
+		
+		Add the numbers to get the result:
+		
+		\cent{$90120+1201600 = 1291720$}
+		
+		Then we convert to base16:
+		
+		\cent{$1291720 = 16 \cdot 80732 +8$}
+		\cent{$80732 = 16 \cdot 5045 +12$}
+		\cent{$5045 = 16 \cdot 315 +5$}
+		\cent{$315 = 16 \cdot 19 +11$}
+		\cent{$19 = 16 \cdot 1 +3$}
+		\cent{$1 = 16 \cdot 0 + 1$}
+		
+		The result in base16:
+		
+		\cent{$\hexadec{13B5C8}$}
+	\end{enumerate}
+	
+	\Exercise{4.3.1}
+	
+	\assignmentDescription
+	
+	Determine for each given integer if it is a prime.
+	
+	\solution
+	
+	\begin{enumerate}[label=\defaultEnumerateLabel]
+		\myItem{$21$}
+		
+		$21$ is not a prime since it is a multiplum of $7$.\\
+		
+		\myItem{$29$}
+		
+		Since $5^2 = 25$ and $6^2 = 36$, the squareroot of $29$ must be an integer between these two. Since $2$, $3$, and $5$, doesn't divide $29$, $29$ is a prime.\\
+		
+		\myItem{$71$}
+		
+		No prime less than $\sqrt{71}$ divides $71$.\\
+		
+		\myItem{$97$}
+		
+		No prime less than $\sqrt{97}$ divides $97$. Hence $97$ is prime.\\
+		
+		\myItem{$ 111 $}
+		
+		$111$ can be prime factorized as a product of $3$ and $37$:
+		$ 111 = 3 \cdot 37$ 
+		
+		Hence $111$ is not prime. \\
+		
+		\myItem{$143$}
+		
+		$143$ has the following primefactor:
+		
+		\cent{$143 = 11 \cdot 13$}
+		
+		Hence $143$ is not prime.\\
+		
+	\end{enumerate}
+	\Exercise{4.3.21}
+	
+	\assignmentDescription
+	Let $\phi(n)$ be the Euler function that returns the number of integers relative prime to $n$. Evaluate $\phi(n)$ for each given positive integer.\\
+	
+	\solution
+	
+	\begin{enumerate}[label=\defaultEnumerateLabel]
+		\myItem{$\phi (4)$}
+		
+		The number of positive integers less or equal than 4, is 3. Since $2$ is the only integer for which the greatest common divisor is not equal to 1, the number of relative primes less or equal than 4, is 2.
+		
+		\myItem{$\phi (10)$}
+		
+		\mAlign{
+			1 &= 1^0 \\
+			2 &= 2^1\\
+			3 &= 3^1\\
+			4 &= 2^2 \\
+			5 &= 5^1 \\
+			6 &= 2 \cdot 3\\
+			7 &= 7^1 \\
+			8 &= 2^3 \\
+			9 &= 3^2 \\
+			10 &= 2 \cdot 5 
+		}
+		
+		\cent{$\phi (10) = 4$}
+		
+		\myItem{$\phi(13)$}
+		
+		Since $13$ is a prime, all integers less than or equal must be relative prime to $13$. Hence $\phi(13) = 12$.
+		
+		
+		
+	\end{enumerate}
+	\Exercise{4.3.22}
+	
+	\assignmentDescription
+	Prove the following statement:
+	
+	\cent{$isPrime(n) \leftrightarrow \phi(n) = n-1$}
+	
+	\solution
+	
+	Let's try a proof by contradiction.\\
+	
+	We'll assume $n$ is prime but $\phi(n) < n-1$. \\
+	
+	We know by definition of prime, that the only primefactor of $n$ comprise $1$ and $n$ itself. But as we assume $\phi(n) < n-1$, there must at least be one integer that is not relative prime to $n$. By definition of the Euler function, there must exist an integer $a$ for which the $\gcd$ of $n$ and $a$ is not equal to 1. That implies that there do in fact exist a primefactor of $n$ comprise an integer not equal to 1 or $n$ itself. That contradicts our initial assumption on $n$, as $n$ can't be a prime if such primefactor exists. Hence the statement holds.\\
+	\QED
+	\Exercise{4.3.25}
+	\assignmentDescription
+	For each given integers, determine their greatest common divisor.\\
+	
+	\solution
+	
+	\begin{enumerate}[label=\defaultEnumerateLabel]
+		\myItem{$3^7 5^3 7^3, 2^{11} 3^5 5^9$}
+		
+		$5^3$ is the greatest common divisor, as it is part of both integers.\\
+		
+		\myItem{$11 \cdot 13 \cdot 17, 2^9 3^7 5^5 7^3$}
+		
+		$1$, as it is the only common factor of both integers.\\
+		
+		\myItem{$23^{31}, 23^{17}$}
+		
+		$23^{17}$ is the greatest common divisor.\\
+		
+		\myItem{$41 \cdot 43 \cdot 53, 41 \cdot 43 \cdot 53$}
+		
+		$41 \cdot 43 \cdot 53$ is the greatest common divisor.\\
+		
+		\myItem{$3^{13} 5^{17} , 2^{12} 7^{21}$}
+		
+		$1$, as it is the only common factor of both integers.\\
+	\end{enumerate}
+	
+	\Exercise{4.3.33}
+	
+	\assignmentDescription
+	
+	For each given integers, use Euclid's algorithm to find the greatest common divisor.\\
+	
+	\solution
+	
+	\begin{enumerate}[label=\defaultEnumerateLabel]
+		\myItem{$12,18$}
+		
+		\cent{$18 = 12 \cdot 1 + 6$}
+		\cent{$12 = 6 \cdot 2$}
+		
+		\cent{$\gcd(12,18) = 6$}
+		
+		\myItem{111,201}
+		
+		\cent{$201 = 111\cdot 1 + 90$}
+		\cent{$111 = 90 \cdot 1 + 21$}
+		\cent{$90 = 21 \cdot 4 + 6$}
+		\cent{$21 = 6 \cdot 3 + 3$}
+		\cent{$6 = 3 \cdot 2$}
+		
+		\cent{$\gcd(111,201) = 3$}
+		
+		\myItem{$1001,1331$}
+		
+		\cent{$1331 = 1001 \cdot 1 + 330$}
+		\cent{$1001 = 330 \cdot 3 + 11$}
+		\cent{$330 = 11 \cdot 30 $}
+		
+		\cent{$\gcd(1001,1331) = 11$}
+		
+		\myItem{$12345, 54321$}
+		
+		\cent{$54321 = 12345 \cdot 4 + 4941$}
+		\cent{$12345 = 4941 \cdot 2 + 2463$}
+		\cent{$4941 = 2463 \cdot 2 + 15$}
+		\cent{$2463 = 15 \cdot 164 + 3$}
+		\cent{$15 = 3 \cdot 5$}
+		
+		\cent{$\gcd(12345,54321) = 3$}
+		
+		\myItem{$1000,5040$}
+		
+		\cent{$5040 = 1000 \cdot 5 + 40$}
+		\cent{$1000 = 40 \cdot 25$}
+		
+		\cent{$\gcd(1000,5040) = 40$}
+		
+		\myItem{$9888, 6060$}
+		
+		\cent{$9888 = 6060 \cdot 1 + 3828$}
+		\cent{$6060 = 3828 \cdot 1 + 2232$}
+		\cent{$3828 =  2232 \cdot 1 + 1596$}
+		\cent{$2232 =  1596 \cdot 1 + 636$}
+		\cent{$1596  =  636 \cdot 2 + 324$}
+		\cent{$636  =  324 \cdot 1 + 312$}
+		\cent{$324   = 312 \cdot 1 + 12$}
+		\cent{$312    = 12\cdot 26$}
+		
+		\cent{$\gcd(9888,6060)$}
+		
+	\end{enumerate}
+	\Exercise{4.3.39}
+	
+	\assignmentDescription
+	
+	Use a crappy method to express the greatest common divisor of each given integer as a linear combination.\\
+	
+	\solution
+	
+	\begin{enumerate}[label=\defaultEnumerateLabel]
+		\myItem{$10,11$}
+		
+		First, we'll use the Euclidean Algorithm to find the greatest common divisor of $10$ and $11$:
+		
+		\cent{$11 = 10 \cdot 1 + 1$}
+		\cent{$10 = 1 \cdot 10$}
+		
+		
+		If we isolate $1$ in the first equation we have:
+		
+		\cent{$1 = 11 - 10 $}
+		
+		There isn't much more to say that the Bezout's coefficients are $1$ and $-1$.\\
+		
+		\myItem{$21,44$}
+		
+		We determine the $\gcd$ by the use of the Euclidean Algorithm:
+		
+		\cent{$21 = 44\cdot 0 + 21$}
+		\cent{$44 = 21 \cdot 2 + 2$}
+		\cent{$21 = 2 \cdot 10 + 1$}
+		\cent{$2 = 1 \cdot 2$}
+		
+		Isolate $1$ in the second to last equation:
+		
+		\cent{$1 = 21 - 2 \cdot 10 $}
+		
+		Then we isolate $2$ in the second equation and substitute $2$ for this new expression:
+		
+		\cent{$1 = 21 - (44 - 21 \cdot 2) \cdot 10 = 21 - 44 \cdot 10 + 20 \cdot 21 = 21\cdot 21 - 10 \cdot 44 $}
+		
+		And Bezout's Coefficients are $21$ and $-10$.\\
+		
+		\myItem{$36, 48$}
+		
+		By the Euclidean Algorithm:
+		
+		\cent{$36 = 48 \cdot 0 + 36$}
+		\cent{$48 = 36 \cdot 1 + 12$}
+		\cent{$36 = 12 \cdot 3$}
+		
+		We'll get the linear combination of $12$:
+		
+		\cent{$12 = 48 - 36$}
+		
+		With Bezout's Coefficients determined to $1$ and $-1$.
+		
+		\myItem{$34,55$}
+		
+		We use the Euclidean Algorithm to calculate $\gcd$:
+		
+		\cent{$34 = 55 \cdot 0 + 34$}
+		\cent{$55 =  34 \cdot 1 + 21$}
+		\cent{$34 = 21 \cdot 1 + 13$}
+		\cent{$21 = 13 \cdot 1 + 8$}
+		\cent{$13 = 8 \cdot 1 + 5$}
+		\cent{$8 = 5 \cdot 1 + 3$}
+		\cent{$5 = 3 \cdot 1 + 2$}
+		\cent{$3 = 2 \cdot 1 + 1$}
+		\cent{$2 = 1 \cdot 2 $}
+		As $1$ is the greatest common divisor, we isolate this term from the second to last equation:
+		\cent{$1 = 3 -2$}
+		
+		And performs a massive amount of arithmetic operations:
+		\cent{$1 = 8-5 -2$}
+		\cent{$1 = 21-13-5 -2$}
+		\cent{$1 = 55-34-13-5 -2$}
+		\cent{$1 = 55-34-34+ 21-5 -2$}
+		\cent{$1 = 55-2 \cdot 34+21-5 -2$}
+		\cent{$1 = 55-2 \cdot 34+55-34-5 -2$}
+		\cent{$1 = 2 \cdot 55-3 \cdot 34-5-2$}
+		\cent{$1 = 2 \cdot 55-3 \cdot 34-13+8-2$}
+		\cent{$1 = 2 \cdot 55-3 \cdot 34-34+21+21-13-2$}
+		\cent{$1 = 2 \cdot 55-3 \cdot 34-34+21+55-34-13-2$}
+		\cent{$1 = 2 \cdot 55-3 \cdot 34-34+21+55-34-34+21-2$}
+		\cent{$1 = 3 \cdot 55-6 \cdot 34+21+21-2$}
+		\cent{$1 = 3 \cdot 55-6 \cdot 34+55-34+55-34-2$}
+		\cent{$1 = 5 \cdot 55-8 \cdot 34-2$}
+		\cent{$1 = 5 \cdot 55-8 \cdot 34-5+3$}
+		\cent{$1 = 5 \cdot 55-8 \cdot 34-13+8+3$}
+		\cent{$1 = 5 \cdot 55-8 \cdot 34-13+8+8-5$}
+		\cent{$1 = 5 \cdot 55-8 \cdot 34-13+8+8-13+8$}
+		\cent{$1 = 5 \cdot 55-8 \cdot 34-34+21+8+8-13+8$}
+		\cent{$1 = 5 \cdot 55-8 \cdot 34-34+21+8+8-34+21+8$}
+		\cent{$1 = 5 \cdot 55-8 \cdot 34-34+55-34+8+8-34+21+8$}
+		\cent{$1 = 6 \cdot 55-11 \cdot 34+8+8+21+8$}
+		\cent{$1 = 6 \cdot 55-11 \cdot 34+21-13+21-13+21+8$}
+		\cent{$1 = 6 \cdot 55-11 \cdot 34+21-13+21-13+21+21-13$}
+		\cent{$1 = 6 \cdot 55-11 \cdot 34+55-34-13+55-34-13+55-34+55-34-13$}
+		\cent{$1 = 10 \cdot 55-15 \cdot 34-34+21-34+21-34+21$}
+		\cent{$1 = 10 \cdot 55-18 \cdot 34+21+21+21$}
+		\cent{$1 = 10 \cdot 55-18 \cdot 34+55-34+55-34+55-34$}
+		\cent{$1 = 13 \cdot 55-21 \cdot 34$}
+		
+		As seen in the last equation, Bezout's Coefficients are $13$ and $-21$.\\
+	\end{enumerate}
+	\Exercise{4.3.41}
+	
+	\myRemark
+	In this excercise we may briefly describe the Extended Euclidean Algorithm\footnote{A more detailed description is provided in the appendix chapter of this document.}.\\
+	
+	First the initial values for $i < 2$: 
+	
+	\cent{$r_0 = a, \quad  r_1 = b, \quad  t_0 = 0, \quad  s_0 = 1, \quad  t_1 = 1, \quad  s_1 = 0$}
+	
+	For $r \geq 2$ we calculate each term in the following way:
+	
+	\mAlign{
+		q_i &= \Floor{\frac{r_{i-2}}{r_{i-1}}} \\
+		r_i &= r_{i-2} - q_i r_{i-1} \\
+		s_i &= s_{i-2} - q_i r_{i-1} \\
+		t_i &= t_{i-2} - q_i t_{i-1}
+	}
+	
+	We terminate at $r_i = 0$.\\
+	
+	\assignmentDescription
+	Determine the $\gcd$ of $26$ and $91$, and express the result as a linear combination.\\
+	
+	\solution
+	
+	First, we declare our initial values of $r_0$ and $r_1$ (the others are already declared in the remark section):
+	
+	\cent{$r_0 = 26, \quad r_2 = 91$}
+	
+	Then we'll proceed step by step:
+	
+	\mAlign{
+		q_2 &= \Floor{\dfrac{26}{91}} = 0 \\
+		s_2 &=  1 \cdot - 0 \cdot 0 = 1\\
+		t_2 &= 0 - 0 \cdot 1 = 0\\
+		r_2 &= 26 - 0 \cdot 91 = 26\\
+		q_3 &= \Floor{\dfrac{91}{26}} = 3 \\
+		s_3 &= 0 - 3 \cdot 1 = -3 \\
+		t_3 &= 1 - 3 \cdot 0 = 1\\
+		r_3 &= 91 - 3 \cdot 26 = 13 \\
+		q_4 &= \Floor{\dfrac{26}{13}} = 2 \\
+		s_4 &=  1 - 2 \cdot (-3) = 1 + 6 = 7 \\
+		t_4 &= 0 - 2 \cdot 1 = -2 \\
+		r_4 &= 26 - 2 \cdot 13 = 0
+	}
+
+	Bezout's coefficients are $s=7$ and $t=-2$. We can write the $\gcd(26,91) = 26$ as the following linear combination:
+	
+	\cent{$\gcd(26,91) = 7 \cdot 26 - 2 \cdot 91$}
+	
+	
+	
+	\Exercise{4.4.5}
+	
+	\assignmentDescription
+	For each given pair of relative primes $(a,m)$ determine the inverse of $a \mod m$.\\
+	
+	\solution
+	
+	\begin{enumerate}[label=\defaultEnumerateLabel]
+		\myItem{$4,9$}
+		First we use the Euclidean Algorithm to find the $\gcd$ of the two integers, which we in fact already know since they are relative primes.
+		\mAlign{
+			4 &= 9 \cdot 0 + 4 \\
+			9 &= 4 \cdot 1 + 5 \\
+			4 &= 5 \cdot 0 +4 \\
+			5 &= 4 \cdot 1 + 1 \\
+			4 &= 1 \cdot 4
+		}
+	
+		We then isolate $1$ in the second to last equation:
+		
+		\cent{$1 = 5 - 4 \cdot 1$}
+		
+		And express $5$ in terms of the difference of $9$ and $4$, in accordance with the second equation:
+		
+		\cent{$1 = 9-4 - 4= 9 -2 \cdot 4$}
+		
+		The multiplicative inverse is $-2$.\\
+		
+		\myItem{$19,141$}
+		
+		\mAlign{
+			19 &= 141 \cdot 0 + 19 \\
+			141 &= 19 \cdot 7 + 8 \\
+			19 &= 8 \cdot 2 + 3 \\
+			8 &= 3 \cdot 2 + 2 \\
+			3 &= 2 \cdot 1 + 1 \\
+			2 &= 1 \cdot 2 
+		}
+		
+		\cent{$1 = 3 - 2 \cdot 1$}
+		
+		\cent{$1 = 19 - 8 \cdot 2 - 2 \cdot 1$}
+		
+		\cent{$1 = 19 - (141 - 19 \cdot 7) \cdot 2 - 2$}
+		\cent{$1 = 19 - 2 \cdot 141 + 14 \cdot 19 - 2$}
+		\cent{$1 = 15 \cdot 19 - 2 \cdot 141 - 2$}
+		\cent{$1 = 15 \cdot 19 - 2 \cdot 141 - (8- 3 \cdot 2)$}
+		\cent{$1 = 15 \cdot 19 - 2 \cdot 141 - 8 + 3 \cdot 2$}
+		\cent{$1 = 15 \cdot 19 - 2 \cdot 141 - (141 - 19 \cdot 7) + 3 \cdot 2$}
+		\cent{$1 = 15 \cdot 19 - 2 \cdot 141 - (141 - 19 \cdot 7) + (19 - 8 \cdot 2) \cdot 2$}
+		\cent{$1 = 15 \cdot 19 - 2 \cdot 141 - 141 +  7 \cdot 19 + (19 - 8 \cdot 2) \cdot 2$}
+		\cent{$1 = 22 \cdot 19 - 3 \cdot 141 +   (19 - 8 \cdot 2) \cdot 2$}
+		\cent{$1 = 22 \cdot 19 - 3 \cdot 141 +  2 \cdot 19 - 2 \cdot 8 \cdot 2 $}
+		\cent{$1 = 22 \cdot 19 - 3 \cdot 141 +  2 \cdot 19 - 4 \cdot (141 - 19 \cdot 7) $}
+		\cent{$1 = 22 \cdot 19 - 3 \cdot 141 +  2 \cdot 19 - 4 \cdot 141 + 28 \cdot 19 $}
+		\cent{$1 = 52 \cdot 19 - 7 \cdot 141 $}
+		
+		The multiplicative inverse to $19 \modFunc 141$ is $52$.\\
+		
+		\myItem{$55,89$}
+		
+		\mAlign{
+			55 &= 89 \cdot 0 + 55 \\
+			89 &= 55 \cdot 1 +34 \\
+			55 &= 34 \cdot 1 + 21 \\
+			34 &= 21 \cdot 1 + 13 \\
+			21 &= 13 \cdot 1 + 8 \\
+			13 &= 8 \cdot 1 + 5 \\
+			8 &= 5 \cdot 1 + 3 \\
+			5 &= 3 \cdot + 2 \\
+			3 &= 2 \cdot 1 + 1 \\
+			2 &= 1 \cdot 2
+			}
+		
+		Let the arithmetic show begin:
+		
+		\cent{$1 = 3-2$}
+		\cent{$1 = 8-5-2 $}
+		\cent{$1 = 8-13+8-2 $}
+		\cent{$1 = 21 -13-13+8-2 $}
+		\cent{$1 = 21 -34+21-34+21+8-2$}
+		\cent{$1 = 21 -89+55+21-89+55+21+8-2 $}
+		\cent{$1 = 21 -89+55+21-89+55+21+21-13-2 $}
+		\cent{$1 = 55-34 -89+55+55-34-89+55+55-34+55-34-13-2 $}
+		\cent{$1 = 6 \cdot 55-34 -89-34-89-34-34-13-2 $}
+		\cent{$1 = 6 \cdot 55-89+55 -89-89+55-89-89+55-89+55-13-2 $}
+		\cent{$1 = 10 \cdot 55-89 -89-89-89-89-89-13-2 $}
+		\cent{$1 = 10 \cdot 55-6 \cdot 89-13-2$}
+		\cent{$1 = 10 \cdot 55-6 \cdot 89-34+21-2 $}
+		\cent{$1 = 10 \cdot 55-6 \cdot 89-89+55+21-2 $}
+		\cent{$1 = 10 \cdot 55-6 \cdot 89-89+55+55-34-2$}
+		\cent{$1 = 10 \cdot 55-6 \cdot 89-89+55+55-89+55-2 $}
+		\cent{$1 = 13 \cdot 55-8 \cdot 89-2$}
+		\cent{$1 = 13 \cdot 55-8 \cdot 89-5+3 $}
+		\cent{$1 = 13 \cdot 55-8 \cdot 89-13+8+3 $}
+		\cent{$1 = 13 \cdot 55-8 \cdot 89-13+8+8-5 $}
+		\cent{$1 = 13 \cdot 55-8 \cdot 89-13+21-13+21-13-5 $}
+		\cent{$1 = 13 \cdot 55-8 \cdot 89-34+21+21-34+21+21-13-5 $}
+		\cent{$1 = 13 \cdot 55-8 \cdot 89-89+55+21+21-89+55+21+21-13-5 $}
+		\cent{$1 = 15 \cdot 55-10 \cdot 89+21+21+21+21-13-5 $}
+		\cent{$1 = 15 \cdot 55-10 \cdot 89+55-34+55-34+55-34+55-34-13-5 $}
+		\cent{$1 = 19 \cdot 55-10 \cdot 89-89+55-89+55-89+55-89+55-13-5 $}
+		\cent{$1 = 23 \cdot 55-14 \cdot 89-13-5 $}
+		\cent{$1 = 23 \cdot 55-14 \cdot 89-34+21-5 $}
+		\cent{$1 = 23 \cdot 55-14 \cdot 89-89+55+21-5 $}
+		\cent{$1 = 24 \cdot 55-15 \cdot 89+21-5 $}
+		\cent{$1 = 24 \cdot 55-15 \cdot 89+55-34-5 $}
+		\cent{$1 = 24 \cdot 55-15 \cdot 89+55-89+55-5 $}
+		\cent{$1 = 26 \cdot 55-16 \cdot 89-5 $}
+		\cent{$1 = 26 \cdot 55-16 \cdot 89-13+8 $}
+		\cent{$1 = 26 \cdot 55-16 \cdot 89-34+21+8 $}
+		\cent{$1 = 26 \cdot 55-16 \cdot 89-89+55+21+8 $}
+		\cent{$1 = 27 \cdot 55-17 \cdot 89+21+8 $}
+		\cent{$1 = 27 \cdot 55-17 \cdot 89+55-34+8 $}
+		\cent{$1 = 27 \cdot 55-17 \cdot 89+55-89+55+8 $}
+		\cent{$1 = 29 \cdot 55-18 \cdot 89+8 $}
+		\cent{$1 = 29 \cdot 55-18 \cdot 89+21-13 $}
+		\cent{$1 = 29 \cdot 55-18 \cdot 89+55-34-13 $}
+		\cent{$1 = 29 \cdot 55-18 \cdot 89+55-89+55-13 $}
+		\cent{$1 = 31 \cdot 55-19 \cdot 89-13 $}
+		\cent{$1 = 31 \cdot 55-19 \cdot 89-34+21 $}
+		\cent{$1 = 31 \cdot 55-19 \cdot 89-89+55+21 $}
+		\cent{$1 = 31 \cdot 55-19 \cdot 89-89+55+55-34 $}
+		\cent{$1 = 31 \cdot 55-19 \cdot 89-89+55+55-89+55 $}
+		\cent{$1 = 34 \cdot 55-21 \cdot 89 $}
+	\end{enumerate}
+
+	\Exercise{4.4.11}
+	
+	\assignmentDescription
+	Solve any given congruence.
+	
+	\solution
+	\begin{enumerate}[label=\defaultEnumerateLabel]
+		\myItem{$19x \equiv 4 (\modInline 141)$}
+		
+		By the use of Euclideans extended algorithm, we find that $52$ is the multiplicative inverse to $19$ modulu $141$. If we multiply both sides with $52$ we get:
+		
+		\cent{$19 \cdot 52x \equiv 4 \cdot 52 (\modInline 141) \equiv 208 (\modInline 141)$}
+		
+		We calculate that $208 \modFunc 141 = 67$, so we want a $x$ which in fact is a congruent class of $208 \modFunc 141$:
+		
+		\cent{$x \equiv 208 \equiv 208 (\modInline 141)$}
+		
+		The congruence class $x$ of $208 \modFunc 141$ is:
+		
+		\cent{$x : f(k) = 208 + 141k = \{-79,67,208,349,490,\dots\}$}
+		
+		\myItem{$55x \equiv 34 (\modInline 89)$}
+		
+		Let's mulitply with the inverse to $55 \modFunc 89$ on both sides:
+		
+		\cent{$55 \cdot 34x \equiv 34 \cdot 55 (\modInline 89) \equiv 1870 (\modInline 89)$}
+		
+		As $1870 \modFunc 89 = 1$, we want to find a $x$ that is congruent to $1 (\modInline 89)$:
+		
+		\cent{$x \equiv 1 (\modInline 89)$}
+		
+		We can define $x$ as a function of $k$, which returns for any $k$ an integer that is a solution to the linear congruence:
+		
+		\cent{$x : f(k) = 1 +89k = \{1,90,179,357,\dots\}$}
+		
+		\myItem{$89x \equiv 2 (\modInline 232)$}
+		
+		The multiplicative inverse of $89 \modFunc 232$ is $73$ by Euclidean's extended algorithm. Then we have:
+		
+		\cent{$89 \cdot 73 \equiv 2 \cdot 73 (\modInline 232) \equiv 464 (\modInline 232)$}
+		
+		And the $x$ we are looking for are congruent to $ 464 (\modInline 232) $, which gives the following definition of $x$:
+		
+		\cent{$x :  f(k) = 464 + 232k$}
+		
+	\end{enumerate}
+	\Exercise{4.4.21}
+	
+	\assignmentDescription
+	Solve the following system of linear congruences:
+	
+	\mAlign{
+		x &\equiv 1 (\modInline 2) \\
+		x &\equiv 2 (\modInline 3) \\
+		x &\equiv 3 (\modInline 5) \\
+		x &\equiv 4 (\modInline 11)
+	}
+	
+	\solution
+	First we determine $M$:
+	
+	\cent{$M = 2 \cdot 3 \cdot 5 \cdot 11 = 330$}
+	
+	Then we determine $M_i$:
+	
+	\mAlign{
+		M_0 &= \dfrac{330}{2} = 165 \\
+		M_1 &= \dfrac{330}{3} = 110 \\
+		M_2 &= \dfrac{330}{5} = 66 \\
+		M_3 &= \dfrac{330}{11} = 30
+	}
+	
+	And by the use of Euclidean's extended algorithm, we determine the multiplicative inverse $t_i$ for each $\gcd(m_i,M_i) = 1$:
+	
+	\mAlign{
+		t_0 &= 1 \\
+		t_1 &= -1 \\
+		t_2 &= 1 \\
+		t_3 &= -4
+	}
+	
+	Then we can express the solutions as a linear combination:
+	
+	\cent{$x=165 - 2 \cdot 110 + 3 \cdot 66 - 16 \cdot 30 = -337 \equiv -337 (\modInline 330)$}
 	
 	\end{enumerate}
+ 	
+ 	\section{Mathematical induction and recursions I}
+ 	
+ 	We'll cover the use of weak induction and leave strong induction to the next section. Exercises ranges from series, divisibilities, and inequalities. 
+ 	\Exercise{5.2.1}
+ 	\myRemark
+ 	This excersise was not part of the given set of exercises provided by the course \textit{Discrete Mathematics}.\\
+ 	
+ 	\assignmentDescription
+ 	Prove each give statement
+ 	
+ 	\solution
+ 	\begin{enumerate}[label=\defaultEnumerateLabel]
+ 		\myItem{$\parenthesis{1 - \dfrac{1}{2}}\parenthesis{1 - \dfrac{1}{3}}\parenthesis{1 - \dfrac{1}{4}}\parenthesis{1 - \dfrac{1}{5}} = \dfrac{1}{5} \to \dots \parenthesis{1 - \dfrac{1}{6}} = \dfrac{1}{6} $}
+ 		
+ 		We assume the antecent is true. Then we have the consequent as:
+ 		
+ 		\cent{$\parenthesis{1 - \dfrac{1}{2}}\parenthesis{1 - \dfrac{1}{3}}\parenthesis{1 - \dfrac{1}{4}}\parenthesis{1 - \dfrac{1}{5}}\parenthesis{1 - \dfrac{1}{6}} = \dfrac{1}{6}$}
+ 		
+ 		And we see, that it contains our antecent so we have: 
+ 		
+ 		\cent{$\dfrac{1}{5}\parenthesis{1 - \dfrac{1}{6}} =\dfrac{1}{5} - \dfrac{1}{5 \cdot 6} = \dfrac{1}{5} - \dfrac{1}{30} = \dfrac{6}{30} - \dfrac{1}{30} = \dfrac{6-1}{30} = \dfrac{5}{30} = \dfrac{1}{6}$}
+ 		
+ 		\QED
+ 		
+ 		\myItem{$\parenthesis{1 - \dfrac{1}{2}}\parenthesis{1 - \dfrac{1}{3}}\parenthesis{1 - \dfrac{1}{4}}\parenthesis{1 - \dfrac{1}{5}}\parenthesis{1 - \dfrac{1}{6}} = \dfrac{1}{6} \to \dots \parenthesis{1 - \dfrac{1}{7}} = \dfrac{1}{7} $}
+ 		
+ 		Again, we apply the same technique as the previous:
+ 		
+ 		\cent{$\parenthesis{\dfrac{1}{6}}\parenthesis{1 - \dfrac{1}{7}} = \dfrac{1}{6} - \dfrac{1}{42} = \dfrac{7}{42} - \dfrac{1}{42} = \dfrac{7-1}{42} = \dfrac{6}{42} = \dfrac{1}{7}$}
+ 		
+ 	\end{enumerate}
+ 	
+ 	\Exercise{5.2.6}
+ 	
+ 	\assignmentDescription
+ 	Prove the following equation by mathematical induction:
+ 	
+ 	\cent{$2+4+6+\dots +2n = n^2 + n, \quad n \In \doubleN_0, n \geq 1$}
+ 	
+ 	\solution
+	Let $p(n)$ be the given equation to prove. Then we initiate our basic step by validating $p(1)$:
+	
+	\cent{$p(1) : 2 = 1^2 + 1 = 2$}
+	
+	$p(1)$ is valid as both sides are identical. Actually we can try to validate $p(2)$ and check if it still holds:
+	
+	\cent{$p(2) : 2 + 4 = 6 =2^2 + 2 = 4+2 = 6$}
+	
+	Yes, it holds.\\
+	
+	Then we assume it will hold for any integer $k < n$, such that we assume the following is valid:
+	
+	\cent{$p(k) : 2 + 4 +6 + \dots + 2k = k^2+k$}
+	
+	Then we want to show that it holds for $k+1$:
+	
+	\cent{$p(k) \to p(k+1)$}
+	
+	Let's first try to evaluate the right-hand side of $p(k+1)$:
+	
+	\cent{$p(k+1) : (k+1)^2 + (k+1) = k^2+1+2k + k+1 = k^2 +3k +2$}
+	
+	Then we'll do the same for the left-hand side:
+	
+	\cent{$p(k+1) : 2+ 4 + 6 + \dots + 2k + 2(k+1) $}
+	
+	And notice that the series up to the $k$'th term in fact is our antecent.  Let's substitute the expressen for $p(k)$ for the terms up to $k$:
+	
+	\cent{$p(k+1) : k^2+k + 2(k+1) = k^2+k+2k+2 = k^2+3k +2 $}
+	
+	As both sides are identical, we can now establish that $p(n)$ holds, since $p(k) \to p(k+1)$ is true.\\
+	
+	\QED
+ 		
+ 	\Exercise{5.2.10}
+ 	
+ 	\assignmentDescription
+ 	Prove the following equation by mathematical induction:
+ 	
+ 	\cent{$1^2 + 2^2 + \dots + n^2 = \dfrac{n(n+1)(2n+1)}{6}, \quad n \geq 1$}
+ 	
+ 	\solution
+ 	Again, we establish $p(n)$ as the given equation and validate $p(1)$. First, we'll start with the left-hand side of $p$:
+ 	
+ 	\cent{$p(1) : 1^2 = 1$}
+ 	
+ 	And the right-hand side of $p$:
+ 	
+ 	\cent{$p(1) = \dfrac{1(1+1)(2+1)}{6} = \dfrac{2 \cdot 3}{6} = \dfrac{6}{6} = 1 $}
+ 	
+ 	It holds. We'll skip for succesive integers and introduce our inductive hypothesis for which we assume it will hold for any integer $k<n$:
+ 	
+ 	\cent{$p(k) :  1^2 + 2^2 + \dots + k^2 = \dfrac{k(k+1)(2k+1)}{6}, \quad 1 \leq k < n $}
+ 	
+ 	And then again, we want to show that it also holds for $k+1$:
+ 	
+ 	\cent{$p(k) \to p(k+1)$}
+ 	
+ 	Let's determine $p(k+1)$ for the right-hand side:
+ 	
+ 	\mAlign{p(k+1) &:  \dfrac{(k+1)(k+2)(2k+3)}{6} = \dfrac{(k^2+3k+2)(2k+3)}{6} \\
+ 							&= \dfrac{2k^3+3k^2 +6k^2 +9k + 4k+6 }{6}\\
+ 							&= \dfrac{2k^3+9k^2 + 13k+6 }{6}}
+ 	
+ 	And for the left-hand side:
+ 	
+ 	\mAlign{
+ 		p(k+1) &: 1^2 + 2^2 + \dots + k^2 + (k+1)^2 = \dfrac{k(k+1)(2k+1)}{6} + (k+1)^2\\
+ 		&= \dfrac{k(k+1)(2k+1)}{6} + \dfrac{6(k^2 + 1 +2k)}{6} \\
+ 		&= \dfrac{k(k+1)(2k+1)}{6} + \dfrac{6k^2 + 6 + 12k}{6} \\
+ 		&= \dfrac{(k^2+k)(2k+1)}{6} + \dfrac{6k^2 + 6 + 12k}{6} \\
+ 		&= \dfrac{2k^3+k^2+2k^2+k}{6} + \dfrac{6k^2 + 6 + 12k}{6}\\
+ 		&= \dfrac{2k^3+3k^2+k}{6} + \dfrac{6k^2 + 6 + 12k}{6}\\
+ 		&= \dfrac{2k^3+3k^2+k + 6k^2 + 6 + 12k}{6}\\
+ 		&= \dfrac{2k^3+9k^2 + 6 + 13k}{6}\\
+ 	}
+ 
+ 	As they are identical, we conclude that $p(n)$ holds for any integer $n$.\\
+ 	
+ 	\QED
+ 	
+ 	\Exercise{5.2.13}
+ 	
+ 	\assignmentDescription
+ 	Prove the following equation by mathematical induction:
+ 	
+ 	\cent{$$\sum_{i=1}^{n-1} i(i+1) = \dfrac{n(n-1)(n+1)}{3}$$}
+ 	
+ 	\solution
+ 	
+ 	Again, we use $p(n)$ to denote our equation.\\
+ 	
+ 	First, let's rewrite both sides of $p$:
+ 	
+ 	\cent{$$p(n) :  \sum_{i=1}^{n-1} i^2+i = \dfrac{n(n^2-1)}{3} = \dfrac{n^3-n}{3}$$}
+ 	
+ 	Let's evaluate $p(2)$ for both sides:
+ 	
+ 	\cent{$ L : \sum_{i=1}^{2-1} 1^2+1 = 2 \quad R : \dfrac{2^3-2}{3} = \dfrac{8-2}{3} = \dfrac{6}{3} = 2$}
+ 	
+ 	And for $i = \{3,4,5\}$:
+ 	
+ 	\cent{$L:  2+(2^2 +2) = 2+6 = 8 \quad R : \dfrac{3^3-3}{3} = \dfrac{27-3}{3} = \dfrac{24}{3} = 8$}
+ 	\cent{$L:  8+(3^2 +3) = 8+12 = 20 \quad R : \dfrac{4^3-4}{3} = \dfrac{64-4}{3} = \dfrac{60}{3} = 20$}
+ 	\cent{$L:  20+(4^2 +4) = 20+20 = 40 \quad R : \dfrac{5^3-4}{3} = \dfrac{125-5}{3} = \dfrac{120}{3} = 40$}
+ 	
+ 	And we can assume it will hold for any integer $k<n$. We'll rewrite the left hand side to a series:
+ 	
+ 	\cent{$p(k) : 2+6+12+ \dots + ((k-1)^2+(k-1)) = 2+6+12+ \dots + (k^2-k)$}
+ 	
+ 	Then we want to show that it holds for $k+1$. First, we consider the right-hand side of $p(n)$:
+ 	
+ 	\cent{$p(n) :  \dfrac{(k+1)^3-(k+1)}{3}$}
+ 	
+ 	Then, by some help from Pascal's Triangle, we know that $(a+b)^3$ expands to:
+ 	\cent{$(a+b)^3 = a^3 + 3a^2b + 3ab^2 + b^3$}
+ 	
+ 	Then we can expand the term $(k+1)^3$ in the nominator of the right-hand side of $p(k+1)$:
+ 	
+ 	\cent{$ \dfrac{(k^3 + 3k^2 + 3k + 1) - (k+1)}{3} = \dfrac{k^3 + 3k^2 + 3k + 1 - k - 1}{3} = \dfrac{k^3 + 3k^2 + 2k}{3}$}
+ 	
+ 	Then we proceed to the left-hand side and do a step-by-step processing:
+ 	
+ 	\mAlign{
+ 		p(k) &:  2+6+12+ \dots + (k^2-k) + ((k+1)^2 -(k+1)) \\
+ 		&= 2+6+12+ \dots + (k^2-k) + (k^2+1+2k -k-1) \\
+ 		&= 2+6+12+ \dots + (k^2-k) + (k^2+k)\\
+ 		&= \dfrac{k^3-k}{3} + k^2+k = \dfrac{k^3-k}{3} + \dfrac{3(k^2+k)}{3} \\
+ 		&= \dfrac{k^3-k}{3} + \dfrac{3k^2 + 3k}{3} = \dfrac{k^3-k}{3} + \dfrac{3k^2 + 3k}{3} \\
+ 		&= \dfrac{k^3-k + 3k^2 + 3k}{3} = \dfrac{k^3 + 3k^2 + 2k}{3}
+ 	}
+ 	
+ 	Both sides are identical.\\
+ 	
+ 	\QED
+ 	\Exercise{5.2.14}
+ 	
+ 	\assignmentDescription
+ 	Prove the following equation by mathematical induction:
+ 	
+ 	\cent{$$\sum_{i=1}^{n+1} i\cdot 2^i= n \cdot 2^{n+2}+2 $$}
+ 	
+ 	\solution
+ 	Let $p(n)$ be the given equation, then we'll first expand the summation on the left-hand side:
+ 	 
+ 	\cent{$$\sum_{i=1}^{n+1} i\cdot 2^i = 2^1 + 2 \cdot 2^2 + 3 \cdot 2^3 + \dots + (n+1) 2^{n+1} = 2 + 8 + 24 + \dots + (n+1) 2^{n+1} $$}
+ 	
+ 	Then we can evaluate $p(0)$ on both sides. We can see, that 2 is the first term in the above series, so we just have to evaluate the right-hand side and see if that gives the same:
+ 	
+ 	\cent{$R : 0 \cdot 0^2 + 2 = 0$}
+ 	
+ 	It surely does, and we may assume that it will hold for any particular, but arbitrarily selected, integer $k < n$. As part of our inductive step, we want to show that it will also hold for $k+1$:
+ 	
+ 	\cent{$p(k) \to p(k+1) $}
+ 	
+ 	Let's first determine the right-hand side:
+ 	
+ 	\cent{$p(k+1) = (k+1) \cdot 2^{k+3}+2$}
+ 	
+ 	And the left-hand side:
+ 	\mAlign{
+ 		p(k+1) &: 2 + 8 + 24 + \dots + (k+1) 2^{k+1} + (k+2) 2^{k+2} \\
+ 		&= 2 + 8 + 24 + \dots + (k+1) 2^{k+1} + 2^{k+2}k + 2 \cdot 2^{k+2} \\
+ 		&= k \cdot 2^{k+2} + 2 + 2^{k+2}k + 2 \cdot 2^{k+2} \\
+ 		&=  2^{k+2} (2k + 2) + 2 \\
+ 		&= 2^{k+2}2 (k + 1) + 2 \\
+ 		&= (k + 1) 2^{k+3} + 2
+ 	} 
+ 	
+ 	They match.\\
+ 	
+ 	\QED
+ 	
+ 	\Exercise{5.2.36}
+ 	
+ 	\Exercise{5.3.1}
+ 	
+ 	\assignmentDescription
+ 	Show that any amount of money of at least 14 danish krones can be made up using 3 kroner  and 8 kroner coins.\\
+ 	
+ 	\solution
+ 	
+ 	First we'll show that 14 danish kroner can be made up of 3 kroner and 8 kroner coins.\\
+ 	
+ 	That is, if we have 2 \textit{"3 kroner coins"} and 1 \textit{"8 kroner coin"}.\\
+ 	
+ 	Let's proceed from this point and establish our inductive hypthesis. That is, we can express $k\geq 14$ in terms of either $3$, $8$, or both. And we'll do that by showing that we can express 15 danish kroner in terms of either \textit{"3 kroner coins"}, \textit{"8 kroner coins"}, or both.\\
+ 	
+ 	If we replace our 8 kroner coin, which we previosly used to show our inductive hypothesis, with 3 \textit{"3 kroner coins"}, we have 15 danish kroners total. That is, we can express $15$ as $5 \cdot 3$. But we can't express 15 in terms that involves  8 kroner coins. There do simply not exist a linear combination of integers of 3 or 8 that amounts to 15. \\
+ 	
+ 	But we can express $16$ as $2 \cdot 8$, and so on.\\
+ 	
+ 	\QED
+ 	
+ 	\Exercise{5.3.[4,8]}
+ 	
+ 	\assignmentDescription
+ 	Prove the following divisibility:
+ 	\newcommand{\givenFormula}[1]{\ensuremath{4|5^{#1} -1}}
+ 	\cent{\givenFormula{n}}
+ 	
+ 	\solution
+ 	
+ 	Let $p(n)$ be the given property:
+ 	
+ 	\cent{$p(n) : \givenFormula{n}, \quad n \geq 0$}
+ 	
+ 	
+ 	Our basic steps in this case consists of evaluating the property for the first three integers starting from 0:
+ 	
+ 	\mAlign{
+ 		p(0) & :4|5^0 -1 = 0 \\
+ 		p(1) &: 4|5^1 -1 = 5-1 = 4 \\
+ 		p(2) &: 4|5^2 -1 = 25-1 = 24 = 4 \cdot 6
+ 	}
+ 	
+ 	Then we can establish our inductive hypothesis. That is, we assume it'll hold for any integer $k$, such that we can express our property $p$ in terms of $k$:
+ 	
+ 	\cent{\givenFormula{k}}
+ 	
+ 	And furthermore, assume it will hold for $k+1$:
+ 	
+ 	\cent{$\givenFormula{k+1}$}
+ 	
+ 	Let's rewrite a bit:
+ 	
+	\cent{$5^{k+1}-1 = 5 \cdot  5^k -1$}
+	
+	And recognize the fact, that we can express the integer $5$ as a sum of two integers:
+	
+	\cent{$ (4+1)5^k -1 = 4 \cdot 5^k + 5^k - 1$}
+	
+	The last term is our inductive hypothesis $p(k)$ for which we assume 4 is a divisor. As of this, we can insert $p(k) = 4q$ in the formula above:
+	
+	\cent{ $ 4 \cdot 5^k + 4q = 4(5k + q)$}
+	
+	And we conclude that 4 is indeed a divisor. Hence $p(n)$ holds.\\
+	
+	\QED
+	
+	
+ 	\Exercise{5.3.9}
+ 	
+ 	\assignmentDescription
+ 	Prove the following divisibility:
+ 	
+ 	\cent{$6|7^n-1$}
+ 	
+ 	\solution
+ 	
+ 	First, we'll show that it holds for $p(0)$:
+ 	
+ 	\cent{$7^0-1 = = 1 - 1 =  0$}
+ 	
+ 	As $6$ divides $0$ we can conclude it holds so we can establish our inductive hypothesis $p(k)$. then we want to show that it also holds for $k+1$:
+ 	
+ 	\cent{$p(k) \to p(k+1)$}
+ 	
+ 	\cent{$7^{k+1}-1 = 7 \cdot 7^k - 1 = (6+1) 7k - 1 = 6 \cdot 7^k + 7^k - 1$}
+ 	
+ 	Again, we recognize our inductive hypothesis as the last term, which we'll insert as $6q$, since we assume $p(k)$ is divisible by 6:
+ 	
+ 	\cent{$6 \cdot 7^k + p(k) = 6 \cdot 7^k + 6q = 6(7^k + q)$}
+ 	
+ 	\QED
+ 	
+ 	\Exercise{5.3.15}
+ 	
+ 	\assignmentDescription
+ 	
+ 	Prove the following divisibility by mathematical induction:
+ 	
+ 	\cent{$6|n^3+5n$}
+ 	
+ 	\solution
+ 	Let $p(n)$ be the given property.\\
+ 	
+ 	First, we evaluate $p(0)$:
+ 	
+ 	\cent{$n^3 +5 \cdot 0 = 0$}
+ 	
+ 	Then we assume $p(k)$ holds and rewrites the expression for $p(k+1)$:
+ 	
+ 	\mAlign{
+ 		p(k+1) &= (k+1)^3 + 5(k+1) = k^3 + 3k^2 + 3k + 1 + 5k+5 \\
+ 		&= 3k^2 + 3k + 6 + k^3 + 5k \\
+ 		&= 3k^2 + 3k + 6 + p(k) \\
+ 		&= 3(k^2+k + 2 ) + p(k)\\
+ 		&= 6\parenthesis{\dfrac{1}{2}k^2 + \dfrac{1}{2}k + 1} + p(k) \\
+ 		&= 6\parenthesis{\dfrac{1}{2}\parenthesis{k^2 + k} + 1} + p(k)
+ 	}
+ 
+ 	During the process we substituted $k^3+5k$ with $p(k)$.\\
+ 	
+ 	As we assume $p(k)$ holds, we can express in terms of $6q$:
+ 
+ 	\cent{$ p(k+1) = 6\parenthesis{\dfrac{1}{2}\parenthesis{k^2 + k} + 1} + 6q$}
+ 	
+ 	And set $q$ into our parenthesis:
+ 	
+ 	\cent{$p(k+1) = 6\parenthesis{\dfrac{1}{2}\parenthesis{k^2 + k} +1+ q}$}
+ 	
+ 	But there is a little issue with the term that consists of a fraction. We have to show, that it will evaluate to an integer $r$. This happens to be the case as we can prove, that any sum of an integer $k$, and its square, is divisible by 2. For any integer, if its even, the square is also even. And the sum of two even integers are also even. Hence it holds for any even integers. What about the case for odd integers on the form $2k+1$? Consider the following arithmetic:
+ 	
+ 	\cent{$(2k+1)^2 + 2k+1 = 4k^2+1+4k + 2k + 1 = 4k^2+6k+2 = 2(k^2+3k+1) = 2r$}
+ 	
+ 	So $k^2+k$ can be written as $2r$:
+ 	
+ 	\cent{$p(k+1) = 6\parenthesis{\dfrac{2r}{2} +1+ q} = 6(r+1+q)$}
+ 	
+ 	Hence $p(n)$ holds.\\
+ 	\QED
+ 	
+ 	\section{Mathematical induction II}
+ 	
+ 	In this section, we intruduce the use of strong mathematical induction, which is, we want to legitimize the use of our inductive hypothesis during the proof. We cover more advances problems related to more formalized properties. That is, we don't constraint our selves to equalities, series, etc, but process problems like coin problems formalized in words.
+ 	
+ 	\Exercise{5.2.7}
+ 	
+ 	\assignmentDescription
+ 	Prove the following equation by the use of weak mathematical induction:
+ 	
+ 	\cent{$1 + 6 + 11 + \dots + (5n-4) = \dfrac{n(5n-3)}{2} = \dfrac{5n^2-3n}{2}$}
+ 	
+ 	\solution
+ 	
+ 	Let $p(n)$ be the property of the given equation.\\
+ 	
+ 	First, we determine $p(1)$:
+ 	
+ 	\cent{$p(1) : 1 = \dfrac{5 \cdot 1^3 -3\cdot 1}{2} = \dfrac{5-3}{2} = 1$}
+ 	
+ 	Then we establishes our inductive hypothesis:
+ 	
+ 	\cent{$p(k) : 1 + 6 + 11 + \dots + (5k-4) = \dfrac{5k^2-3k}{2}$}
+ 	
+ 	And show it also holds for $k+1$:
+ 	
+ 	\cent{$p(k) \to p(k+1)$}
+ 	
+ 	First, we'll process the left-hand side of $p(k+1)$:
+ 	\mAlign{
+ 		L &:  1 + 6 + 11 + \dots + (5k-4) + (5(k+1)-4) = p(k) + (5(k+1)-4) \\
+ 		&= p(k) + 5k+5-4 = p(k) + 5k+1 =  \dfrac{5k^2-3k}{2} + (5k+1) \\
+ 		&= \dfrac{5k^2-3k}{2} + \dfrac{2(5k+1)}{2} = \dfrac{5k^2-3k + 2(5k+1)}{2} \\
+ 		&= \dfrac{5k^2-3k + 10k+2}{2} = \dfrac{5k^2+ 7k+2}{2}
+ 	}
+ 	
+ 	Then we'll process the right-hand side of $p(k+1)$:
+ 	
+ 	\mAlign{
+ 		R &:  \dfrac{5(k+1)^2-3(k+1)}{2} = \dfrac{5(k^2+1+2k)-3k-3}{2}\\
+ 		&= \dfrac{5k^2+5+10k-3k-3}{2} = \dfrac{5k^2+7k+2}{2}
+ 	}
+ 	
+ 	They match. Hence $p(n)$ holds.\\
+ 	
+ 	\QED
+ 
+ 	
+ 	\Exercise{5.2.11}
+ 	
+ 	\assignmentDescription
+ 	\cent{$1^3+2^3 + \dots + n^3 = \parenthesis{\dfrac{n(n+1)}{2}}^2 =  \dfrac{n^4+2n^3+n^2}{4}$}
+ 	\solution
+ 	
+ 	Let $p(n)$ be the given equation.\\
+ 	
+ 	Then we evaluate $p(0)$ with respect to both sides:
+ 	
+ 	$L : 1^3 = 1, \quad R : \dfrac{1^4+2 \cdot 1^3 + i^2}{4} = \dfrac{1+2+1}{4} = \dfrac{4}{4} = 1$
+ 	
+ 	And we assume $p$ holds for any integer $k$. Then we want to show, that it also holds for $k+1$. We process both sides step-by-step:
+ 	
+ 	\mAlign{
+ 		L &: 1^3+2^3 + \dots + k^3 + (k+1)^3 = p(k) + (k+1)^3 = p(k) + k^3+3k^2 + 3k+1 \\
+ 		&= \dfrac{k^4+2k^3+k^2}{4} + k^3+3k^2 + 3k+1 = \dfrac{k^4+2k^3+k^2}{4} + \dfrac{4(k^3+3k^2 + 3k+1)}{4} \\
+ 		&= \dfrac{k^4+2k^3+k^2 + 4(k^3+3k^2 + 3k+1)}{4} = \dfrac{k^4+2k^3+k^2 + 4k^3 + 12k^2+12k+4}{4} \\
+ 		&= \dfrac{k^4+6k^3 + 13k^2+12k+4}{4}
+ 	}
+ 	
+ 	\mAlign{
+ 		R &: \dfrac{(k+1)^4+2(k+1)^3+(k+1)^2}{4} = \dfrac{k^4 +4 k^3 + 6k^2+ 4k + 1+2(k+1)^3+(k+1)^2}{4} \\
+ 		&= \dfrac{k^4 +4 k^3 + 6k^2+ 4k + 1+2(k+1)^3+k^2+2k+1}{4} \\
+ 		&= \dfrac{k^4 +4 k^3 + 7k^2+ 6k + 2+2(k+1)^3}{4} \\
+ 		&= \dfrac{k^4 +4 k^3 + 7k^2+ 6k + 2+ 2 (k^3+3k^2 + 3k + 1)}{4} \\
+ 		&= \dfrac{k^4 +4 k^3 + 7k^2+ 6k + 2 + 2k^3 +6k^2+6k+2}{4} = \dfrac{k^4 +6 k^3 + 13k^2+ 12k + 4}{4}
+ 	}
+ 
+ 	Both sides are identical. Hence $p(n)$ holds.\\
+ 	
+ 	\QED
+ 	
+ 	\Exercise{5.2.37}
+ 	
+ 	\assignmentDescription
+ 	
+ 	Find the mistakes in Exercise 5.2.37.
+ 	
+ 	\solution
+ 	
+ 	The mistake takes place at the evaluation of the left-side of $p(0)$. Since $n$ describes the $n$'th term in series, the following equation is true:
+ 	
+ 	\cent{$ 1+ 2 + 2^2 + \dots 2^0 \neq 1 $}
+ 	
+ 	But the given proof ignores all the terms leading up to the last term that includes the integer $n$. That is, it evaluates the above to $1$, which is not true. \\
+ 	
+ 	\QED
+ 	
+ 	\Exercise{5.3.3}
+ 	\assignmentDescription
+ 	
+ 	Consider two collections of either 5 stamps or 8 stamps, then let $k$ be the set of possible amounts of stamps as a combination of the two mentioned collections:
+ 	
+ 	\cent{$k \In \{5,8,10,13,15,16,20,21,24,25\}$}
+ 	
+ 	\solution
+ 	\begin{enumerate}[label=\defaultEnumerateLabel]
+ 		\myItem{Show that $k$ comprise elements that can be archieved by a combination of the two given collections.}
+ 		
+ 		We want to show, that each element in the domain of $k$, can be expressed in terms of either 5 or 8. More specific, we want to express in sums.\\
+ 		
+ 		Consider the following expression of $k$:
+ 		
+ 		\cent{$k \In \{5,8,5 + 5,5+8,3 \cdot 5,2 \cdot 8,4 \cdot 5,5+ 2 \cdot 8,3 \cdot 8,5 \cdot 5\}$}
+ 		
+ 		We notice, that each element of $k$ is expressed as a sum of either 5 or 8. Hence we can express any element in $k$ in terms of either 5 stamp collection or 8 stamp collection.\\
+ 		\QED\\
+ 		
+ 		\myItem{Show, by mathematical induction, that you can archieve any amount of stamps of at least 28 stamps, by a combination of the two given collections.}
+ 		
+ 		First, we have to find some key replacements, that we can make to obtain one more stamp.
+ 		
+ 		Let's begin with the collection of 5 stamps. We have to find some multiplication of a 5 stamp collection, that can be replaced by a collection of 8 stamps which multiplied by some integer, increments the total amounts of stamps by one. That happens to be the case for 3 times a 5 stamp collection, which amounts to 15 stamps. If we replace all 3 collections with 2 times of an 8 stamp collection, we'll get a total of 16 stamps. An increase of stamps by exactly one. 
+ 		
+ 		Likewise for the number of 8 stamps collection, we can exchange a number of 3 times of an 8 stamps collection with a number of 5 times of an 5 stamps collection.\\
+ 		
+ 		First we need to think about what we want to show, especially with regard to the minimum requirements to be able to proceed. Maybe some terminal conditions for which we aren't able to proceed? We will elaborate on this subject when we reach our inductive step.\\
+ 		
+ 		In short, we can define $p(x,y)$ as the following equation:
+ 		
+ 		\cent{$p(x,y) : 5x+8y = z, \quad x,y,z ,\In \doubleN_0, z \geq 28$}
+ 		
+ 		Then we need to show, that a pair $(x,y)$ that satisfies $p(x,y) = 28$ exists. Let's evaluate $p(4,1)$:
+ 		
+ 		\cent{$p(4,1) = 5\cdot 4 + 8\cdot 1 = 20 +8 = 28$} 
+ 		
+ 		That pair indeed seems to exist!\\
+ 		
+ 		Then we enter the famous inductive step, where we want to consider further progression. As always, but slightly different in compared to other proofs, we will assume $p(r,u) = k$ holds for some pair $(r,u) \neq (x,y)$.  That is, we assume it will hold for some other combinations of two integers, but we'll have to consider some conditions with regard to the results for each new combination. \\
+ 		
+ 		First, we know that we can exchange $3x$ for $2y$, and exchange $3y$ for $5x$. Consider the following example:
+ 		
+ 		\cent{$p(cr,du) = k_1, \quad c \geq 3, d \geq 0$}
+ 		
+ 		Since $c\geq 3$, we can exchange $3r$ for $2u$, so we'll get:
+ 		
+ 		\cent{$p((c-3)r,(d+2)u) = k_1, \quad c \geq 3, d \geq 0$}
+ 		
+ 		But the last equation lacks a clear guarantee of any exchange of an 8 stamps collection, since we don't know if $d$ is greater than $0$. If it is the case, that $d$ is $0$, then we only get $2$ times of an 8 stamp collection, which we can't exchange, since $16$ is succeded by $ 17 $, which is not divisible by 5. \\
+ 		
+ 		Therefore, we must elaborate of some requirements with regard to the pairs of $(r,u)$. 
+ 		
+ 		Consider the following steps:\\
+ 		
+		\textbf{Step 1}: $(4,1) \to (1,3)$\\
+		\textbf{Step 2}: $(1,3) \to (6,0)$\\
+		\textbf{Step 3}: $(6,0) \to (3,2) \to (0,4)$\\
+		\textbf{Step 4}: $(3,2) \to (0,4)$ \\
+		\textbf{Step 5}: $(0,4) \to \dots  \to (i,j) \to \dots \to (r,u)$\\
+ 			
+ 		We notice two important facts here. Every exchange must end with a pair which complies with $r < 6$ and $u = 0$, or $r = 0$ and $r < 4$, or $x < 1$ and $y < 3$. 
+ 		
+ 		Otherwise, we may end up with a terminal condition which empties out our chances of any further exchanges.\\
+ 		
+ 		We'll assume that any pair from $p(i,j) = 28$ (which we has proved) to $(r,u)$ complies with the above criterias, such that a terminal event never occurs. That is, we assume $p(r,u) = k$ holds for any integer $k \geq 28$. \\
+ 		
+ 		We now want to show that it will also hold for $k+1$. Since we assume that a terminal condition never occurs, it is safe to assert that any exchange we perform won't violate our criterias. Either we exchange 3 times a 5 stamp food collection with a 2 times 8 stamp collection, or we exchange 3 times a 8 stamp collection with 5 times a 5 stamp collection. Doing so, we'll end up with one of the following:
+ 		
+ 		\mAlign{
+ 			&(r,u) \to (r-3,u+2), \quad r \geq 4, u \geq 1 \\
+ 			&(r,u) \to (r+5,u-3), \quad r \geq 4, u \geq 1 \\
+ 			&(r,u) \to (r-3,u+2), \quad r \geq 1, u \geq 3 \\
+ 			&(r,u) \to (r+5,u-3), \quad r \geq 1, u \geq 3 \\
+ 			&(r,u) \to (r-3,u+2), \quad r \geq 6, u \geq 0 \\
+ 			&(r,u) \to (r+5,u-3), \quad r \geq 6, u \geq 0 \\
+ 			&(r,u) \to (r-3,u+2), \quad r \geq 0, u \geq 4 \\
+ 			&(r,u) \to (r+5,u-3), \quad r \geq 0, u \geq 4 \\
+ 		}
+ 		None of these will violate the criterias.\\
+ 		\QED
+ 	\end{enumerate}
+ 	
+ 	\Exercise{5.3.10}
+ 	
+ 	\assignmentDescription
+ 	Prove the following divisibility by mathematical induction:
+ 	
+ 	\cent{$3 | n^3-7n + 3, \quad n \geq 0$}
+ 	
+ 	\solution
+ 	
+ 	Let $p(n)$ be the given equation, then we can show that $p(0)$ holds:
+ 	
+ 	\cent{$0^3-7 \cdot 0 +3 = 3$}
+ 	
+ 	As $3 = 3 \cdot 1$, $p(0)$ holds.\\
+ 	
+ 	As usual, we assume $p(k)$ holds for any integer $k \geq 0$, and now want to show that it also holds for $k+1$:
+ 	
+ 	\mAlign{
+ 		(k+1)^3-7(k+1) + 3 &= k^3+3k^2+3k+1 -7k-7 + 3 = 3k^2+3k+1-7 + p(k) \\ 
+ 		&= 3k^2+3k-6 + 3q = 3 \parenthesis{k^2+k-2+q}
+ 	}
+ 	
+ 	During the process we must note, that we substituted $p(k)$ for $3q$. That is fully legitimitate as we have shown that $3|p(0)$.\\
+ 	
+ 	Thus we managed to end up with an expression that clearly clarified that 3 indeed is a divisor.\\
+ 	\QED
+ 	
+ 	\Exercise{5.3.19}
+ 	
+ 	\assignmentDescription
+ 	Prove the following inequality by mathematical induction:
+ 	
+ 	\cent{$n^2 < 2^n, \quad n \geq 5$}
+ 	
+ 	\solution
+ 	
+ 	Let $p(n)$ be the given inequality and let $q(n)$ and $r(n)$ be the expression on the left and right side, respectively. Then we must show $p(0)$ holds:
+ 	
+ 	\cent{$ q(5) < r(5) \Leftrightarrow 25  < 32$}
+ 	
+ 	Which it also does.\\
+ 	
+ 	We then assumes it holds for $p(k)$.\\
+ 	
+ 	Now we want to show $p(k) \to p(k+1)$:
+ 	
+ 	\cent{$(k+1)^2 = k^2+2k+1 < 2^{k+1} = 2\cdot 2^k$}
+ 	
+ 	If we substitute $p(k)$ for the parts we recognize, we'll get:
+ 	
+ 	\cent{$(k+1)^2 = p(k) +2k+1 < 2^{k+1} = 2\cdot p(k) = p(k) + p(k)$}
+ 	
+ 	We know, by our inductive hypothesis, that $q(k) < r(k)$ for any integer $k \geq 5$, so let's compare the addends. To show that $ 2k+1 \leq 2^k  $, we may first do an assesment related to $2k + 1< k^2$. For $k=5$ we'll get that $11 < 25 $, and by the order of growth, since potential growth outpaces linear growth, we can safely assert, that $2k+1 < 2^k$, since exponential growth outpaces both potential and linear growth.\\ 
+ 	
+ 	Hence $p(n)$ holds.\\
+ 	\QED
+ 	
+ 	
+ 	\Exercise{5.4.1}
+ 	
+ 	\assignmentDescription
+ 	
+ 	Consider the following sequence:
+ 	
+ 	\mAlign{
+ 		a_1 &= 1 \\
+ 		a_2 &= 3 \\
+ 		a_k &= a_{k-2} + 2 a_{k-1}, \quad k \geq 3
+ 	}
+ 
+ 	Prove that $a_n$ is odd for $n \geq 1$.\\
+ 	
+ 	\solution
+ 	
+ 	Let $p(n)$ be the property, that  $a_n$ is odd for $n \geq 1$, then we start with proving the basic step of $p(3)$, since we already know that it holds for integers below 3:
+ 	
+ 	\cent{$p(3) = 1 + 2 \cdot 3 = 1+ 4= 5$}
+ 	
+ 	As $5$ is not divisible by $2$, it is odd. Thus $p(3)$ holds.\\
+ 	
+ 	We suppose this is the case for any integer $k \geq 3$ and we assume that it will also hold for $k+1$:
+ 	
+ 	\cent{$a_{k+1} = a_{k-1} +2 a_k = a_{k-1} +2 p(k)$}
+ 	
+ 	But since we assume any sequance leading up to $p(k)$ to be odd, we can express in forms of $2k+1$:
+ 	
+ 	\cent{$a_{k+1} = 2k+1 + 2(2k+1) = 2k+1+4k+2 = 6k+3$}
+ 	
+ 	Hence $p(n)$ is odd for any integer $n\geq 1$.\\
+ 	\QED
+ 	
+ 	\Exercise{5.4.6}
+ 	
+ 	\assignmentDescription
+ 	Consider a recursive function:
+ 	
+ 	\cent{$f(n) = \stackedFunc{5, \quad &n = 0}{16, \quad &n=1}{7 \cdot  f(n-1) - 10 \cdot f(n-2),\quad &n \geq 2}$}
+ 	
+ 	Prove it is the same as the following formula:
+ 	
+ 	\cent{$g(n) = 3 \cdot 2^n + 2 \cdot 5^n, \quad n \geq 2$}
+ 	
+ 	\solution
+ 	Let $p(n)$ be the property, that $f(n) = g(n)$ for any particular, but arbitrary, integer $n \geq 2$.\\
+ 	
+ 	The basis step consists of a demonstration of the truthness of $p(2)$:
+ 	\mAlign{
+ 		f(2) &= 7 \cdot 16 - 10 \cdot 5 = 112 - 50 = 62 \\
+ 		g(2) &= 3 \cdot 2^2 + 2 \cdot 5^2 = 3 \cdot 4 + 2 \cdot 25 = 12 + 50 = 62
+ 	}
+ 
+ 	We observe that $p(2)$ indeed holds.\\
+ 	
+ 	As of this, we assume it will hold for any integer $k \geq 2$. Now we want to show that it holds for $k+1$. Let's start with the left-hand side of $p(k+1)$:
+ 	
+ 	\mAlign{
+ 		f(k+1) &=  7 \cdot \parenthesis{3 \cdot 2^k + 2 \cdot 5^k} - 10 \cdot \parenthesis{3 \cdot 2^{k-1} + 2 \cdot 5^{k-1}} \\
+ 		&=  21 \cdot 2^k+ 14  \cdot 5^k - 30 \cdot 2^{k-1} - 20 \cdot 5^{k-1} \\
+ 		&=  21 \cdot 2^k+ 14  \cdot 5^k - \dfrac{30}{2} \cdot 2^k -\dfrac{ 20 }{5} \cdot 5^k \\
+ 		&=  21 \cdot 2^k+ 14  \cdot 5^k - 15 \cdot 2^k -4 \cdot 5^k \\
+ 		&=  6 \cdot 2^k+ 10  \cdot 5^k
+ 	}
+ 
+ 	And then the right-hand side:
+ 	
+ 	\mAlign{
+ 		g(k) &= 3 \cdot 2^{k+1} + 2 \cdot 5^{k+1} \\
+ 		&= 3 \cdot 2 \cdot 2^k  + 2 \cdot 5 \cdot 5^k\\
+ 		&= 6  \cdot 2^k  + 10 \cdot 5^k\\
+ 	}
+ 
+ 	As of this, we conclude $p(n)$ holds for any particular, but arbitrary, integer $n \geq 2$.
+ 	\QED
+ 	
+ 	\Exercise{5.4.7}
+ 	
+ 	\assignmentDescription
+ 	Consider the following sequence:
+ 	
+ 	\mAlign{
+ 		g_1 &= 3 \\
+ 		g_2 &= 5 \\
+ 		g_k &= 3g_{k-1} - 2 g_{k-2}
+ 	}
+ 	
+ 	Prove that $g_n = 2^n + 1$ for any particular, but arbitrary, integer $n \geq 3$.\\
+ 	
+ 	\solution
+ 	Let the property $p(n)$ be the expression of $g_k$ in terms of $n$.\\
+ 	
+ 	Then we can prove, that $p(3)$ holds:
+ 	
+ 	\cent{$g_2 = 3 \cdot 5 - 2 \cdot 3 = 15-6 = 8+7-6 = 2^3 +7-6 = 2^3 +1 = 9 $}
+ 	
+ 	Note that we archieve to rewrite to the given formula during the arithmetic process.\\
+ 	
+ 	As usual, we assume it holds for any particular, but arbitrary, integer $k \geq 3$. Now we want to show $p(k) \to p(k+1)$. We start with the left-hand side of $p(k+1)$:
+ 	
+ 	\mAlign{
+ 		L :  g_{k+1} &= 3g_k - 2 g_{k-1} = 3(2^k+1) - 2(2^{k-1} + 1) \\
+ 		&= 3 \cdot 2^k+3 - 2 \cdot 2^{k-1} -2 = 3 \cdot 2^k - 2 \cdot 2^{k-1} +1 \\
+ 		&= 3 \cdot 2^k - \dfrac{2}{2} \cdot 2^k +1 = 3 \cdot 2^k - 2^k = 2 \cdot 2^k + 1 \\
+ 		&= 2^{k+1} + 1
+ 	}
+ 	 And notice we end up with the given formula.\\
+ 	 \QED
+ 	 
+ 	 
+ 	 \section{Counting, probability and permutations}
+ 	
+ 	\Exercise{9.2.5}
+ 	
+ 	\assignmentDescription
+ 	Let's consider a game of Dart. What type of game is not important in this context. To win the tournament, each player must attain three wins in a row, or a total of four wins.\\
+ 	
+ 	For player $X$ and player $Y$, each game winner can be described as the string "xyy", where each letter denotes the winner. Now the big question remains to be answered. In how many ways from this point, can the tournament end?\\
+ 	
+ 	\solution
+ 	We can draw the tree that  describes the problem:
+ 	
+ 	\drawTree{
+ 		\drawNode{A}{X}{}
+ 		\drawNode{B}{Y}{below of=A}
+ 		\drawNode{C}{Y}{below of=B}
+ 		\drawNode{D}{X}{below left of=C}
+ 		\drawNode{E}{X}{below left of=D}
+ 		\drawNode{F}{X}{below left of=E}
+ 		\drawNode{G}{Y}{below of=E}
+ 		\drawNode{H}{X}{below left of=G}
+ 		\drawNode{I}{Y}{below of=G}
+ 		\drawNode{J}{Y}{below of=D}
+ 		\drawNode{K}{X}{below of=J}
+ 		\drawNode{M}{X}{below of=K}
+ 		\drawNode{N}{Y}{below right of=J}
+ 		\drawNode{O}{Y}{below right of=K}
+ 		\drawNode{P}{Y}{below right of= C}
+ 	}
+ 	{
+ 		\connectNodes{A}{B}{}
+ 		\connectNodes{B}{C}{}
+ 		\connectNodes{C}{D}{}
+ 		\connectNodes{D}{E}{}
+ 		\connectNodes{E}{F}{}
+ 		\connectNodes{E}{G}{}
+ 		\connectNodes{G}{H}{}
+ 		\connectNodes{G}{I}{}
+ 		\connectNodes{G}{I}{}
+ 		\connectNodes{D}{J}{}
+ 		\connectNodes{J}{K}{}
+ 		\connectNodes{K}{M}{}
+ 		\connectNodes{N}{J}{}
+ 		\connectNodes{O}{K}{}
+ 		\connectNodes{P}{C}{}
+	}
+	
+	The number of leaves are 7, which also corresponds to the number of ways the tournament can end.2 
+ 	
+ 	
+ 	\Exercise{9.2.10}
+ 	
+ 	\assignmentDescription
+ 	Assume there are three routes between places called North Point and Boulder Creek. From Boulder Creek there are two routes to a place called Beaver Dam, and from Beaver Dam two routes to a third place called Star Lake. Furthermore, there are four routes from Boulder Creek to Star Lake. As illustrated below: 
+ 	
+ 	
+ 	
+ 	\drawGraph{
+ 		\drawNode{A}{Nort Point}{}
+ 		\drawNode{B}{Boulder Creek}{below left of=A}
+ 		\drawNode{C}{Beaver Dam}{below right of=A}
+ 		\drawNode{D}{Star Lake}{below left of=C}
+ 	}
+ 	{
+ 		\connectNodes{A}{B}{bend right=10mm}
+ 		\connectNodes{A}{B}{}
+ 		\connectNodes{A}{B}{bend left=10mm}
+ 		\connectNodes{B}{C}{bend left=3mm}
+ 		\connectNodes{C}{B}{bend left=3mm}
+ 		\connectNodes{B}{D}{bend right= 12mm}
+ 		\connectNodes{B}{D}{bend right= 8mm}
+ 		\connectNodes{B}{D}{bend right= 4mm}
+ 		\connectNodes{B}{D}{}
+ 		\connectNodes{C}{D}{bend left=5mm}
+ 		\connectNodes{C}{D}{}
+ 	}{2.5cm}
+ 	
+ 	Answer each given question.\\
+ 	
+ 	\solution
+ 	
+ 	\begin{enumerate}[label=\defaultEnumerateLabel]
+ 		\myItem{How many routes passes through Beaver Dam?}
+ 		
+ 		Let North Point be the \textit{initial node} and \textit{Star Lake} the terminal node, and all other nodes \textit{visiting nodes}.
+ 		
+ 		Assume, we allow our selves to traverse \textit{visiting nodes} more than once while selecting unique routes. This implies we must not travel on an already traversed edge. Then we can use the multiplication rule to calculate the number of routes between the initial and terminal node. However, there is actually two ways to reach the terminal node. We can take into the account, that we allow our selves to visit a node more than once. Ex. we can from Beaver Dam travel back to Boulder Creek through an unvisited edge, or we can travel directly to Star Lake. Let's first calculate the total number of routes between the first case. \\
+ 		
+ 		There are three ways to reach Boulder Creek from North Point. This means we are able to select three different routes. From Boulder Creek, we have two possible ways to reach Beaver Dam and four possible ways to reach Star Lake, which happens to be our \textit{terminal point}. By the multiplication rule, we have:
+ 		\cent{$3 \cdot 2 \cdot 4 = 24$}
+ 		
+ 		Which denotes the exact number of possible routes between North Point and Star Lake that involves traversing back to Boulder Creek.\\
+ 		
+ 		As we noted earlier, there are three different ways to reach Boulder Creek from North Point, and two ways to reach Beaver Dam from here. That gives us, by the multiplication rule, $3 \cdot 2 = 6$ different ways to Beaver Dam from North Point. From North Point we have only two ways to reach Star Lake. That gives us, again by the multiplication rule in mind, a total of $3 \cdot 2 \cdot 2 = 12$ unique ways.\\
+ 		
+ 		Then we only have to sum the total number of routes, which gives us $24 + 12 = 36$ unique routes from North Point to Star Lake of which all passes through Beaver Dam.\\
+ 		
+ 		\myItem{How many routes bypasses Beaver Dam?}
+ 		
+ 		We have three different routes to Boulder Creek from North Point, and from here we have four different routes to Star Lake. Then by the multiplication rule we have:
+ 		
+ 		\cent{$3 \cdot 4 = 12$}
+ 		
+ 		Which exacts the total number of routes from North Point to Star Lake, all of them bypasses Beaver Dam.\\
+ 		
+ 	\end{enumerate}
+ 	
+ 	\Exercise{9.2.15}
+ 	
+ 	\assignmentDescription
+ 	
+ 	Consider a combination lock comprise three integers, each of the range 1 to 30. Answer each given question.\\
+ 	
+ 	\solution
+ 	
+ 	\begin{enumerate}[label=\defaultEnumerateLabel]
+ 		\myItem{How many possible ways to select a combination?}
+ 		
+ 		As each integer is in the range 1 to 30, there are $30-1+1 = 30$ ways to select the first number. As no constraints are given, we have the same number available at the next and the last number. By the use of the multiplication rule, we have:
+ 		
+ 		\cent{$30^3 = 30 \cdot 30 \cdot 30 = 27000$}
+ 		
+ 		Which means, we can select among 27000 unique combinations.\\
+ 		
+ 		\myItem{How many possible ways to select a combination with no option for duplicate numbers?}
+ 		
+ 		The first number gives us 30 possible ways to select a number. The next number only gives us 29 possible ways as we have already used one number. The last number is limited to only 28 ways, so by the multiplication rule we have:
+ 		
+ 		
+ 		\cent{$30 \cdot 29 \cdot 28 = 24360$}
+ 		
+ 		Which means, we have 24360 different ways to select a combination with the constraints in mind.\\
+ 		
+ 	\end{enumerate}
+ 	\Exercise{9.2.21}
+ 	
+ 	\assignmentDescription
+ 	Consider two sets $A$ and $B$ of $m$ and $n$ elements, respectively. Answer each given question.\\
+ 	
+ 	\solution
+ 	
+ 	\begin{enumerate}[label=\defaultEnumerateLabel]
+ 		\myItem{How many relations from $A$ to $B$?}
+ 		
+ 		For a particular element $x \In A$, we can count two relations to every element $y \In B$. That means, the number of relations of each element $a \In A$ are:
+ 		
+ 		\cent{$2_0 \cdot 2_1 \cdot 2_2 \cdot \dots \cdot 2_n = 2^n$}
+ 		
+ 		
+ 		Since there are $m$ elements in $A$, the total number of relations can be expressed as:
+ 		
+ 		\cent{$2_0^n \cdot 2_1^n \cdot 2_2^n \cdot \dots \cdot 2_m^n = 2^{n \cdot m}$}
+ 		
+ 		\myItem{How may functions from $A$ to $B$?}
+ 		
+ 		If we consider a function $f : A \mapsto B$, we know by definition of the term \textit{function}, that it doesn't relate any element $a \In A$ to more than one element $b \In B$. If we look at all the possible ways to relate  elements in $A$ to elemnts in $B$, we just have to look at all the candidates of each element in $A$. For each element $a \In A$, we can relate that element to at most one element in $B$, which means we can establish $n$ possible relations for each element in $A$. By the multiplication rule we have $n_0 n_1 n_2 \dots n_m$ possibilities, which gives us:
+ 		
+ 		\cent{$N(f) = n^m$}
+ 		
+ 	\end{enumerate} 
+ 	
+ 	
+ 	\Exercise{9.2.33}
+ 	
+ 	\assignmentDescription
+ 	Consider six people visiting a theatre.  They have six seats in a row available. Answer each given question.\\
+ 	
+ 	\solution
+ 	
+ 	\letterEnumeration{
+ 		\myItem{How many ways can they be arranged?}
+ 		We can count the total number of arrangements by six steps. First, we count all the possible arrangements for the first person, there are 6 ways, next we proceed to the second person, there are 5, and so forth. Which gives us:
+ 		
+ 		\cent{$6! = 6 \cdot 5 \cdot 4 \cdot 3 \cdot 2  = 30 \cdot 4 \cdot 3 \cdot 2  = 120 \cdot 3 \cdot 2 = 360 \cdot 2 = 720$}
+ 		
+ 		There are 720 available arrangements.\\
+ 		
+ 		\myItem{Assume one of the people are a doctor. He has to be placed at the aisle of the row.}
+ 		
+ 		If we locate the doctor in one of the two aisles, we only have to count the number of arrangements of the remaining five people:
+ 		
+ 		\cent{$5! = 5 \cdot 4 \cdot 3 \cdot 2 = 20 \cdot 3 \cdot 2 = 60 \cdot 2 = 120$}
+ 		
+ 		Then we assume there is an aisle on both sides of the row, so we have to double the number of arrangements. We can then arrange them, with the doctor in mind,  $120 \cdot 2 = 240$ ways.
+ 		
+ 		\myItem{Assume the attendants comprise three married couples who wish to sit together with the oldest on the left side.}
+ 		
+ 		Since we are dealing with married couples we can group them in pairs of two. That makes three groups of two people which we consider a unit. We first arrange the first group, there are three possibilities, then the next, there are two, and the last, which only has one option left. That gives:
+ 		
+ 		\cent{$3! = 3 \cdot  2 = 6$}
+ 		
+ 		There are 6 ways to arrange the married couples.\\		
+ 	}
+ 	
+ 	\Exercise{9.3.7}
+ 	\assignmentDescription
+ 	At a certain company, passwords must be from 3-5 symbols long and composed from 26 uppercase letters of the roman alphabet, the ten digits 0-9, and 14 non-letter symbols.\\
+ 	
+ 	\solution
+ 	Let $G$ be the set of allowed symbols, then we have $|G| =  50$.
+ 	\letterEnumeration{
+ 		\myItem{How many passwords are possible if repetition of symbols is allowed?\\}
+ 		
+ 		We have the following number of passwords which range in length from 3 to 5:
+ 		
+ 		\mAlign{
+ 			50^3 &= 125000 \\
+ 			50^4 &= 6250000\\
+ 			50^5 &= 312500000
+ 		}
+ 		
+ 		As we are dealing with disjoints sets, we can use the summation rule:
+ 		
+ 		\cent{$125000 + 6250000 + 312500000 = 318875000 $}
+ 		
+ 		Hence there are 318875000 passwords.\\
+ 		
+ 		\myItem{How many passwords have no repeated symbols?}
+ 		
+ 		\mAlign{
+ 			50 \cdot 49 \cdot 48 &= 117600 \\
+ 			50 \cdot 49 \cdot 48 \cdot 47 &= 5527200\\
+ 			50 \cdot 49 \cdot 48 \cdot 47 \cdot 46 & = 254251200
+ 		}
+ 	Hence there are 259896000 passwords with no repetition of letters.\\
+ 	
+ 	\myItem{How many passwords has at least one repeated symbol?}
+ 	
+ 	This can be determined as the difference between the total number of passwords and the number of passwords that have no repetition of letters:
+ 	
+ 	\cent{$318875000 - 259896000 = 58979000$}
+ 	
+ 	Hence there are 58979000 passwords with at least one repeated letter.\\
+ 	}
+ 		
+ 	\Exercise{9.3.12}
+ 	\assignmentDescription
+ 	Consider the string \textit{THEORY}. Answer each given question.\\
+ 	\solution
+ 	
+ 	\letterEnumeration{
+ 		\myItem{How many ways to rearrange the characters in the string?}
+ 		
+ 		Since there are 6 characters, there are $6! = 720$ ways to rearrange the given string.\\
+ 		
+ 		\myItem{What if the characters \textit{T} and \textit{H} must be next to each other as either $TH$ or $HT$?}
+ 		
+ 		If we deal with $TH$ and $HT$ as single characters, then we have 5 characters, which gives $5! = 120 $ rearrangements if we ignore the second criteria. Then we just have to double it, as we can find just as many rearrangements for $HT$. Then we have 240 possible rearrangements.\\
+ 		
+ 	}
+ 	
+ 	\Exercise{9.3.17}
+ 	
+ 	\assignmentDescription
+ 	Answer each given questions.\\
+ 	
+ 	\solution
+ 	Let $G$ be the set of all symbols of a hexadecimal digit. That is:
+ 	
+ 	\cent{$G = \{0,1,2,3,4,5,6,7,8,9,A,B,C,D,E,F\}$}
+ 	
+ 	Then we have $|G| = 16$.\\
+ 	
+ 	\letterEnumeration{
+ 		\myItem{How many strings of four hexadecimal digits do not have repeated characters?}
+		
+		This can be determined by the multiplication rule:
+		 		
+ 		$16 \cdot 15 \cdot 14 \cdot 13 = 43680$
+ 		
+ 		Hence there are 43680 strings of four hexadecimal digits which do not have any repeated characters.\\
+ 		
+ 		\myItem{How many strings of four hexadecimal digits do have at least one repeated character?}
+ 		
+ 		First, we have to determine the total number of strings. There are $16^4 = 65536$  possible strings of four hexadecimal digits available. Then we just have to subtract the number of strings with no repeated characters:
+ 		
+ 		\cent{$65536 - 43680 = 21856$}
+ 		
+ 		Hence there are 21856 strings of four hexadecimal digits with at least one repeated character.\\
+ 		
+ 		\myItem{What is the probability to obtain a string with at least one repeated character, if we select one on  a random basis?}
+ 		
+ 		If we assume we select one string randomly we can calculate the probability by the ordinary formula:
+ 		
+ 		\cent{$\dfrac{21856}{65536} = 0.333496094 \approx 33.4\%$}
+ 		
+ 		We have approximately $33.4 \%$ chance to obtain a string with at least one repeated character.\\
+ 		
+ 	}
+ 	\Exercise{9.4.2}
+ 	
+ 	\Exercise{9.4.11}
+ 	
+ 	\Exercise{9.4.15}
+ 	
+ 	\Exercise{9.4.28}
+ 	
+ 	\Exercise{9.4.30}
+ 	
+ 	\Exercise{9.5.7}
+ 	\Exercise{9.5.14}
+ 	\Exercise{9.5.21}
  	\chapter{Additional exercises}
  	
- 	This chapter includes material from other books and documents besides the book used from the previous chapter. Here we will process the branch of mathematic known as \textit{modular arithmetic}.
+ 	This chapter includes material from other books and documents beside the book used in the previous chapter.
  	
  	\pagebreak
  	
+ 	\section{Mathematical induction}
+ 	
+ 	\subsection{Geometrical proof}
+ 	
+ 	\assignmentDescription
+ 	
+ 	Prove the following geometrical identity:
+ 	
+ 	\cent{$$\sum_{i=0}^{n} r^i = \dfrac{r^{n+1} - 1}{r-1}$$}
+ 	
+ 	\solution
+	First we establish $p(n)$ as the whole expression we want to proof valid:
+	
+	\cent{$p(n) : 1 + r + r^2 + \dots + i^n = \dfrac{r^{n+1} - 1}{r-1}, \quad r \neq 0$}
+	 	
+ 	What we want to show is, if $p(0)$ holds, then we'll assume that it also holds for some integer $k$. And then we'll assume, that the formula holds for any integer $n$, if we can show that it holds for $k+1$. We can express this in logical terms as:
+ 	
+ 	\cent{$\phi : p(0) \to p(k), \quad \psi : p(k) \to p(k+1), \quad \delta : \psi \to p(n)$}
+ 	
+ 	Where $\phi$ is our basic assumpion, $\psi$ our inductive hypothesis, and $\delta$ our conclusive hypothesis\footnote{Please note the use of the phrase \textit{hypothesis}. We use this phrase as the proof is made up of several assumptions.}. That is, if we can establish a model for the above set of formulas $\Gamma$, we have proved the given expression valid.\\
+ 	
+ 	Let's start with $\phi$ and evaluate the right-hand side of $p(0)$:
+ 	
+ 	\cent{$p(0) : \dfrac{r^{0+1} - 1}{r-1} = \dfrac{r-1}{r-1} = 1$}
+ 	
+ 	This aligns well with the left-hand side of $p$, as $r^0 = 1$.\\
+ 	
+ 	We can in fact evaluate $p$ for integers larger than 0, but we'll assume it holds for some integer $k < n$:
+ 	
+ 	\cent{$p(k) : 1 + r + r^2 + \dots r^k = \dfrac{r^{k+1} - 1}{r-1}$}
+ 	
+ 	Then we'll proceed to $\psi$, which is part of our inductive step.\\
+ 	
+ 	We have to show $p(k) \to p(k+1)$. We assume $p(k)$ holds, so we want to show that both sides of the expression are identical by adding $r^{k+1}$ to the left-hand side and increment $k$ by 1 on the right-hand side. Let's begin by incrementing $k$ on the right-hand side:
+ 	
+ 	\cent{$p(k+1) : \dfrac{r^{k+1+1} - 1}{r-1} = \dfrac{r^{k+2} - 1}{r-1}$}
+ 	
+ 	Then we will proceed to the left-hand side and add $r^{k+1}$:
+ 	
+ 	\cent{$p(k+1) : 1 + r + r^2 + \dots r^k + r^{k+1} $}
+ 	
+ 	Then we substitute the sum up to $r^k$ with the right-hand side of  $p(k)$:
+ 	
+ 	\cent{$p(k+1) : \dfrac{r^{k+1} - 1}{r-1} + r^{k+1} $}
+ 	
+ 	And do the arithmetic to show that both sides are identical:
+ 	
+ 	\mAlign{
+ 		p(k+1) : &\dfrac{r^{k+1} - 1}{r-1} + r^{k+1} = \dfrac{r^{k+1} - 1}{r-1} + \dfrac{(r-1)r^{k+1}}{r-1} \\
+ 		&=  \dfrac{r^{k+1} - 1 + (r-1)r^{k+1}}{r-1} = \dfrac{r^{k+1} - 1 + r^{k+2} -r^{k+1}}{r-1} \\
+ 		&= \dfrac{ r^{k+2}-1}{r-1}
+ 	}
+ 	
+ 	\QED
  	\section{Modulu and integers}
  	\assignmentDescription Prove the following statement:
  	\cent{$a \equiv b (\modInline m) \leftrightarrow a \modFunc m = b \modFunc m$}
  	
  	\solution
- 	What we want to show, is, that we get the same expression on both sides using some known theorems and simple arithmetic.\\
+ 	What we want to show, is, that each expression of both sides can be rewritten into  the same expression by using some known theorems and simple arithmetic.\\
  	
  	Let's first process the lefthand side of the given formula. We know, by definition of congruence, if $a$ is congruent to $b$ modulo $m$, then $m$ divides the difference of $a$ and $b$. Then the difference can be expressed as the product of some integer $k$ and $m$:
  	
  	\cent{$a-b = km$}
  	
- 	If we isolate $a$ in the above expression we get:
+ 	And therefore, we can insert this into the right hand side of the given statement:
  	
- 	\cent{$a = b + km$}
+ 	\cent{$a-b=km \leftrightarrow a \modFunc m = b \modFunc m$}
  	
- 	And therefore, we can insert this in the given statement:
- 	
- 	\cent{$a = b + km \leftrightarrow a \modFunc m = b \modFunc m$}
- 	
- 	And by our knowledge regarding the biimplication connector, we know that this connector is only true for identical evaluations of both sides. So we actually want to end up with something like:
- 	
- 	\cent{$a = b + km \leftrightarrow a = b+km$}
+ 	And by our knowledge regarding the biimplication connector, we know that this connector is only true for identical evaluations of both sides.\\
  	
  	Then we proceed to the right handside.\\
  	
@@ -2898,26 +5032,53 @@
  	
  	\cent{$a = m q_1 + r, \quad b = m q_2 + r$}
 	
-	And we know by the given statement, that the remainder $r$ must be identical for both integers. Then we can isolate $r$:
+	By subtracting these two equations we get:
 	
-	\cent{$a - m q_1= r, \quad b - m q_2 = r$}
+	\cent{$a - b = mq_1 - mq_2 = m(q_1 - q_2)$}
 	
-	And put them equal to each other and do some refactoring:
+	And we substitute $q_2 -q_1$ with $k$:
 	
-	\cent{$a - m q_1 = b - mq_2 \Leftrightarrow a = b -mq_2 + mq_1 = b + m(q_2-q_1)$}
+	\cent{$a-b=km$}
 	
-	Here we notice, that we can substitute $q_2 - q_1$ for an integer $k$:
-	
-	\cent{$k = q_2 -q_1$}
-	
-	We insert this in the previous equation:
-	
-	\cent{$a = b+km$}
 	
 	And we now have identical expressions on both side of the biimplicate connector.\\
 	\QED
+	
+	\subsection{Linear combinations and congruence}
+	
+	\assignmentDescription
+	Prove the following identities:
+	
+	\cent{$a+b \equiv (a+b) (\modInline m), \quad ac \equiv bd (\modInline m)$}
+	
+	Assume $a\equiv b (\modInline m)$ and $c \equiv d (\modInline m)$.\\
+	
+	\solution
+	Let's first establish some expressions of $a$ and $b$:
+	
+	\cent{$a = b + k_1m, \quad c = d + k_2 m$}
+	
+	If we add them together we'll get:
+	
+	\cent{$a +c  = b + k_1m + d + k_2m = (b+d) + (k_1+k_2)m$}
+	
+	And by the fact, that $k_1$ and $k_2$ are integers, the sum of these is also an integer $\doubleZ$:
+	
+	\cent{$a+c=(b+d)+\doubleZ m$}
+	
+	Instead of summing $a$ and $c$, we can also determine the product of these:
+	
+	\mAlign{ac  &= (b + k_1m)(d + k_2m) = bd + b k_2m + d k_1 m + k_1 k_2 m^2\\
+					   &= bd + m(bk_2 + dk_1 + k_1k_2m)}
+	
+	\QED
+	
  	\subsection{Prove of congruence}
  	
+ 	\cent{$a \equiv (a \modFunc m) \modInline m$}
+ 	\cent{$b \equiv (b \modFunc m) \modInline m$}
+ 	\cent{$(a+b) \equiv (a \modFunc m + b \modFunc m) (\modInline m)$}
+ 	\cent{$(a+b) \modFunc m = (a \modFunc m + b \modFunc m) \modFunc m$}
  	\subsection{System of linear congruences}
  	\assignmentDescription
  	Solve the following system of linear congruences:
@@ -2948,6 +5109,9 @@
  	The solution $x$ is therefore the following linear combination:
  	
  	\cent{$x = 8\cdot 13 - 6 \cdot 12 = 32 + 156k$}
+ 	
+ 	\chapter{Exam}
+ 	\pagebreak
 	\section{Midterm exercises}
  	\subsection{Partial ordered relations}
 	 
@@ -2967,6 +5131,66 @@
 	 
 	We observe that $R \cap S$ is reflexive, asymmetric, and transitive.  Hence it is a partial ordered relation on $A$.
 	
+	\section{Re-mock}
+	
+	\subsection{Induction}
+	
+	\assignmentDescription
+	
+	Prove the following divisibility by mathematical induction:
+	
+	\cent{$n|(n+1)^m-1, \quad n,m \In \doubleN_0$}
+	
+	\solution
+	Let $p(m)$ be the property, that  $n$ dividies $(n+1)^m - 1$.\\
+	
+	The basis step: $p(0) \to p(i)$.\\
+	
+	First, we'll show that $p(0)$ holds:
+	
+	\cent{$p(0) : 0 | (0 + 1)^m - 1 = 1^m - 1 = 0$}
+	
+	As $0 = 0 \cdot 0$, it holds.\\
+	
+	Then we assume it holds for any particular, but arbitrary, integer $k \geq 0$.\\
+	
+	Inductive step: $p(i) \to p(i+1)$.\\
+	
+	\cent{$p(i+1) : n | (n+1)^{i+1} - 1 = n | (n+1)^m(n+1) - 1 = n(n+1)^m + (n+1)^m - 1$}
+	
+	As $(n+1)^m -1$ is our inductive hypothesis, and we assume it is divisibly by $n$, we can express this as $nq$:
+	
+	\cent{$p(i+1) : n|n(n+1)m + nq = n((n+1)^m + q)$}
+	
+	Hence  $p(m)$ holds.\\
+	\QED
+	
+	\subsection{Greatest common divisor}
+	
+	\assignmentDescription
+	Prove the following consequence:
+	
+	\cent{$a \equiv b ( \modInline m) \wedge b \equiv c (\modInline m) \to a+d \equiv c + d (\modInline m)$}
+	
+	\solution
+	We can express $a$ and $b$ as:
+	
+	\cent{$a = b+k_1m, \quad b = c + k_2m $}
+	
+	If we substitute $b$ for $c + k_2m $ in $a$, we'll get:
+	
+	\cent{$a = c+ k_2m + k_1m = c  +qm, \quad q = k_1 + k_2$}
+	
+	If we add $d$ to both sides of the equation we'll get:
+	
+	\cent{$a+d = c +d +qm$}
+	
+	Which we can write as:
+	
+	\cent{$a \equiv b ( \modInline m) \wedge b \equiv c (\modInline m) \to a+d \equiv c + d (\modInline m)$}
+	
+	Hence the statement holds.\\
+	\QED
 	\chapter{Appendix}
 	\pagebreak
 	
@@ -2982,7 +5206,7 @@
 	
 	Then we can calculate the values of $r_i$, $q_i$, $s_i$, and $t_i$, recursively for $i \geq 2$:
 	
-	\mAlign{q_i &= \floor{\frac{r_{i-2}}{r_{i-1}}} \\
+	\mAlign{q_i &= \Floor{\frac{r_{i-2}}{r_{i-1}}} \\
 				  r_i &= r_{i-2} - q_i r_{i-1} \\
 			  	  s_i &= s_{i-2} - q_i r_{i-1} \\
 		  	  	  t_i &= t_{i-2} - q_i t_{i-1}}
@@ -3017,8 +5241,6 @@
 	 
 	\cent{$x = a_1\cdot M_1 \cdot y_1 + a_2\cdot M_2 \cdot y_2 + \hdots + a_n\cdot M_n \cdot y_n  $}
 	
-	\cent{$f(a,b,c) = (a-1,b + c,b)$}
-	\cent{$f(3,1,1) = f(2,2,1) = f(1,3,2) = f(0,5,3) = 3$}
 	
 \end{document}
  
