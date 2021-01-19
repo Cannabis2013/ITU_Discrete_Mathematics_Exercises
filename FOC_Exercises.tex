@@ -83,10 +83,9 @@
 % Text macros
 \newcommand{\Domain}{\textbf{Domain of exercise: }}
 \newcommand{\Prove}{\textbf{Statement to prove: }}
-\newcommand{\assignmentDescription}{\textbf{Assignment description: }}
-\newcommand{\Assign}{\textbf{Assignment description: }}
+\newcommand{\AssignmentDescription}{\textbf{Assignment description: }}
 \newcommand{\myRemark}{\textbf{Remarks: }}
-\newcommand{\solution}{\textbf{Solution candidate: }}
+\newcommand{\Solution}{\textbf{Solution candidate: }}
 \newcommand{\QED}{\boxed{}}
 \newcommand{\Section}[1]{\section{#1}}
 \newcommand{\Exercise}[1]{\subsection{Exercise #1}}
@@ -94,14 +93,15 @@
 \newcommand{\modInline}{\text{mod\,}}
 \newcommand{\modFunc}{\text{\,\textbf{mod}\,}}
 \newcommand{\emptyItem}{\item \,\\}
-\newcommand{\myItem}[1]{\item #1\\}
+\newcommand{\MyItem}[1]{\item #1\\}
 \newcommand{\parenthesis}[1]{\left( #1 \right)}
 \newcommand{\Ceil}[1]{\left \lceil{#1}\right \rceil }
 \newcommand{\Floor}[1]{\left \lfloor{#1}\right \rfloor }
 \newcommand{\decimal}[1]{(#1)_{10}}
 \newcommand{\binary}[1]{(#1)_2}
 \newcommand{\hexadec}[1]{(\text{#1})_{16}}
-
+\newcommand{\theorem}[1]{\textit{theorem #1}}
+\newcommand{\Formula}[1]{\textit{formula #1}}
 % Tikz related
 
 \newcommand{\drawNode}[3]{
@@ -137,7 +137,7 @@
 	\end{center}
 }
 
-\newcommand{\letterEnumeration}[1]{\begin{enumerate}[label = \defaultEnumerateLabel]
+\newcommand{\LetterEnumeration}[1]{\begin{enumerate}[label = \defaultEnumerateLabel]
 		#1
 \end{enumerate}}
 
@@ -180,7 +180,7 @@
 	\Prove
 	Assume $c$ is a particular integer. Prove each given statement.\\
 	
-	\solution
+	\Solution
 	\begin{enumerate}[label=\defaultEnumerateLabel]
 		\item Is $-6c$ an even integer?
 		
@@ -214,7 +214,7 @@
 	\Prove
 	For every integer $n$, if $n$ is odd then $\frac{n-1}{2}$ is odd.\\
 	
-	\solution
+	\Solution
 	We rewrite by the Law of Fraction that says $\frac{a+b}{c} = \frac{a}{c} + \frac{b}{c}$:
 	
 	\cent{$\frac{n - 1}{2} = \frac{n}{2} - \frac{1}{2}$}
@@ -230,7 +230,7 @@
 	\Prove
 	The average of any two odd integers is odd.\\
 	
-	\solution
+	\Solution
 	We formalize this in mathematical notation:
 	
 	\cent{$\frac{m +n }{2} = 2s + 1$}
@@ -284,7 +284,7 @@
 	\Prove
 	If $a$ and $b$ are any odd integer, then $a^2 + b^2$ is even.\\
 	
-	\solution
+	\Solution
 	We can write two odd integers $m$ and $n$ in terms of $q$ and $r$:
 	\cent{$m = 2q+1, \quad n = 2r+1$}
 	
@@ -301,7 +301,7 @@
 	\Prove
 	If $n$ is any odd integer,then $(-1)^n = -1$.\\
 	
-	\solution
+	\Solution
 	We write an odd integer $n$ in terms of any integer $q$ as:
 	
 	\cent{$n = 2q+r$}
@@ -327,11 +327,11 @@
 	\Prove
 	The product of any even integer and any integer is even.\\
 	
-	\solution
+	\Solution
 	
 	It is easy to show, that the product of two even integers is even, so we will show that any product comprise at least one even integer, is even. We consider $m$ and $n$ in terms of $q$ and $r$:
 	
-	\cent{$m = 2q$, \quad $n = 2r+1$}
+	\cent{$m = 2q, \quad n = 2r+1$}
 	
 	Then we can by simple arithmetic deduce that the product is indeed even:
 	
@@ -358,7 +358,7 @@
 	\Prove
 	For all integers $a$, $b$ and $c$, if $a$, $b$ and $c$ is consecutive, then $a+b+c$ is even.\\
 	
-	\solution
+	\Solution
 	We know that any sum of an even and odd integer is odd. So let's try to define $a$, $b$ and $c$ such that $a$ and $c$ is even and $b$ is odd:
 	
 	\mAlign{a &= 2q\\
@@ -376,7 +376,7 @@
 	\textbf{Solution to prove:}
 	If $mn$ is a perfect square, then $m$ and $n$ is perfect squares.\\
 	
-	\solution
+	\Solution
 	By the Law of Exponents we have:
 	\cent{$ m^2 n^2=(mn)^2$}
 	
@@ -396,7 +396,7 @@
 	\Prove
 	Suppose that integers $m$ and $n$ are perfect squares. Then $m+n+2\sqrt{mn}$ is also a perfect square. Why?\\
 	
-	\solution
+	\Solution
 	We define perfect squares as positive integers $k \in \doubleN^+$ that can be written on the form:
 	
  	\cent{$k = q^2$}
@@ -421,7 +421,7 @@
 	\Prove
 	Assume that $m$ and $n$ are both integers and that  $n\neq 0$. Explain why $(5m -12n)/(4n)$ must be a rational number.\\
 	
-	\solution
+	\Solution
 	let's rewrite the given statement by the Law of Fractions and try to do some reduction:
 	
 	\cent{$\frac{5m-12n}{4n} = \frac{5m}{4n} - \frac{12n}{4n} = \frac{5m}{4n} - 3 $}
@@ -442,7 +442,7 @@
 	\Prove
 	The cube of any rational number is a rational number
 	
-	\solution
+	\Solution
 	
 	Let's express the statement to prove by using universal quantifiers:
 	
@@ -468,7 +468,7 @@
 	\Prove
 	If $a$ is any odd integer, then $a^2 + a$ is even.\\
 	
-	\solution
+	\Solution
 	First we have to show that the square of any odd number is also odd. Consider an odd integer $m$:
 	
 	\cent{$m = 2q + 1$}
@@ -497,7 +497,7 @@
 	
 	Must $x$ be a rational number? If yes, express $x$ as a ratio of two integers.\\
 	
-	\solution
+	\Solution
 	Yes. $x$ must be rational and can be written as a rational number by using some arithmetic.\\
 	
 	We first multiply with $cx+d$ and then subtract $ax - d$, all on both sides:
@@ -516,7 +516,7 @@
 	\Prove
 	There is no least rational number.\\
 	
-	\solution
+	\Solution
 	We can formulate its negation as:
 	
 	\cent{$\forall x \In \doubleQ \exists y \in \doubleQ(\neg(y \geq x))$}
@@ -546,10 +546,10 @@
 	
 	\Exercise{4.7.22}
 	
-	\assignmentDescription
+	\AssignmentDescription
 	If $r^2$ is a real number then $r$ is also a real number.
 	
-	\solution
+	\Solution
 	We can prove this false by contradiction. We can assert that there doesn't exist a number that is not real and which square is real. Then we can arbitrarily select a particular number that is not real, for example a complex number, and then proceed until a contradiction occurs. We can for an example consider an arbitrary and particular complex number $ib$ which square is $-b^2$. As $b$ is real, then there must exist a number not contained in $\doubleR$ which square is real.\\
 	
 	On the contrary, we can also provide a proof of contraposition. A proof of not all squares of complex numbers is complex will imply that the statement is not true.\\
@@ -559,7 +559,7 @@
 	\Prove
 	The reciprocal of any irrational real number is irrational\\
 	
-	\solution
+	\Solution
 	
 	An irrational number can't be written on the form:
 	
@@ -587,7 +587,7 @@
 	\Prove
 	For any positive real numbers $r$ and $s$, $\sqrt{r+s} \neq \sqrt{r} + \sqrt{s}$\\
 	
-	\solution
+	\Solution
 	We assume that it's not true. Our assertion is that the following is true:
 	
 	\cent{$\sqrt{r+s} = \sqrt{r} + \sqrt{s}$}
@@ -612,14 +612,14 @@
 	
 	\Exercise{6.1.1}
 	
-	\Assign
+	\AssignmentDescription
 	For any given set $A$ and $B$, determine if one of the following is true:
 	\begin{itemize}
 		\item Is $A \subseteq B $ or $A \subset B$?
 		\item Is $B \subseteq A$ or $B \subset A$?
 	\end{itemize}
 
-	\solution
+	\Solution
 	
 	\begin{enumerate}[label = \textbf{a.}]
 		\item $A = \{2,\{2\},(\sqrt{2})^2\}, B = \{2,\{2\},\{\{2\}\}\}$\\
@@ -683,7 +683,7 @@
 
 	\cent{$A \cap B = \{x,y \In \doubleZ | 20x = y\}$}
 	
-	\solution
+	\Solution
 	Let's prove $A \subseteq B$. First we have to consider the set of elements of $A$ and $B$. All elements in $A$ and $B$ is a multiplum of 5 as $20$ can be written as $5 \cdot 4$, but what are the intersection of $A$ and $B$?\\
 	
 	$A$ comprise elements which is integers divisible by 5. $B$ comprise elements that are integers and  divisible by 20, and as such only contains every 20. element of $A$. That suggests that  $A \cap B = B$ and the difference $A - B$ must be all elements that are integers that is divisible by 5 but not 20.\\
@@ -711,10 +711,10 @@
 	
 	\Exercise{6.1.8}
 	
-	\Assign
+	\AssignmentDescription
 	Write any given set in descriptive words and then write the sets in terms of $A$ and $B$ and the use of set symbols. Assume an universal set $U$.\\
 	
-	\solution
+	\Solution
 	\begin{enumerate}[label=\defaultEnumerateLabel]
 		\item $\{x \in U | x \In A \text{ and } x \In B\}$
 		
@@ -826,7 +826,7 @@
 	\Prove
 	For any given sets $A$, $B$, and $C$, if $A \subseteq B$ and $B \subseteq C$, then $A \subseteq C$. 
 	
-	\solution
+	\Solution
 	We have to show that, if $A$ is a subset of  $B$, which means that any element of $A$ is also an element of $B$, then $A$ is also a subset of any set in which $B$ is a subset.\\
 	
 	Let $x$ be any particular but arbitrary element of $A$, if $A \subseteq B$, then $x$ is also an element of $B$.  In fact, this applies for all elements of $A$. Then we assume that $B$ is also a subset of some other particular but arbitrary set $C$. This means that all elements of $B$, which also includes the elements of $A$, in particular our chosen $x$, is also elements of $C$. Then it follows that $A$ must be a subset of $C$.\\
@@ -839,7 +839,7 @@
 	
 	\cent{$A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$}
 	
-	\solution
+	\Solution
 	Let's assume that $B$ and $C$ contains elements that also are elements of $A$. Let $N$ be all the elements of $B$ and $C$ that also are elements of $A$. Then by definition of intersection, $A \cap (B \cup C)$  must be the set $N$.\\
 	
 	If we take a look on the right hand side, let $P$ be the set of elements that are elements of $A$ and elements of $B$. And let $Q$ be the set of elements that are elements of $A$ and elements of $C$. The union of $P$ and $Q$ must be the set $N$, as $N$ comprise all elements that are elements of $A$, $B$, and $C$.\\
@@ -852,7 +852,7 @@
 	
 	\cent{$(A \cup B) \cap C \subseteq A \cup (B \cap C)$}
 	
-	\solution
+	\Solution
 	
 	Let $N$ comprise elements of $A$ and $B$ such that, for some particular but arbitrary element $x$ of $N$, $x$ is either an element of $A$ or $B$, and an element of $C$. Then by definition of intersection, $(A \cup B) \cap C$ must be the set $N$. \\
 	
@@ -885,7 +885,7 @@
 	
 	\cent{$ A \cap (B-C) \subseteq (A \cap B) - (A \cap C) $}
 	
-	\solution
+	\Solution
 	To begin with, we assume that $B$ and $C$ is partial disjoints sets, which means that they aren't subset of each other but the intersection between them is not the empty set. We can for an example assume $B \subseteq C$, then we have to operate with $\emptyset$ as $B - C = \emptyset$\\
 	
 	By definition of difference of any sets $\script{A}$ and $ \script{B} $, the difference of $B$ and $C$ is all the elements that only is elements of $B$ but not elements of $C$. Then we let $N$ be all the elements that are elements of $A$ and elements of the difference of $B$ and $C$. We note that some elements excluded by the denition of difference might also be elements of $A$, but are excluded as consequence of difference.\\
@@ -906,7 +906,7 @@
 	
 	\cent{$(A \cup B) - C \subseteq (A-C) \cup (B-C)$}
 	
-	\solution
+	\Solution
 	Let $N$ be the completion of $C$ with regard  to $A\cup B$. By definition $N$ must comprise elements that are elements of $A \cup B$ but not elements of $C$. That is:
 	
 	\cent{$ N = \{x \In U | (x \In A \vee x \In B) \wedge x \notin C\} $}
@@ -925,7 +925,7 @@
 	
 	For all sets $A$, $ B $, and $ C $, if $ A \subseteq B $ and $ B \subseteq C $, then $ A \subseteq C $.\\
 	
-	\solution
+	\Solution
 	We don't know if $x$ in the first two steps is the same $x$, as he introduce $x$ in both steps in words like  "there is an element..". That lacks clarity in terms of context, as it is clear that $x$ is an element of  $A$ in the first step, but is $x$ also an element of $A$ in the second step? In the second step he should have written somethin like "then there is an element $ x $ that is element of $ B $ but also an element of $ A $..", and then we know for sure, that $x$ is an element of $A$.\\
 	
 	Also we might prefer to write $x$ as a set of elements of any particular set that is in the solution domain. For an example:
@@ -939,7 +939,7 @@
 	\Prove
 	For all given sets, disprove all given identities of them by counterexample
 	
-	\solution
+	\Solution
 	\begin{enumerate}
 		\item $ (A \cup B) \cap C = A \cup (B \cap C) $
 		
@@ -1074,7 +1074,7 @@
  \Section{Properties of functions}
  	\Exercise{7.1.2}
  	
- 	\assignmentDescription 
+ 	\AssignmentDescription 
  	Let $X = \{1,3,5\}$, $Y = \{a,b,c,d\}$, and $g : X \mapsto Y$.
  	
  	\begin{enumerate}[label=\defaultEnumerateLabel]
@@ -1086,7 +1086,7 @@
  		\item Represent $g$ as a set of ordered pairs.
  	\end{enumerate}
  
- 	\solution
+ 	\Solution
  	The domain and codomain of $g$ is the set $X$ and $Y$, respectively.\\
  	
  	As all the elements of $X$ is assigned to only one element of $Y$, we can conclude that $g(1) = g(2) = g(3) = b$.\\
@@ -1104,10 +1104,10 @@
  	\QED
  	
  	\Exercise{7.1.3}
- 	\assignmentDescription
+ 	\AssignmentDescription
  	Evalute truth and false for any given question a - d.
  	
- 	\solution
+ 	\Solution
  	
  	\begin{enumerate}[label=\defaultEnumerateLabel]
  		\item If two elements in the domain of a function $f$ are identical, are their images also identical?
@@ -1128,7 +1128,7 @@
  
  \Exercise{7.1.7}
  
- \assignmentDescription
+ \AssignmentDescription
  Let $A=\{1,2,3,4,5\}$ and let $F : A \mapsto \doubleZ$ be a stack function defined as:
  \[ F(X) = 
  \begin{cases}
@@ -1139,7 +1139,7 @@
  	
  	For any given $B \subseteq A$, determine $F(B)$.\\
  	
- 	\solution
+ 	\Solution
  	\begin{enumerate}[label=\defaultEnumerateLabel]
  		\item $B= \{1,3,4\}$
  		
@@ -1160,12 +1160,12 @@
  
  	\Exercise{7.1.11}
  	
- 	\assignmentDescription
+ 	\AssignmentDescription
  	Define a function $f : \doubleZ^2 \mapsto \doubleZ^2$ such that $f((a,b)) = (2a+1,3b-2)$. \\
  	
  	For any given $v \In \doubleZ^2$, determine $f(v)$.\\
  	
- 	\solution
+ 	\Solution
  	\begin{enumerate}[label=\defaultEnumerateLabel]
  		\item Determine the image of  $v = (4,4)$.
  		
@@ -1187,12 +1187,12 @@
  
  	\Exercise{7.1.[41-44]}
  	
- 	\assignmentDescription
+ 	\AssignmentDescription
  	Let $A$, $B$ be sets. Then let $X$ and $Y$ be the domain and codomain of a function $f$, respectively.\\
  	
  	For each given statement, determine their truthness and justify your answer.\\
  	
- 	\solution
+ 	\Solution
  	\begin{enumerate}[label=\defaultEnumerateLabel]
  		\item $A\subseteq B \to f(A) \subseteq f(B)$
  		
@@ -1218,7 +1218,7 @@
  	
  	\Exercise{7.2.1}
  	
- 	\assignmentDescription
+ 	\AssignmentDescription
  	Consider the two statements that is part of the definition of an ono-to-one relation:
  	
  	\cent{$\forall x_1, x_2 \In X ((x_1 = x_2) \to (f(x_1) = f(x_2) ))$}
@@ -1226,7 +1226,7 @@
  	
  	Give a description of why they can be considered equivalent.\\
  	
- 	\solution
+ 	\Solution
  	The first formalization says, that if two particular but arbitrarily chosen preimages from the set $X$ is identical, then their images with regard to some injective function $f$ is also identical.\\
  	
  	The second says, that if two particular but arbitrarily chosen preimages from the set $X$ is not identical, then their images with regard to some injective function $f$ is also not identical.\\
@@ -1243,7 +1243,7 @@
  	
  	\Exercise{7.2.2}
  	
- 	\assignmentDescription
+ 	\AssignmentDescription
  	Let $X = \{a,b,c,d\}$ and $Y = \{e,f,g\}$. Let $f : X \mapsto Y$ and $g : X \mapsto Y$ be defined as:
  	
  	\cent{$f = \{(a,f),(b,g),(c,e), (d,e)\}$}
@@ -1251,14 +1251,14 @@
  	
  	Is $f$ and $g$ ono-to-one or onto?\\
  	
- 	\solution
+ 	\Solution
  	Both functions is onto, as they violates the principle of ono-to-one which states: \textit{"Each elements in the codomain of some function $f$ is mapped to at most one element in the domain of $f$"}. We can see that by picking two mappings from $f$ and observe that $(c,e)$ and $(d,e)$ violates that principle as $e$ is mapped to both $c$ and $d$.\\
  	
  	There are three elements of the domain of $g$ that all maps to the same element in the codomain of $g$. That is, $a$, $b$, and $d$, that all maps to the element $f$ in the codomain.
  	
  	\Exercise{7.2.8}
  	
- 	\assignmentDescription
+ 	\AssignmentDescription
  	Let $X = \{a,b,c\}$ and $Y = \{d,e,f,g\}$. Let $f : X \mapsto Y$ and $g : X \mapsto Y$ be defined as:
  	
  	\cent{$f = \{(a,d),(b,f),(c,f)\}$}
@@ -1266,7 +1266,7 @@
  	
  	Is $f$ and $g$ ono-to-one or onto?\\
  	
- 	\solution
+ 	\Solution
  	
  	Again, starting from $f$, we can pick $(b,f)$ and $(c,f)$ and conclude that $f$ is indeed not one-to-one. But we also notice, that not every element of the codomain of $f$ is mapped to an element of the domain of $f$. Then it is neither onto.\\
  	
@@ -1274,10 +1274,10 @@
  	
  	\Exercise{7.2.12}
  	
- 	\assignmentDescription
+ 	\AssignmentDescription
  	Let $f : \doubleZ \to \doubleZ$, $g : \doubleR \to \doubleR $ be defined as $f(n) = 2-3n$ and $g(x) = 3-3x$, respectively. Prove for each function if they are ono-to-one or onto.\\
  	
- 	\solution
+ 	\Solution
  	
  	We can prove by counterexample that $f$ is one-to-one but not onto. We know by looking at the definition of $f$, that each element of its codomain is mapped to at most one element of its domain. That doesn't rule anything out except that we now know for sure, that $f$ is definetily one-to-one. We know at least that the range of $f$ must comprise only a third of all the elements of its domain. That it maps every element of its domain to every third element of its codomain.\\
  	
@@ -1291,10 +1291,10 @@
  	
  	\Exercise{8.1.5}
  	
- 	\assignmentDescription
+ 	\AssignmentDescription
  	Let $X=\{a,b,c\}$ and $S$ a relation on $\script{P}(x)$ such that,  $|A|=|B|$ for all given sets $A$ and $B$.\\
  	
- 	\solution
+ 	\Solution
  	\begin{enumerate}[label=\defaultEnumerateLabel]
  		\item $\{a,b\} S \{b,c\}$
  		
@@ -1311,7 +1311,7 @@
  	
  	\Exercise{8.1.6}
  	
- 	\assignmentDescription
+ 	\AssignmentDescription
  	Let $X=\{a,b,c\}$ and $J$ a relation on $\script{P(x)}$ such that $A\cap B \neq \emptyset$ for any given sets of $A$ and $B$.
  	
  	\begin{enumerate}[label = \defaultEnumerateLabel]
@@ -1334,10 +1334,10 @@
  	
  	\Exercise{8.2.1}
  	
- 	\assignmentDescription
+ 	\AssignmentDescription
  	Let $A=\{0,1,2,3\}$. For each given relation, determine their properties by drawing their directed graphs.\\
  	
- 	\solution
+ 	\Solution
  	For $R_1$ we can draw the following graph:\\
  	
  	\begin{center}
@@ -1524,10 +1524,10 @@
  
  	\Exercise{8.2.9}
  
-	 \assignmentDescription
+	 \AssignmentDescription
 	 Let $R$ be a relation on $\doubleR$ such that $(x,y) \In R \leftrightarrow x \geq y $. Determine if $R$ satisfy any properties and justify your answer.\\
 	  
-	 \solution
+	 \Solution
 	 $R$ must satisfy the property of reflexivity, as $R$ contain pairs $(x,x)$ for any element $x$ of $\doubleR$, since $x \geq x$.\\
 	 
 	 $R$ is not symmetric, as we for a particular element $x,y$ of $R$, can't find its inverse, as it would violate the size constraints on $R$.\\
@@ -1538,10 +1538,10 @@
 	 
 	 \Exercise{8.2.14}
 	 
-	 \assignmentDescription
+	 \AssignmentDescription
 	 Let $O\In (x,y) \In \doubleZ^2$ such that $x-y = 2k-1$. Determine if $O$ satisfy any properties and justify your answer.\\
 	 
-	 \solution
+	 \Solution
 	 First of all, every integer $x$ subtracted by $x$ is 0, and by definition of integer is even. Hence $O$ is not reflexive.\\
 	 
 	 By definition of symmetri, we demands that for every occurence of a pair $(a,b)$, there is also an inverted pair such that $(b,c)$.\\ 
@@ -1568,10 +1568,10 @@
 	 
 	 \Exercise{8.2.21}
 	 
- 	\assignmentDescription
+ 	\AssignmentDescription
  	Let $X=\{a,b,c\}$ and $\script{P}(X)$ the powerset of $X$. Let $L$ be a relation on $\script{P(X)}$ such that, $|A| < |B|$ for every set $A \In \script{P}(x)$ and $B \In \script{P}(x) $.\\
 
-	\solution
+	\Solution
 	We have the powerset of $X$ defined as:
 	
 	\cent{$\script{P}(x) = \{\{\emptyset\},\{a,b\},\{a,c\},\{b,c\},\{a\},\{b\},\{c\},\{a,b,c\}\}$}
@@ -1591,10 +1591,10 @@
 	
 	\Exercise{8.2.[34-36]}
 	
-	\assignmentDescription
+	\AssignmentDescription
 	Let $R$ be some arbitrary relation on some set $A$. Show $R^{-1}$ maintains all properties of $R$.\\
 	
-	\solution
+	\Solution
 	Let $R : A \mapsto A^2$ be a relation on $A$, then we can show, that $R^{-1}$ maintains all the properties of its inverse. Consider the following statement:
 	
 	\cent{$\forall x,y \In A : (x,y) \In R \to (y,x) \In R^{-1}$}
@@ -1625,10 +1625,10 @@
 	
 	\Exercise{8.2.[37-42]}
 	
-	\assignmentDescription
+	\AssignmentDescription
 	Let $A$ be some arbitrary set, and $R$ and $S$ relations on $A$. Determine if intersection or union maintains properties with regard to reflexivity, symmetry, and transitivity.\\
 	
-	\solution
+	\Solution
 	Let's consider $R$ and $S$ with regard to intersection and reflexitivity. We assume that $R$ and $S$ are reflexive, and as such, they must in fact contain the same element to satisfy the following property:
 	
 	\cent{$\forall x \In U : x \in A \to (x,x) \In R $}
@@ -1671,7 +1671,7 @@
 	
 	\Exercise{8.3.1}
 	
-	\assignmentDescription
+	\AssignmentDescription
 	Let $A=\{a,b,c,d,e\}$ and $R$ a relation on $S$. Consider the following relations:
 	
 	\mAlign{&_cR_b \quad  _cR_c \quad _aR_c \quad  _bR_c \\
@@ -1679,7 +1679,7 @@
 	
 	Determine for any statement if one of the above is an element of $R$.\\
 	
-	\solution
+	\Solution
 	
 	\begin{enumerate}[label=\defaultEnumerateLabel]
 		\item R is reflexive\\
@@ -1700,10 +1700,10 @@
 	\end{enumerate}
 	\Exercise{8.3.2}
 	
-	\assignmentDescription
+	\AssignmentDescription
 	Let $A=\{0,1,2,3,4\}$ and $R$ be a relation on $A$. For each given partitions of $A$, find the ordered pairs of $R$.\\
 	
-	\solution
+	\Solution
 	
 	\begin{enumerate}[label=\defaultEnumerateLabel]
 		\item $\{0,2\}$, $\{1\}$, $\{3,4\}$
@@ -1733,10 +1733,10 @@
 	
 	\Exercise{8.3.4}
 	
-	\assignmentDescription
+	\AssignmentDescription
 	Let $A=\{a,b,c,d\}$ and $R=\{(a,a),(b,b), (b,d),(c,c),(d,b),(d,d)\}$ be an equivalence relation on $A$. Determine the equivalence classes of $R$.\\
 	
-	\solution
+	\Solution
 	
 	We can define all the equivalence classes as:
 	
@@ -1747,12 +1747,12 @@
 	
 	\Exercise{8.3.9}
 	
-	\assignmentDescription
+	\AssignmentDescription
 	Let $X=\{-1,0,1\}$ and $A=\script{X}$ such that:
 	
 	\cent{$A  = \{\{\emptyset\},\{-1\},\{0\},\{1\},\{-1,0\},\{-1,1\},\{0,1\},\{-1,0,1\}\}$}
 	
-	\solution
+	\Solution
 	
 	\mAlign{[\{-1\}] &= \{x \in R | (x,y) \In R\} = \{\{-1\},\{-1,0\}\} \\
 		[\{0\}] &= \{x \in R | (x,y) \In R\} = \{\{0\},\{-1,0,1\},\{-1,1\}\} \\
@@ -1763,10 +1763,10 @@
 	
 	\Exercise{8.3.13}
 	
-	\assignmentDescription
+	\AssignmentDescription
 	Let $A$ be the set of strings such that the length of every string is 4 and comprise a's and b's. Then let $R$ be a relation on $A$ such that, it relates every element of $A$ if, and only if, they begins with the same two letters.\\
 	
-	\solution
+	\Solution
 	\mAlign{
 		[\{AAAA\}] &= \{x \in R | (x,y) \In R\} = \{\{AAAA\},\{AABA\},\{AABB\},\{AAAB\}\} \\
 		[\{AABA\}] &= \{x \in R | (x,y) \In R\} = \{\{AAAA\},\{AABA\},\{AABB\},\{AAAB\}\} \\
@@ -1786,10 +1786,10 @@
 		[\{BBAB\}] &= \{x \in R | (x,y) \In R\} = \{\{BBAA\},\{BBAB\},\{BBBB\},\{BBAB\}\}}
 	
 	\Exercise{8.3.19}
-	\assignmentDescription
+	\AssignmentDescription
 	Let $A$ be all the students at a college. Each student is either major or double major. Let $R$ be a relation on $A$ such that, $R$ relates elements of $A$ that has the same major. Prove that $R$ is an equivalence relation.\\
 	
-	\solution
+	\Solution
 	First of all, let's partition $A$ into two partitions $X$ and $Y$ such that, $X$ is the set of all elements of $A$ that have a major, and $Y$ is the set of all elements of $A$ that has a double major. If we construct relations on $X$ and $Y$ such that, they all satisfy the three properties that is required for relations to be equivalence relations, then the union of them must be $R$. Hence $R$ must be an equivalence relation on $A$, \\
 	
 	First we have to construct relations $X_r$ and $Y_r$ on $X$ and $Y$ in accordance with the above:\\
@@ -1814,7 +1814,7 @@
 	
 	Where $c$ is some small positive number.\\
 	
-	\solution
+	\Solution
 	
 	\begin{itemize}
 		\item Reflexive
@@ -1843,12 +1843,12 @@
 	
 	\Exercise{8.3.[36-41]}
 	
-	\assignmentDescription
+	\AssignmentDescription
 	Let $A$ be some set and $R$ its equivalence relation.\\
 	
 	Prove any given statement without the use of lemmas or theorems.\\
 	
-	\solution
+	\Solution
 	\begin{itemize}
 		\item $\forall x : x \In A \to x \In [x]$
 		
@@ -1883,14 +1883,14 @@
 	\QED
 	
 	\Exercise{8.5.3}
-	\assignmentDescription
+	\AssignmentDescription
 	Let $S$ be the set of all strings of $a$'s and $b$'s. Define a relation $ R $ on $ S $ such that:
 	
 	\cent{$ R = \{s,t \In S | (s,t) \In S^2 \to L(s) \leq L(t)\}$} 
 	
 	Where $L(x)$ denotes the length of any string $x$.\\
 	
-	\solution
+	\Solution
 	
 	For all elements $(s,t) \In R$, $R$ is antisymmetric if the following is valid:
 	
@@ -1916,14 +1916,14 @@
 	\QED
 	
 	\Exercise{8.5.5}
-	\assignmentDescription
+	\AssignmentDescription
 	Let $R$ be a relation on $\doubleR^2$ such that:
 	
 	\cent{$R = \{ a,b,c,d \In \doubleR | (a < c) \vee ((a = c) \wedge (b \leq d))\}$}
 	
 	Is $R$ a partial order relation?\\
 	
-	\solution
+	\Solution
 	For $R$ to be a partial order, it must be reflexive, asymmetric, and transitive. Let's proceed by proving each property.\\
 	
 	For any particular distinct pair of a pair of reals $((x,x),(x,x))$, we can show that $R$ is reflexive. Let's insert in the definition of $R$ and evaluate:
@@ -1945,7 +1945,7 @@
 	
 	\Exercise{8.5.6}
 	
-	\assignmentDescription
+	\AssignmentDescription
 	Let $P$ be all human beings ever lived on earth, and let $R$ be a relation on $P$. We define $R$ as:
 	
 	\cent{$R = \{s,r \In P | (r < s) \vee (r = s)\}$}
@@ -1959,7 +1959,7 @@
 	
 	\cent{$R = \{s,r \In P | (r \leq s)\}$}
 	
-	\solution
+	\Solution
 	Initially we must show, that $R$ is reflexive. As we know, that $R$ relates all elements that are identical, we know that $R$ is indeed reflexive. We can show that by inserting $ (x,x) $ in the definition of $R$:
 	
 	\cent{$x \leq x$}
@@ -1982,10 +1982,10 @@
 	\QED
 	
 	\Exercise{8.5.7}
-	\assignmentDescription
+	\AssignmentDescription
 	Let $R$ be a relation on $\doubleZ$ such that, it relates two elements $m$ and $n$, if, and only if, every primefactor of $m$ is a prime factor of $n$.
 	
-	\solution
+	\Solution
 	As every primefactorizations of some integer $m$ is unique, $R$ must relate identical elements.\\
 	
 	As of this, $R$ must be:
@@ -2002,10 +2002,10 @@
  
 	\Exercise{8.5.10}
 	
-	\assignmentDescription
+	\AssignmentDescription
 	Suppose $R$ and $S$ are antisymmetric relations on a set $A$. Must $R \cup S$ be antisymmetric due to the properties of $R$ and $S$?\\
 	
-	\solution
+	\Solution
 	
 	No, not at all. Let $T = \{(1,2),(2,3),(3,2),(2,1)\}$ be an symmetric relation on $A = \{1,2,3\}$. Then we can partition $T$ into two sets $R = \{(1,2),(2,3)\}$ and $S = \{(3,2),(2,1)\}$. It is clear to us, that the union of $R$ and $S$ is $T$.\\
 	
@@ -2014,10 +2014,10 @@
 	
 	\Exercise{8.5.14}
 	
-	\assignmentDescription
+	\AssignmentDescription
 	Let $A=\{a,b,c\}$. Describe all partial partial order relations of $A$ for which $a$ is either maximal or minimal element.
 	
-	\solution
+	\Solution
 	Let's first develop the Hasse diagram for the full partial order relation:
 	
 	\begin{center}
@@ -2068,12 +2068,12 @@
 	
 	\Exercise{8.5.20}
 	
-	\assignmentDescription
+	\AssignmentDescription
 	Let $S=\{0,1\}$ and let $R\In S^3$ be a partial ordered relation such that:
 	
 	\cent{$((a,b,c),(d,e,f)) \In R \leftrightarrow a \leq d \wedge b \leq e \wedge c \leq f$}
 	
-	\solution
+	\Solution
 	23
 	
 	\begin{center}
@@ -2112,10 +2112,10 @@
 	
 	\Exercise{5.1.[1-4]}
 	
-	\assignmentDescription
+	\AssignmentDescription
 	Evaluate any given sequences up to $k=4$
 	
-	\solution
+	\Solution
 	
 	\begin{enumerate}
 		\item $ a_j = \dfrac{k}{10+k}, \quad i \geq 1$
@@ -2151,7 +2151,7 @@
 	\end{enumerate}
 	\Exercise{5.1.[19-22]}
 	
-	\assignmentDescription
+	\AssignmentDescription
 	Evaluate any given sum
 		
 	\begin{enumerate}
@@ -2175,7 +2175,7 @@
 	
 	\Exercise{5.1.[43-45]}
 	
-	\assignmentDescription
+	\AssignmentDescription
 	Write any given series in terms of summation or product notation
 	
 	\begin{enumerate}
@@ -2194,7 +2194,7 @@
 	\end{enumerate}
 	
 	\Exercise{1.4.[8,9]}
-	\solution
+	\Solution
 	\cent{$\text{inc}_1(v_1) = \{e_1,e_2,e_3\}, \quad inc_2(v_2) = \{e_1,e_2,e_7\}$}
 	
 	\cent{$\text{adj}_1(v_3) = \{v_1,v_2\}, \quad adj_2\{v_1,v_2\}$}
@@ -2280,13 +2280,13 @@
 	
 	\Exercise{4.9.20}
 	
-	\assignmentDescription
+	\AssignmentDescription
 	Draw a $k_6$ graph and prove that the following inequality holds for any simple graph:
 	\cent{$|E| \leq \dfrac{n(n-1)}{2}$}
 	
 	Where $n$ is the number of vertices.\\
 	
-	\solution
+	\Solution
 	First, we'll draw the  $k_6$ graph:
 	
 	\begin{figure}[H]
@@ -2353,7 +2353,7 @@
 	
 	\Exercise{4.9.21}
 	
-	\assignmentDescription
+	\AssignmentDescription
 	Answer each given question related to simple graphs.
 	
 	Let $S_n$ be a simple graph of $n$ vertices. Please answer the following questions:
@@ -2386,10 +2386,10 @@
 	
 	\Exercise{4.9.24}
 	
-	\assignmentDescription
+	\AssignmentDescription
 	For each given simple graph, determine if it's a bipartite graph. If yes, draw the graph where it is evident that it is bipartite.
 	
-	\solution
+	\Solution
 	
 	\begin{enumerate}[label=\defaultEnumerateLabel]
 		\item  \,\\
@@ -2482,33 +2482,33 @@
 	
 	\Exercise{10.1.1}
 	
-	\assignmentDescription
+	\AssignmentDescription
 	Determine for any given walk if it's a train, path, circuit, or simple circuit.\\
 	
-	\solution
+	\Solution
 	
 	\begin{enumerate}[label=\defaultEnumerateLabel]
 		\item $v_0 e_1 v_1e_{10} v_5 e_9 v_2 e_2 v_1$\\
 		
 		This walk contains a repeated vertex but no repeated edges. Hence this walk is a \textit{trail}.
 		
-		\myItem{$v_4 e_7 v_2 e_9 v_5 e_{10} v_1 e_3 v_2 e_9 v_5$}
+		\MyItem{$v_4 e_7 v_2 e_9 v_5 e_{10} v_1 e_3 v_2 e_9 v_5$}
 		
 		This is just a \textit{walk} as it contains a repeated vertex and a repeated edge. 
 		
-		\myItem{$v_2$}
+		\MyItem{$v_2$}
 		
 		This is a \textit{closed walk} as it starts and ends at the same vertex. Furthermore, it is also a \textit{trail} as it contains no repeated edges.
 		
-		\myItem{$v_5 v_2 v_3 v_4 v_4 v_5$}
+		\MyItem{$v_5 v_2 v_3 v_4 v_4 v_5$}
 		
 		This is a \textit{circuit} as it starts and stops at the same vertex. It is not a simple circuit as it contains a repeated vertex.
 		
-		\myItem{$v_2 v_3 v_4 v_5 v_2 v_4 v_3 v_2$}
+		\MyItem{$v_2 v_3 v_4 v_5 v_2 v_4 v_3 v_2$}
 		
 		This walk is not a circuit as it contains a repeated edge. More correctly, it is a \textit{closed walk} as it contains a repeated vertex and a repeated edge.
 		
-		\myItem{$e_5 e_8 e_{10} e_3$}
+		\MyItem{$e_5 e_8 e_{10} e_3$}
 		
 		This is a \textit{path} as it doesn't contains a repeated edge or a repeated vertex. Furthermore, it doesn't end up in the same vertex as it began.
 		
@@ -2517,7 +2517,7 @@
 	
 	\Exercise{10.1.4}
 	
-	\assignmentDescription
+	\AssignmentDescription
 	Consider the following graph $G$:
 	
 	\begin{figure}[H]
@@ -2544,10 +2544,10 @@
 	
 	Answer each given question.\\
 	
-	\solution
+	\Solution
 	
 	\begin{enumerate}[label=\defaultEnumerateLabel]
-		\myItem{How many paths are there from $v_1$ to $v_4$}
+		\MyItem{How many paths are there from $v_1$ to $v_4$}
 		
 		There are exactly the following 3 paths:
 		
@@ -2555,7 +2555,7 @@
 					  &p_2 : v_1 e_1 v_2 e_3 v_3 e_5 v_4 \\
 					  &p_3 : v_1 e_1 v_2 e_3 v_3 e_5 v_4}
 		
-		\myItem{How many trails are there from $v_1$ to $v_4$}
+		\MyItem{How many trails are there from $v_1$ to $v_4$}
 		
 		In addition to the ordinary paths, which we also regard as forms of trails, there must be additional 6 trails:
 		
@@ -2566,17 +2566,17 @@
 		      	  	  &t_5 : v_1 e_1 v_2 e_4 v_3 e_2 v_2 e_3 v_3 e_5 v_4 \\
 		      	  	  &t_6 : v_1 e_1 v_2 e_4 v_3 e_3 v_2 e_2 v_2 e_5 v_4 \\}
 		
-		\myItem{How many walks are there from $v_1$ to $v_4$}
+		\MyItem{How many walks are there from $v_1$ to $v_4$}
 		
 		There must, by definition of a walk, exist infinity walks from $v_1$ to $v_4$. 
 	\end{enumerate}
 	
 	\Exercise{10.1.8}
 	
-	\assignmentDescription
+	\AssignmentDescription
 	For each given graph; find the number of connected components.\\
 	
-	\solution
+	\Solution
 	\begin{enumerate}[label=\defaultEnumerateLabel]
 		\emptyItem
 		There exist the following connected components:
@@ -2610,10 +2610,10 @@
 	
 	\Exercise{10.1.[12,13]}
 	
-	\assignmentDescription
+	\AssignmentDescription
 	Inspect any given graph and determine if it contains an Euler Circuit.\\
 	
-	\solution
+	\Solution
 	Let's determine the degrees of all vertices:
 	
 	\mAlign{\deg(v_1) &= 2 \\
@@ -2628,10 +2628,10 @@
 	
 	\Exercise{10.1.[29,30]}
 	
-	\assignmentDescription
+	\AssignmentDescription
 	For each given graph, find all the Hamiltonian Circuits.\\
 	
-	\solution
+	\Solution
 	Let's find all the Hamiltonian Circuits in the graph found in \textit{10.1.29}
 	\mAlign{&H_1 : v_0 v_6 v_5 v_4 v_3 v_2 v_1 v_7 v_0 \\
 				 &H_2 : v_0 v_6 v_2 v_5 v_4 v_3 v_1 v_7 v_0 \\
@@ -2649,10 +2649,10 @@
 	
 	\Exercise{10.4.3}
 	
-	\assignmentDescription
+	\AssignmentDescription
 	Show how to determine the total degree of any tree?\\
 	
-	\solution
+	\Solution
 	By \textit{theorem 4.9.1}, the total degree of any graph, is equal to twice the number of edges:
 	
 	\cent{$\sum_{i = 0}^{n} \deg(v_i) = 2 \cdot |E|$}
@@ -2666,7 +2666,7 @@
 	\cent{$\sum_{i = 0}^{n} \deg(v_i) = 2 \cdot (n-1) = 2n-2$}
 	
 	\Exercise{10.4.7}
-	\assignmentDescription
+	\AssignmentDescription
 	Consider the following trees:
 	
 	\begin{figure}[H]
@@ -2725,7 +2725,7 @@
 
 	For each of these, determine the leaves and internal vertices.\\
 
-	\solution
+	\Solution
 	First, let's begin with the tree in figure \textit{10.4.7.a}:
 	
 	\cent{$V_{leave} = \{v_5,v_1, v_7\}$}
@@ -2738,17 +2738,17 @@
 	
 	\Exercise{10.4.[8,11]}
 	
-	\assignmentDescription
+	\AssignmentDescription
 	For each given specification, draw the corresponding tree. If that is not possible, give a brief explanation why.\\
 	
-	\solution
+	\Solution
 	
 	\begin{enumerate}[label=\defaultEnumerateLabel]
-		\myItem{Draw a tree with nine vertices and nine edges.}
+		\MyItem{Draw a tree with nine vertices and nine edges.}
 		
 		This specification violates \textit{theorem 10.4.2}, which states: "\textit{the number of edges must be one less than the number of vertices}". 
 		
-		\myItem{Draw a tree with six vertices of a total degree of 14.}
+		\MyItem{Draw a tree with six vertices of a total degree of 14.}
 		
 		Let's check if the given specification complies with the number of vertices needed to create a tree with a total degree of 14:
 		
@@ -2758,7 +2758,7 @@
 	\end{enumerate}
 
 	\Exercise{10.5.1}
-	\assignmentDescription
+	\AssignmentDescription
 	Consider this rooted tree:
 	\begin{figure}[H]
 		\centering
@@ -2825,45 +2825,45 @@
 	
 	Answer each given question.\\
 	
-	\solution
+	\Solution
 	\begin{enumerate}[label=\defaultEnumerateLabel]
-		\myItem{What is the level of $n$?}
+		\MyItem{What is the level of $n$?}
 		
 		The level of $n$ is 3, since since the number of edges between the root and $n$ is exactly 3.
-		\myItem{What is the level of $a$?}
+		\MyItem{What is the level of $a$?}
 		
 		It is 0, as it is the root element.
 		
-		\myItem{What is the height of this rooted tree?}
+		\MyItem{What is the height of this rooted tree?}
 		
 		It is 5, since the maximum distance measued in number of edges is exactly 5.
-		\myItem{What are the children of $n$?}
+		\MyItem{What are the children of $n$?}
 		
 		$n$ has 2 children which is $u$ and $v$.
 		
-		\myItem{What is the parent of $g$?}
+		\MyItem{What is the parent of $g$?}
 		
 		The parent of $g$ is $d$.
 		
-		\myItem{What are the siblings of $j$?}
+		\MyItem{What are the siblings of $j$?}
 		
 		The siblings of $j$ are $k$ and $l$.
 		
-		\myItem{What are the descendants of $f$?}
+		\MyItem{What are the descendants of $f$?}
 		
 		The descendants of $f$ are $m$, $s$, $t$, $x$, and $y$.
-		\myItem{How many leaves are on the tree?}
+		\MyItem{How many leaves are on the tree?}
 		
 		There are 12 leaves on the tree.
 	\end{enumerate}
 	
 	\Exercise{10.5.[4,5]}
-	\assignmentDescription
+	\AssignmentDescription
 	For each given description: draw the tree or explain why you failed to draw.\\
 	
-	\solution
+	\Solution
 	\begin{enumerate}[label=\defaultEnumerateLabel]
-		\myItem{5 internal vertices}
+		\MyItem{5 internal vertices}
 		
 		
 		\begin{figure}[H]
@@ -2899,7 +2899,7 @@
 			\end{tikzpicture}
 		\end{figure}
 	
-	\myItem{Full binary tree, five internal vertices, seven leaves}
+	\MyItem{Full binary tree, five internal vertices, seven leaves}
 	
 	Let's try to do the math. According to \textit{theorem 10.5.1}, any full binary tree with \textit{k} internal vertices, has $k+1$ leaves. Let's solve the following equation:
 	
@@ -2910,36 +2910,36 @@
 	\section{Number theory}
 	
 	\Exercise{4.1.13}
-	\assignmentDescription
+	\AssignmentDescription
 	Let $a$ and $b$ be with the following equivalence relations:
 	
 	\cent{$a \equiv 4 (\modInline 13), \quad b \equiv 9 (\modInline 13)$}
 	
-	\solution
+	\Solution
 	
 	\begin{enumerate}[label=\defaultEnumerateLabel]
-		\myItem{$c \equiv 9a (\modInline 13)$}
+		\MyItem{$c \equiv 9a (\modInline 13)$}
 		
 		\cent{$a \equiv 4(\modInline 13)$}
 		\cent{$9a \equiv 9\cdot 4(\modInline 13) = 36(\modInline 13)$}
 		\cent{$36 \modFunc 13 = 10$}
 		\cent{$ c = 10$}
 		
-		\myItem{$c \equiv 11b (\modInline 13)$}
+		\MyItem{$c \equiv 11b (\modInline 13)$}
 		
 		\cent{$b \equiv 9 (\modInline 13)$}
 		\cent{$11b\equiv 9 \cdot 11 (\modInline 13)$}
 		\cent{$99 \modFunc 13 = 8$}
 		\cent{$c = 8$}
 		
-		\myItem{$c \equiv a+b (\modInline 13)$}
+		\MyItem{$c \equiv a+b (\modInline 13)$}
 		\cent{$a \equiv 4 (\modInline 13)$}
 		\cent{$b \equiv 9 (\modInline 13)$}
 		\cent{$a+b\equiv 4+9 (\modInline 13)$}
 		\cent{$13 \modFunc 13 = 0$}
 		\cent{$c = 0$}
 		
-		\myItem{$c \equiv 2a+3b (\modInline 13)$}
+		\MyItem{$c \equiv 2a+3b (\modInline 13)$}
 		
 		\cent{$a \equiv 4 (\modInline 13)$}
 		\cent{$b \equiv 9 (\modInline 13)$}
@@ -2947,7 +2947,7 @@
 		\cent{$35 \modFunc 13 = 9$}
 		\cent{$c = 9$}
 		
-		\myItem{$c \equiv a^2 + b^2 (\modInline 13)$}
+		\MyItem{$c \equiv a^2 + b^2 (\modInline 13)$}
 		
 		\cent{$a \equiv 4 (\modInline 13)$}
 		\cent{$b \equiv 9 (\modInline 13)$}
@@ -2955,7 +2955,7 @@
 		\cent{$97 \modFunc 13 = 6$}
 		\cent{$c = 6$}
 		
-		\myItem{$c \equiv a^3 - b^3 (\modInline 13)$}
+		\MyItem{$c \equiv a^3 - b^3 (\modInline 13)$}
 		
 		\cent{$a \equiv 4 (\modInline 13)$}
 		\cent{$b \equiv 9 (\modInline 13)$}
@@ -2967,19 +2967,19 @@
 	
 	\Exercise{4.1.21}
 	
-	\assignmentDescription
+	\AssignmentDescription
 	Calculate the remainder for each given expression\\
 	
-	\solution
+	\Solution
 	\begin{enumerate}[label=\defaultEnumerateLabel]
 		
-		\myItem{$13 \modFunc 3$}
+		\MyItem{$13 \modFunc 3$}
 		
 		We calculate the resultw by simple arithmetic:
 		
 		\cent{$13 \modFunc 3 = 13 -  3 \cdot  \Floor{\dfrac{13}{3}} = 13 - 3 \cdot 4 = 13-12=1$}
 		
-		\myItem{$-97 \modFunc 7$}
+		\MyItem{$-97 \modFunc 7$}
 		
 		\cent{$-97 = -70 -27$}
 		
@@ -2987,7 +2987,7 @@
 		
 		\cent{$ 1 \modFunc 7 = 1 $}
 		
-		\myItem{$155 \modFunc 19$}
+		\MyItem{$155 \modFunc 19$}
 		
 		We can express $155$ as a sum of integers:
 		
@@ -3006,7 +3006,7 @@
 		
 		\cent{$(12 + 12 + 17) \modFunc 19  = 41 \modFunc 19 = 3$}
 		
-		\myItem{$-223 \modFunc 23$}
+		\MyItem{$-223 \modFunc 23$}
 		
 		\cent{$-223 = -200 - 23 = -100-100-23$}
 		\small
@@ -3020,14 +3020,14 @@
 	\end{enumerate}
 	
 	\Exercise{4.1.29}
-	\assignmentDescription
+	\AssignmentDescription
 	Determine for each given integer, if it is congruent to $5$ modulo $17$.\\
 	
-	\solution
+	\Solution
 	
 	As $5 \modFunc 17 = 5$, we will compare this with the results for each given integer.\\
 	\begin{enumerate} [label=\defaultEnumerateLabel]
-		\myItem{Determine for the integer 80}
+		\MyItem{Determine for the integer 80}
 		
 		First, we calculate $80 \modFunc 17$.\\
 		
@@ -3042,7 +3042,7 @@
 		
 		80 is not congruent to $5 \modFunc 17$.\\
 		
-		\myItem{Determine if 103 is congruent to $5 \modFunc 17$}
+		\MyItem{Determine if 103 is congruent to $5 \modFunc 17$}
 		
 		\cent{$103 = 50 + 50 + 3$}
 		\tiny
@@ -3052,13 +3052,13 @@
 		
 		103 is not congruent to $5 \modFunc 17$.\\
 		
-		\myItem{Determine of -29 is congruent to $5 \modFunc 17$}
+		\MyItem{Determine of -29 is congruent to $5 \modFunc 17$}
 		
 		\cent{$-29 \modFunc 17 = 5$}
 		
 		-29 is congruent to $5 \modFunc 17$.\\
 		
-		\myItem{Determine if -122 is congruent to $5 \modFunc 17$}
+		\MyItem{Determine if -122 is congruent to $5 \modFunc 17$}
 		
 		\cent{$-122 = - 50 - 50 - 22$}
 		
@@ -3071,12 +3071,12 @@
 	\end{enumerate}
 	
 	\Exercise{4.1.38}
-	\assignmentDescription
+	\AssignmentDescription
 	Let $n$ be an integer. Prove the following equivalencies:
 	
 	\cent{$n \In \doubleZ \to n^2 \equiv 0 \vee n^2 \equiv 1 (\modInline 4)$}
 	
-	\solution
+	\Solution
 	Let $n$ be an arbitrary integer on the following form:
 	
 	\cent{$n = 2k + r, \quad r \in \{0,1\}$}
@@ -3111,10 +3111,10 @@
 	
 	\Exercise{4.1.39}
 	
-	\assignmentDescription
+	\AssignmentDescription
 	if $ m $ is a positive integer of the form $ 4k + 3 $ for some nonnegative integer $ k $, then $ m $ is not the sum of the squares of two integers.\\
 	
-	\solution
+	\Solution
 	Let's consider two integers $a$ and $b$ of the following form:
 	
 	\cent{$\doubleN_0 = 2k+r \quad r \In \{0,1\}$}
@@ -3146,12 +3146,12 @@
 	Which within the domain of integers has no solutions no matter the constraints put on $r$ and $u$.\\
 	\QED
 	\Exercise{4.2.1}
-	\assignmentDescription Calculate the binary expansion for each given decimal expansion.\\
+	\AssignmentDescription Calculate the binary expansion for each given decimal expansion.\\
 	
-	\solution
+	\Solution
 	
 	\begin{enumerate}[label= \defaultEnumerateLabel]
-		\myItem{$\decimal{231}$}
+		\MyItem{$\decimal{231}$}
 		
 		\mAlign{
 			231 &= 2 \cdot 115+1 \\
@@ -3165,7 +3165,7 @@
 		
 		\cent{$ \decimal{231}=\binary{11100111}$}
 		
-		\myItem{$\decimal{4532}$}
+		\MyItem{$\decimal{4532}$}
 		
 		\mAlign{
 			4532 &= 2 \cdot 2226 + 0 \\
@@ -3185,7 +3185,7 @@
 		
 		\cent{$\decimal{4532} = \binary{1000110110100}$}
 		
-		\myItem{$\decimal{97644}$}
+		\MyItem{$\decimal{97644}$}
 		\mAlign{
 			97644 &= 2 \cdot 48983+ 0 \\
 			48983 &= 2 \cdot 24491 + 1 \\
@@ -3210,14 +3210,14 @@
 	
 	\Exercise{4.2.7}
 	
-	\assignmentDescription
+	\AssignmentDescription
 	
 	Calculate the binary expansion for each given hexadecimal expansion.\\
 	
-	\solution
+	\Solution
 	
 	\begin{enumerate}[label=\defaultEnumerateLabel]
-		\myItem{$\hexadec{80E}$}
+		\MyItem{$\hexadec{80E}$}
 		Let's determine the binary reprentation for each digit:
 		\cent{$\hexadec{8} = \binary{1000}$}
 		\cent{$\hexadec{0} = \binary{0000}$}
@@ -3225,7 +3225,7 @@
 		Then we concatenate all the binary digits into one string:
 		\cent{$\hexadec{80E} = \binary{100000001110}$}
 		
-		\myItem{$\hexadec{135AB}$}
+		\MyItem{$\hexadec{135AB}$}
 		We'll again determine the binary representation of each digit:
 		\cent{$\hexadec{1} = \binary{0001}$}
 		\cent{$\hexadec{3} = \binary{0011}$}
@@ -3235,7 +3235,7 @@
 		And concetenate all binary digits into one string:
 		\cent{$\hexadec{135AB} = \binary{10011010110101011}$}
 		
-		\myItem{$\hexadec{ABBA}$}
+		\MyItem{$\hexadec{ABBA}$}
 		Determine all the binary digits:
 		\cent{$\hexadec{A} = \binary{1010}$}
 		\cent{$\hexadec{B} = \binary{1011}$}
@@ -3244,7 +3244,7 @@
 		And calculate by concetenation:
 		\cent{$\hexadec{ABBA} = \binary{1010101110111010}$}
 		
-		\myItem{$\hexadec{DEFACED}$}
+		\MyItem{$\hexadec{DEFACED}$}
 		
 		\cent{$\hexadec{D} = \binary{1101}$}
 		\cent{$\hexadec{E} = \binary{1110}$}
@@ -3258,9 +3258,9 @@
 	\end{enumerate}
 	
 	\Exercise{4.2.9}
-	\assignmentDescription Convert $\hexadec{ABCDEF)}$ to its binary representation.\\
+	\AssignmentDescription Convert $\hexadec{ABCDEF)}$ to its binary representation.\\
 	
-	\solution
+	\Solution
 	Same procedure as the preceding assignment:
 	\cent{$\hexadec{A} = \binary{1010}$}
 	\cent{$\hexadec{B} = \binary{1011}$}
@@ -3274,11 +3274,11 @@
 	
 	\Exercise{4.2.21}
 	
-	\assignmentDescription Calculate the sum and product of each given numbers
+	\AssignmentDescription Calculate the sum and product of each given numbers
 	
-	\solution
+	\Solution
 	\begin{enumerate}[label=\defaultEnumerateLabel]
-		\myItem{$\binary{1000111}, \binary{1110111}$}
+		\MyItem{$\binary{1000111}, \binary{1110111}$}
 		
 		first, we'll calculate the sum.\\
 		
@@ -3305,7 +3305,7 @@
 		The sum of all these:
 		\cent{$\binary{10001000000001}$}
 		
-		\myItem{$\binary{11101111}, \binary{10111101}$}
+		\MyItem{$\binary{11101111}, \binary{10111101}$}
 		
 		\cent{$a_0 + b_0 = 1 + 1 = 2 \cdot 1 + 0$}
 		\cent{$a_1 + b_1 + c_0 = 1 + 0 +1 = 2 \cdot 1 + 0 $}
@@ -3335,13 +3335,13 @@
 		
 	\end{enumerate}
 	\Exercise{4.2.24}
-	\assignmentDescription
+	\AssignmentDescription
 	For each given hexadecimal, calculate sum and product. \\
 	
-	\solution
+	\Solution
 	
 	\begin{enumerate}[label = \defaultEnumerateLabel]
-		\myItem{$\hexadec{1AE}, \hexadec{BBC}$}
+		\MyItem{$\hexadec{1AE}, \hexadec{BBC}$}
 		
 		Let's first convert base16 to base10:
 		
@@ -3392,37 +3392,37 @@
 	
 	\Exercise{4.3.1}
 	
-	\assignmentDescription
+	\AssignmentDescription
 	
 	Determine for each given integer if it is a prime.
 	
-	\solution
+	\Solution
 	
 	\begin{enumerate}[label=\defaultEnumerateLabel]
-		\myItem{$21$}
+		\MyItem{$21$}
 		
 		$21$ is not a prime since it is a multiplum of $7$.\\
 		
-		\myItem{$29$}
+		\MyItem{$29$}
 		
 		Since $5^2 = 25$ and $6^2 = 36$, the squareroot of $29$ must be an integer between these two. Since $2$, $3$, and $5$, doesn't divide $29$, $29$ is a prime.\\
 		
-		\myItem{$71$}
+		\MyItem{$71$}
 		
 		No prime less than $\sqrt{71}$ divides $71$.\\
 		
-		\myItem{$97$}
+		\MyItem{$97$}
 		
 		No prime less than $\sqrt{97}$ divides $97$. Hence $97$ is prime.\\
 		
-		\myItem{$ 111 $}
+		\MyItem{$ 111 $}
 		
 		$111$ can be prime factorized as a product of $3$ and $37$:
 		$ 111 = 3 \cdot 37$ 
 		
 		Hence $111$ is not prime. \\
 		
-		\myItem{$143$}
+		\MyItem{$143$}
 		
 		$143$ has the following primefactor:
 		
@@ -3433,17 +3433,17 @@
 	\end{enumerate}
 	\Exercise{4.3.21}
 	
-	\assignmentDescription
+	\AssignmentDescription
 	Let $\phi(n)$ be the Euler function that returns the number of integers relative prime to $n$. Evaluate $\phi(n)$ for each given positive integer.\\
 	
-	\solution
+	\Solution
 	
 	\begin{enumerate}[label=\defaultEnumerateLabel]
-		\myItem{$\phi (4)$}
+		\MyItem{$\phi (4)$}
 		
 		The number of positive integers less or equal than 4, is 3. Since $2$ is the only integer for which the greatest common divisor is not equal to 1, the number of relative primes less or equal than 4, is 2.
 		
-		\myItem{$\phi (10)$}
+		\MyItem{$\phi (10)$}
 		
 		\mAlign{
 			1 &= 1^0 \\
@@ -3460,7 +3460,7 @@
 		
 		\cent{$\phi (10) = 4$}
 		
-		\myItem{$\phi(13)$}
+		\MyItem{$\phi(13)$}
 		
 		Since $13$ is a prime, all integers less than or equal must be relative prime to $13$. Hence $\phi(13) = 12$.
 		
@@ -3469,12 +3469,12 @@
 	\end{enumerate}
 	\Exercise{4.3.22}
 	
-	\assignmentDescription
+	\AssignmentDescription
 	Prove the following statement:
 	
 	\cent{$isPrime(n) \leftrightarrow \phi(n) = n-1$}
 	
-	\solution
+	\Solution
 	
 	Let's try a proof by contradiction.\\
 	
@@ -3483,50 +3483,50 @@
 	We know by definition of prime, that the only primefactor of $n$ comprise $1$ and $n$ itself. But as we assume $\phi(n) < n-1$, there must at least be one integer that is not relative prime to $n$. By definition of the Euler function, there must exist an integer $a$ for which the $\gcd$ of $n$ and $a$ is not equal to 1. That implies that there do in fact exist a primefactor of $n$ comprise an integer not equal to 1 or $n$ itself. That contradicts our initial assumption on $n$, as $n$ can't be a prime if such primefactor exists. Hence the statement holds.\\
 	\QED
 	\Exercise{4.3.25}
-	\assignmentDescription
+	\AssignmentDescription
 	For each given integers, determine their greatest common divisor.\\
 	
-	\solution
+	\Solution
 	
 	\begin{enumerate}[label=\defaultEnumerateLabel]
-		\myItem{$3^7 5^3 7^3, 2^{11} 3^5 5^9$}
+		\MyItem{$3^7 5^3 7^3, 2^{11} 3^5 5^9$}
 		
 		$5^3$ is the greatest common divisor, as it is part of both integers.\\
 		
-		\myItem{$11 \cdot 13 \cdot 17, 2^9 3^7 5^5 7^3$}
+		\MyItem{$11 \cdot 13 \cdot 17, 2^9 3^7 5^5 7^3$}
 		
 		$1$, as it is the only common factor of both integers.\\
 		
-		\myItem{$23^{31}, 23^{17}$}
+		\MyItem{$23^{31}, 23^{17}$}
 		
 		$23^{17}$ is the greatest common divisor.\\
 		
-		\myItem{$41 \cdot 43 \cdot 53, 41 \cdot 43 \cdot 53$}
+		\MyItem{$41 \cdot 43 \cdot 53, 41 \cdot 43 \cdot 53$}
 		
 		$41 \cdot 43 \cdot 53$ is the greatest common divisor.\\
 		
-		\myItem{$3^{13} 5^{17} , 2^{12} 7^{21}$}
+		\MyItem{$3^{13} 5^{17} , 2^{12} 7^{21}$}
 		
 		$1$, as it is the only common factor of both integers.\\
 	\end{enumerate}
 	
 	\Exercise{4.3.33}
 	
-	\assignmentDescription
+	\AssignmentDescription
 	
 	For each given integers, use Euclid's algorithm to find the greatest common divisor.\\
 	
-	\solution
+	\Solution
 	
 	\begin{enumerate}[label=\defaultEnumerateLabel]
-		\myItem{$12,18$}
+		\MyItem{$12,18$}
 		
 		\cent{$18 = 12 \cdot 1 + 6$}
 		\cent{$12 = 6 \cdot 2$}
 		
 		\cent{$\gcd(12,18) = 6$}
 		
-		\myItem{111,201}
+		\MyItem{111,201}
 		
 		\cent{$201 = 111\cdot 1 + 90$}
 		\cent{$111 = 90 \cdot 1 + 21$}
@@ -3536,7 +3536,7 @@
 		
 		\cent{$\gcd(111,201) = 3$}
 		
-		\myItem{$1001,1331$}
+		\MyItem{$1001,1331$}
 		
 		\cent{$1331 = 1001 \cdot 1 + 330$}
 		\cent{$1001 = 330 \cdot 3 + 11$}
@@ -3544,7 +3544,7 @@
 		
 		\cent{$\gcd(1001,1331) = 11$}
 		
-		\myItem{$12345, 54321$}
+		\MyItem{$12345, 54321$}
 		
 		\cent{$54321 = 12345 \cdot 4 + 4941$}
 		\cent{$12345 = 4941 \cdot 2 + 2463$}
@@ -3554,14 +3554,14 @@
 		
 		\cent{$\gcd(12345,54321) = 3$}
 		
-		\myItem{$1000,5040$}
+		\MyItem{$1000,5040$}
 		
 		\cent{$5040 = 1000 \cdot 5 + 40$}
 		\cent{$1000 = 40 \cdot 25$}
 		
 		\cent{$\gcd(1000,5040) = 40$}
 		
-		\myItem{$9888, 6060$}
+		\MyItem{$9888, 6060$}
 		
 		\cent{$9888 = 6060 \cdot 1 + 3828$}
 		\cent{$6060 = 3828 \cdot 1 + 2232$}
@@ -3577,14 +3577,14 @@
 	\end{enumerate}
 	\Exercise{4.3.39}
 	
-	\assignmentDescription
+	\AssignmentDescription
 	
 	Use a crappy method to express the greatest common divisor of each given integer as a linear combination.\\
 	
-	\solution
+	\Solution
 	
 	\begin{enumerate}[label=\defaultEnumerateLabel]
-		\myItem{$10,11$}
+		\MyItem{$10,11$}
 		
 		First, we'll use the Euclidean Algorithm to find the greatest common divisor of $10$ and $11$:
 		
@@ -3598,7 +3598,7 @@
 		
 		There isn't much more to say that the Bezout's coefficients are $1$ and $-1$.\\
 		
-		\myItem{$21,44$}
+		\MyItem{$21,44$}
 		
 		We determine the $\gcd$ by the use of the Euclidean Algorithm:
 		
@@ -3617,7 +3617,7 @@
 		
 		And Bezout's Coefficients are $21$ and $-10$.\\
 		
-		\myItem{$36, 48$}
+		\MyItem{$36, 48$}
 		
 		By the Euclidean Algorithm:
 		
@@ -3631,7 +3631,7 @@
 		
 		With Bezout's Coefficients determined to $1$ and $-1$.
 		
-		\myItem{$34,55$}
+		\MyItem{$34,55$}
 		
 		We use the Euclidean Algorithm to calculate $\gcd$:
 		
@@ -3700,10 +3700,10 @@
 	
 	We terminate at $r_i = 0$.\\
 	
-	\assignmentDescription
+	\AssignmentDescription
 	Determine the $\gcd$ of $26$ and $91$, and express the result as a linear combination.\\
 	
-	\solution
+	\Solution
 	
 	First, we declare our initial values of $r_0$ and $r_1$ (the others are already declared in the remark section):
 	
@@ -3734,13 +3734,13 @@
 	
 	\Exercise{4.4.5}
 	
-	\assignmentDescription
+	\AssignmentDescription
 	For each given pair of relative primes $(a,m)$ determine the inverse of $a \mod m$.\\
 	
-	\solution
+	\Solution
 	
 	\begin{enumerate}[label=\defaultEnumerateLabel]
-		\myItem{$4,9$}
+		\MyItem{$4,9$}
 		First we use the Euclidean Algorithm to find the $\gcd$ of the two integers, which we in fact already know since they are relative primes.
 		\mAlign{
 			4 &= 9 \cdot 0 + 4 \\
@@ -3760,7 +3760,7 @@
 		
 		The multiplicative inverse is $-2$.\\
 		
-		\myItem{$19,141$}
+		\MyItem{$19,141$}
 		
 		\mAlign{
 			19 &= 141 \cdot 0 + 19 \\
@@ -3791,7 +3791,7 @@
 		
 		The multiplicative inverse to $19 \modFunc 141$ is $52$.\\
 		
-		\myItem{$55,89$}
+		\MyItem{$55,89$}
 		
 		\mAlign{
 			55 &= 89 \cdot 0 + 55 \\
@@ -3861,12 +3861,12 @@
 
 	\Exercise{4.4.11}
 	
-	\assignmentDescription
+	\AssignmentDescription
 	Solve any given congruence.
 	
-	\solution
+	\Solution
 	\begin{enumerate}[label=\defaultEnumerateLabel]
-		\myItem{$19x \equiv 4 (\modInline 141)$}
+		\MyItem{$19x \equiv 4 (\modInline 141)$}
 		
 		By the use of Euclideans extended algorithm, we find that $52$ is the multiplicative inverse to $19$ modulu $141$. If we multiply both sides with $52$ we get:
 		
@@ -3880,7 +3880,7 @@
 		
 		\cent{$x : f(k) = 208 + 141k = \{-79,67,208,349,490,\dots\}$}
 		
-		\myItem{$55x \equiv 34 (\modInline 89)$}
+		\MyItem{$55x \equiv 34 (\modInline 89)$}
 		
 		Let's mulitply with the inverse to $55 \modFunc 89$ on both sides:
 		
@@ -3894,7 +3894,7 @@
 		
 		\cent{$x : f(k) = 1 +89k = \{1,90,179,357,\dots\}$}
 		
-		\myItem{$89x \equiv 2 (\modInline 232)$}
+		\MyItem{$89x \equiv 2 (\modInline 232)$}
 		
 		The multiplicative inverse of $89 \modFunc 232$ is $73$ by Euclidean's extended algorithm. Then we have:
 		
@@ -3907,7 +3907,7 @@
 	\end{enumerate}
 	\Exercise{4.4.21}
 	
-	\assignmentDescription
+	\AssignmentDescription
 	Solve the following system of linear congruences:
 	
 	\mAlign{
@@ -3917,7 +3917,7 @@
 		x &\equiv 4 (\modInline 11)
 	}
 	
-	\solution
+	\Solution
 	First we determine $M$:
 	
 	\cent{$M = 2 \cdot 3 \cdot 5 \cdot 11 = 330$}
@@ -3953,12 +3953,12 @@
  	\myRemark
  	This excersise was not part of the given set of exercises provided by the course \textit{Discrete Mathematics}.\\
  	
- 	\assignmentDescription
+ 	\AssignmentDescription
  	Prove each give statement
  	
- 	\solution
+ 	\Solution
  	\begin{enumerate}[label=\defaultEnumerateLabel]
- 		\myItem{$\parenthesis{1 - \dfrac{1}{2}}\parenthesis{1 - \dfrac{1}{3}}\parenthesis{1 - \dfrac{1}{4}}\parenthesis{1 - \dfrac{1}{5}} = \dfrac{1}{5} \to \dots \parenthesis{1 - \dfrac{1}{6}} = \dfrac{1}{6} $}
+ 		\MyItem{$\parenthesis{1 - \dfrac{1}{2}}\parenthesis{1 - \dfrac{1}{3}}\parenthesis{1 - \dfrac{1}{4}}\parenthesis{1 - \dfrac{1}{5}} = \dfrac{1}{5} \to \dots \parenthesis{1 - \dfrac{1}{6}} = \dfrac{1}{6} $}
  		
  		We assume the antecent is true. Then we have the consequent as:
  		
@@ -3970,7 +3970,7 @@
  		
  		\QED
  		
- 		\myItem{$\parenthesis{1 - \dfrac{1}{2}}\parenthesis{1 - \dfrac{1}{3}}\parenthesis{1 - \dfrac{1}{4}}\parenthesis{1 - \dfrac{1}{5}}\parenthesis{1 - \dfrac{1}{6}} = \dfrac{1}{6} \to \dots \parenthesis{1 - \dfrac{1}{7}} = \dfrac{1}{7} $}
+ 		\MyItem{$\parenthesis{1 - \dfrac{1}{2}}\parenthesis{1 - \dfrac{1}{3}}\parenthesis{1 - \dfrac{1}{4}}\parenthesis{1 - \dfrac{1}{5}}\parenthesis{1 - \dfrac{1}{6}} = \dfrac{1}{6} \to \dots \parenthesis{1 - \dfrac{1}{7}} = \dfrac{1}{7} $}
  		
  		Again, we apply the same technique as the previous:
  		
@@ -3980,12 +3980,12 @@
  	
  	\Exercise{5.2.6}
  	
- 	\assignmentDescription
+ 	\AssignmentDescription
  	Prove the following equation by mathematical induction:
  	
  	\cent{$2+4+6+\dots +2n = n^2 + n, \quad n \In \doubleN_0, n \geq 1$}
  	
- 	\solution
+ 	\Solution
 	Let $p(n)$ be the given equation to prove. Then we initiate our basic step by validating $p(1)$:
 	
 	\cent{$p(1) : 2 = 1^2 + 1 = 2$}
@@ -4022,12 +4022,12 @@
  		
  	\Exercise{5.2.10}
  	
- 	\assignmentDescription
+ 	\AssignmentDescription
  	Prove the following equation by mathematical induction:
  	
  	\cent{$1^2 + 2^2 + \dots + n^2 = \dfrac{n(n+1)(2n+1)}{6}, \quad n \geq 1$}
  	
- 	\solution
+ 	\Solution
  	Again, we establish $p(n)$ as the given equation and validate $p(1)$. First, we'll start with the left-hand side of $p$:
  	
  	\cent{$p(1) : 1^2 = 1$}
@@ -4069,12 +4069,12 @@
  	
  	\Exercise{5.2.13}
  	
- 	\assignmentDescription
+ 	\AssignmentDescription
  	Prove the following equation by mathematical induction:
  	
  	\cent{$$\sum_{i=1}^{n-1} i(i+1) = \dfrac{n(n-1)(n+1)}{3}$$}
  	
- 	\solution
+ 	\Solution
  	
  	Again, we use $p(n)$ to denote our equation.\\
  	
@@ -4082,17 +4082,11 @@
  	
  	\cent{$$p(n) :  \sum_{i=1}^{n-1} i^2+i = \dfrac{n(n^2-1)}{3} = \dfrac{n^3-n}{3}$$}
  	
- 	Let's evaluate $p(2)$ for both sides:
+ 	Let's prove the basis step holds for $p(2)$:
  	
  	\cent{$ L : \sum_{i=1}^{2-1} 1^2+1 = 2 \quad R : \dfrac{2^3-2}{3} = \dfrac{8-2}{3} = \dfrac{6}{3} = 2$}
  	
- 	And for $i = \{3,4,5\}$:
- 	
- 	\cent{$L:  2+(2^2 +2) = 2+6 = 8 \quad R : \dfrac{3^3-3}{3} = \dfrac{27-3}{3} = \dfrac{24}{3} = 8$}
- 	\cent{$L:  8+(3^2 +3) = 8+12 = 20 \quad R : \dfrac{4^3-4}{3} = \dfrac{64-4}{3} = \dfrac{60}{3} = 20$}
- 	\cent{$L:  20+(4^2 +4) = 20+20 = 40 \quad R : \dfrac{5^3-4}{3} = \dfrac{125-5}{3} = \dfrac{120}{3} = 40$}
- 	
- 	And we can assume it will hold for any integer $k<n$. We'll rewrite the left hand side to a series:
+ 	And we assumes it holds for any particular, and arbitrary, integer $k \geq 0$. We'll rewrite the left hand side to a series:
  	
  	\cent{$p(k) : 2+6+12+ \dots + ((k-1)^2+(k-1)) = 2+6+12+ \dots + (k^2-k)$}
  	
@@ -4123,21 +4117,21 @@
  	\QED
  	\Exercise{5.2.14}
  	
- 	\assignmentDescription
+ 	\AssignmentDescription
  	Prove the following equation by mathematical induction:
  	
  	\cent{$$\sum_{i=1}^{n+1} i\cdot 2^i= n \cdot 2^{n+2}+2 $$}
  	
- 	\solution
+ 	\Solution
  	Let $p(n)$ be the given equation, then we'll first expand the summation on the left-hand side:
  	 
  	\cent{$$\sum_{i=1}^{n+1} i\cdot 2^i = 2^1 + 2 \cdot 2^2 + 3 \cdot 2^3 + \dots + (n+1) 2^{n+1} = 2 + 8 + 24 + \dots + (n+1) 2^{n+1} $$}
  	
  	Then we can evaluate $p(0)$ on both sides. We can see, that 2 is the first term in the above series, so we just have to evaluate the right-hand side and see if that gives the same:
  	
- 	\cent{$R : 0 \cdot 0^2 + 2 = 0$}
+ 	\cent{$R : 0 \cdot 0^2 + 2 = 2$}
  	
- 	It surely does, and we may assume that it will hold for any particular, but arbitrarily selected, integer $k < n$. As part of our inductive step, we want to show that it will also hold for $k+1$:
+ 	It surely does, and we assumes that it holds for any particular, but arbitrarily selected, integer $k $. As part of our inductive step, we want to show that it will also hold for $k+1$:
  	
  	\cent{$p(k) \to p(k+1) $}
  	
@@ -4163,14 +4157,14 @@
  	
  	\Exercise{5.3.1}
  	
- 	\assignmentDescription
+ 	\AssignmentDescription
  	Show that any amount of money of at least 14 danish krones can be made up using 3 kroner  and 8 kroner coins.\\
  	
- 	\solution
+ 	\Solution
  	
  	First we'll show that 14 danish kroner can be made up of 3 kroner and 8 kroner coins.\\
  	
- 	That is, if we have 2 \textit{"3 kroner coins"} and 1 \textit{"8 kroner coin"}.\\
+ 	That is, if we have 2 times an \textit{"3 kroner coins"} and 1 times an \textit{"8 kroner coin"}.\\
  	
  	Let's proceed from this point and establish our inductive hypthesis. That is, we can express $k\geq 14$ in terms of either $3$, $8$, or both. And we'll do that by showing that we can express 15 danish kroner in terms of either \textit{"3 kroner coins"}, \textit{"8 kroner coins"}, or both.\\
  	
@@ -4182,27 +4176,23 @@
  	
  	\Exercise{5.3.[4,8]}
  	
- 	\assignmentDescription
+ 	\AssignmentDescription
  	Prove the following divisibility:
  	\newcommand{\givenFormula}[1]{\ensuremath{4|5^{#1} -1}}
  	\cent{\givenFormula{n}}
  	
- 	\solution
+ 	\Solution
  	
  	Let $p(n)$ be the given property:
  	
  	\cent{$p(n) : \givenFormula{n}, \quad n \geq 0$}
  	
  	
- 	Our basic steps in this case consists of evaluating the property for the first three integers starting from 0:
+ 	Our base step consists of proving that $p(0)$ holds:
  	
- 	\mAlign{
- 		p(0) & :4|5^0 -1 = 0 \\
- 		p(1) &: 4|5^1 -1 = 5-1 = 4 \\
- 		p(2) &: 4|5^2 -1 = 25-1 = 24 = 4 \cdot 6
- 	}
+ 	\cent{$p(0) :4|5^0 -1 = 0$}
  	
- 	Then we can establish our inductive hypothesis. That is, we assume it'll hold for any integer $k$, such that we can express our property $p$ in terms of $k$:
+ 	Then we can establish our inductive hypothesis. That is, we assumes it holds for any particular, but arbitrary, integer $k$, such that we can express our property $p$ in terms of $k$:
  	
  	\cent{\givenFormula{k}}
  	
@@ -4214,7 +4204,7 @@
  	
 	\cent{$5^{k+1}-1 = 5 \cdot  5^k -1$}
 	
-	And recognize the fact, that we can express the integer $5$ as a sum of two integers:
+	Then let's do some arithmetic substitution by replacing $5$ with the sum $4+1$:
 	
 	\cent{$ (4+1)5^k -1 = 4 \cdot 5^k + 5^k - 1$}
 	
@@ -4229,20 +4219,18 @@
 	
  	\Exercise{5.3.9}
  	
- 	\assignmentDescription
+ 	\AssignmentDescription
  	Prove the following divisibility:
  	
  	\cent{$6|7^n-1$}
  	
- 	\solution
+ 	\Solution
  	
  	First, we'll show that it holds for $p(0)$:
  	
  	\cent{$7^0-1 = = 1 - 1 =  0$}
  	
- 	As $6$ divides $0$ we can conclude it holds so we can establish our inductive hypothesis $p(k)$. then we want to show that it also holds for $k+1$:
- 	
- 	\cent{$p(k) \to p(k+1)$}
+ 	As $6$ divides $0$ we can conclude it holds so we can establish our inductive hypothesis $p(k)$. Then we want to show that it also holds for $k+1$:
  	
  	\cent{$7^{k+1}-1 = 7 \cdot 7^k - 1 = (6+1) 7k - 1 = 6 \cdot 7^k + 7^k - 1$}
  	
@@ -4254,13 +4242,13 @@
  	
  	\Exercise{5.3.15}
  	
- 	\assignmentDescription
+ 	\AssignmentDescription
  	
  	Prove the following divisibility by mathematical induction:
  	
  	\cent{$6|n^3+5n$}
  	
- 	\solution
+ 	\Solution
  	Let $p(n)$ be the given property.\\
  	
  	First, we evaluate $p(0)$:
@@ -4305,12 +4293,12 @@
  	
  	\Exercise{5.2.7}
  	
- 	\assignmentDescription
+ 	\AssignmentDescription
  	Prove the following equation by the use of weak mathematical induction:
  	
  	\cent{$1 + 6 + 11 + \dots + (5n-4) = \dfrac{n(5n-3)}{2} = \dfrac{5n^2-3n}{2}$}
  	
- 	\solution
+ 	\Solution
  	
  	Let $p(n)$ be the property of the given equation.\\
  	
@@ -4348,15 +4336,15 @@
  	
  	\Exercise{5.2.11}
  	
- 	\assignmentDescription
+ 	\AssignmentDescription
  	\cent{$1^3+2^3 + \dots + n^3 = \parenthesis{\dfrac{n(n+1)}{2}}^2 =  \dfrac{n^4+2n^3+n^2}{4}$}
- 	\solution
+ 	\Solution
  	
  	Let $p(n)$ be the given equation.\\
  	
  	Then we evaluate $p(0)$ with respect to both sides:
  	
- 	$L : 1^3 = 1, \quad R : \dfrac{1^4+2 \cdot 1^3 + i^2}{4} = \dfrac{1+2+1}{4} = \dfrac{4}{4} = 1$
+ 	\cent{$L : 1^3 = 1 \quad R : \dfrac{1^4+2 \cdot 1^3 + i^2}{4} = \dfrac{1+2+1}{4} = \dfrac{4}{4} = 1$}
  	
  	And we assume $p$ holds for any integer $k$. Then we want to show, that it also holds for $k+1$. We process both sides step-by-step:
  	
@@ -4381,11 +4369,11 @@
  	
  	\Exercise{5.2.37}
  	
- 	\assignmentDescription
+ 	\AssignmentDescription
  	
  	Find the mistakes in Exercise 5.2.37.
  	
- 	\solution
+ 	\Solution
  	
  	The mistake takes place at the evaluation of the left-side of $p(0)$. Since $n$ describes the $n$'th term in series, the following equation is true:
  	
@@ -4396,15 +4384,15 @@
  	\QED
  	
  	\Exercise{5.3.3}
- 	\assignmentDescription
+ 	\AssignmentDescription
  	
  	Consider two collections of either 5 stamps or 8 stamps, then let $k$ be the set of possible amounts of stamps as a combination of the two mentioned collections:
  	
  	\cent{$k \In \{5,8,10,13,15,16,20,21,24,25\}$}
  	
- 	\solution
+ 	\Solution
  	\begin{enumerate}[label=\defaultEnumerateLabel]
- 		\myItem{Show that $k$ comprise elements that can be archieved by a combination of the two given collections.}
+ 		\MyItem{Show that $k$ comprise elements that can be archieved by a combination of the two given collections.}
  		
  		We want to show, that each element in the domain of $k$, can be expressed in terms of either 5 or 8. More specific, we want to express in sums.\\
  		
@@ -4415,7 +4403,7 @@
  		We notice, that each element of $k$ is expressed as a sum of either 5 or 8. Hence we can express any element in $k$ in terms of either 5 stamp collection or 8 stamp collection.\\
  		\QED\\
  		
- 		\myItem{Show, by mathematical induction, that you can archieve any amount of stamps of at least 28 stamps, by a combination of the two given collections.}
+ 		\MyItem{Show, by mathematical induction, that you can archieve any amount of stamps of at least 28 stamps, by a combination of the two given collections.}
  		
  		First, we have to find some key replacements, that we can make to obtain one more stamp.
  		
@@ -4427,7 +4415,7 @@
  		
  		In short, we can define $p(x,y)$ as the following equation:
  		
- 		\cent{$p(x,y) : 5x+8y = z, \quad x,y,z ,\In \doubleN_0, z \geq 28$}
+ 		\cent{$p(x,y) : 5x+8y = z, \quad x,y,z \In \doubleN_0, z \geq 28$}
  		
  		Then we need to show, that a pair $(x,y)$ that satisfies $p(x,y) = 28$ exists. Let's evaluate $p(4,1)$:
  		
@@ -4457,11 +4445,11 @@
 		\textbf{Step 4}: $(3,2) \to (0,4)$ \\
 		\textbf{Step 5}: $(0,4) \to \dots  \to (i,j) \to \dots \to (r,u)$\\
  			
- 		We notice two important facts here. Every exchange must end with a pair which complies with $r < 6$ and $u = 0$, or $r = 0$ and $r < 4$, or $x < 1$ and $y < 3$. 
+ 		We notice two important facts here. Every exchange must end with a pair which complies with $r \geq 6$ and $u = 0$, or $r = 0$ and $u \geq 4$, or $r \geq 1$ and $u \geq 3$. 
  		
  		Otherwise, we may end up with a terminal condition which empties out our chances of any further exchanges.\\
  		
- 		We'll assume that any pair from $p(i,j) = 28$ (which we has proved) to $(r,u)$ complies with the above criterias, such that a terminal event never occurs. That is, we assume $p(r,u) = k$ holds for any integer $k \geq 28$. \\
+ 		We'll assume that any pair from $p(i,j) = 28$ (which we have proved) to $(r,u)$ complies with the above criterias, such that a terminal event never occurs. That is, we assume $p(r,u) = k$ holds for any integer $k \geq 28$. \\
  		
  		We now want to show that it will also hold for $k+1$. Since we assume that a terminal condition never occurs, it is safe to assert that any exchange we perform won't violate our criterias. Either we exchange 3 times a 5 stamp food collection with a 2 times 8 stamp collection, or we exchange 3 times a 8 stamp collection with 5 times a 5 stamp collection. Doing so, we'll end up with one of the following:
  		
@@ -4481,12 +4469,12 @@
  	
  	\Exercise{5.3.10}
  	
- 	\assignmentDescription
+ 	\AssignmentDescription
  	Prove the following divisibility by mathematical induction:
  	
  	\cent{$3 | n^3-7n + 3, \quad n \geq 0$}
  	
- 	\solution
+ 	\Solution
  	
  	Let $p(n)$ be the given equation, then we can show that $p(0)$ holds:
  	
@@ -4501,20 +4489,19 @@
  		&= 3k^2+3k-6 + 3q = 3 \parenthesis{k^2+k-2+q}
  	}
  	
- 	During the process we must note, that we substituted $p(k)$ for $3q$. That is fully legitimitate as we have shown that $3|p(0)$.\\
+ 	During the process we substituted $p(k)$ for $3q$. That aligns well with our assumptions on $p(k)$.\\
  	
  	Thus we managed to end up with an expression that clearly clarified that 3 indeed is a divisor.\\
  	\QED
  	
  	\Exercise{5.3.19}
  	
- 	\assignmentDescription
+ 	\AssignmentDescription
  	Prove the following inequality by mathematical induction:
  	
  	\cent{$n^2 < 2^n, \quad n \geq 5$}
  	
- 	\solution
- 	
+ 	\Solution
  	Let $p(n)$ be the given inequality and let $q(n)$ and $r(n)$ be the expression on the left and right side, respectively. Then we must show $p(0)$ holds:
  	
  	\cent{$ q(5) < r(5) \Leftrightarrow 25  < 32$}
@@ -4539,7 +4526,7 @@
  	
  	\Exercise{5.4.1}
  	
- 	\assignmentDescription
+ 	\AssignmentDescription
  	
  	Consider the following sequence:
  	
@@ -4551,7 +4538,7 @@
  
  	Prove that $a_n$ is odd for $n \geq 1$.\\
  	
- 	\solution
+ 	\Solution
  	
  	Let $p(n)$ be the property, that  $a_n$ is odd for $n \geq 1$, then we start with proving the basic step of $p(3)$, since we already know that it holds for integers below 3:
  	
@@ -4572,7 +4559,7 @@
  	
  	\Exercise{5.4.6}
  	
- 	\assignmentDescription
+ 	\AssignmentDescription
  	Consider a recursive function:
  	
  	\cent{$f(n) = \stackedFunc{5, \quad &n = 0}{16, \quad &n=1}{7 \cdot  f(n-1) - 10 \cdot f(n-2),\quad &n \geq 2}$}
@@ -4581,7 +4568,7 @@
  	
  	\cent{$g(n) = 3 \cdot 2^n + 2 \cdot 5^n, \quad n \geq 2$}
  	
- 	\solution
+ 	\Solution
  	Let $p(n)$ be the property, that $f(n) = g(n)$ for any particular, but arbitrary, integer $n \geq 2$.\\
  	
  	The basis step consists of a demonstration of the truthness of $p(2)$:
@@ -4615,7 +4602,7 @@
  	
  	\Exercise{5.4.7}
  	
- 	\assignmentDescription
+ 	\AssignmentDescription
  	Consider the following sequence:
  	
  	\mAlign{
@@ -4626,7 +4613,7 @@
  	
  	Prove that $g_n = 2^n + 1$ for any particular, but arbitrary, integer $n \geq 3$.\\
  	
- 	\solution
+ 	\Solution
  	Let the property $p(n)$ be the expression of $g_k$ in terms of $n$.\\
  	
  	Then we can prove, that $p(3)$ holds:
@@ -4651,12 +4638,12 @@
  	
  	\Exercise{9.2.5}
  	
- 	\assignmentDescription
+ 	\AssignmentDescription
  	Let's consider a game of Dart. What type of game is not important in this context. To win the tournament, each player must attain three wins in a row, or a total of four wins.\\
  	
  	For player $X$ and player $Y$, each game winner can be described as the string "xyy", where each letter denotes the winner. Now the big question remains to be answered. In how many ways from this point, can the tournament end?\\
  	
- 	\solution
+ 	\Solution
  	We can draw the tree that  describes the problem:
  	
  	\drawTree{
@@ -4699,7 +4686,7 @@
  	
  	\Exercise{9.2.10}
  	
- 	\assignmentDescription
+ 	\AssignmentDescription
  	Assume there are three routes between places called North Point and Boulder Creek. From Boulder Creek there are two routes to a place called Beaver Dam, and from Beaver Dam two routes to a third place called Star Lake. Furthermore, there are four routes from Boulder Creek to Star Lake. As illustrated below: 
  	
  	
@@ -4726,25 +4713,21 @@
  	
  	Answer each given question.\\
  	
- 	\solution
+ 	\Solution
  	
  	\begin{enumerate}[label=\defaultEnumerateLabel]
- 		\myItem{How many routes passes through Beaver Dam?}
+ 		\MyItem{How many routes passes through Beaver Dam?}
  		
  		Let North Point be the \textit{initial node} and \textit{Star Lake} the terminal node, and all other nodes \textit{visiting nodes}.
  		
  		Assume, we allow our selves to traverse \textit{visiting nodes} more than once while selecting unique routes. This implies we must not travel on an already traversed edge. Then we can use the multiplication rule to calculate the number of routes between the initial and terminal node. However, there is actually two ways to reach the terminal node. We can take into the account, that we allow our selves to visit a node more than once. Ex. we can from Beaver Dam travel back to Boulder Creek through an unvisited edge, or we can travel directly to Star Lake. Let's first calculate the total number of routes between the first case. \\
  		
  		There are three ways to reach Boulder Creek from North Point. This means we are able to select three different routes. From Boulder Creek, we have two possible ways to reach Beaver Dam and four possible ways to reach Star Lake, which happens to be our \textit{terminal point}. By the multiplication rule, we have:
- 		\cent{$3 \cdot 2 \cdot 4 = 24$}
+ 		\cent{$3 \cdot 2 \cdot 2 = 12$}
  		
- 		Which denotes the exact number of possible routes between North Point and Star Lake that involves traversing back to Boulder Creek.\\
- 		
- 		As we noted earlier, there are three different ways to reach Boulder Creek from North Point, and two ways to reach Beaver Dam from here. That gives us, by the multiplication rule, $3 \cdot 2 = 6$ different ways to Beaver Dam from North Point. From North Point we have only two ways to reach Star Lake. That gives us, again by the multiplication rule in mind, a total of $3 \cdot 2 \cdot 2 = 12$ unique ways.\\
- 		
- 		Then we only have to sum the total number of routes, which gives us $24 + 12 = 36$ unique routes from North Point to Star Lake of which all passes through Beaver Dam.\\
- 		
- 		\myItem{How many routes bypasses Beaver Dam?}
+ 		Which denotes the exact number of possible routes between North Point and Star Lake that passes Beaver Dam.\\
+ 		 		
+ 		\MyItem{How many routes bypasses Beaver Dam?}
  		
  		We have three different routes to Boulder Creek from North Point, and from here we have four different routes to Star Lake. Then by the multiplication rule we have:
  		
@@ -4756,14 +4739,14 @@
  	
  	\Exercise{9.2.15}
  	
- 	\assignmentDescription
+ 	\AssignmentDescription
  	
- 	Consider a combination lock comprise three integers, each of the range 1 to 30. Answer each given question.\\
+ 	Consider a combination lock comprise three integers, each in the range 1 to 30. Answer each given question.\\
  	
- 	\solution
+ 	\Solution
  	
  	\begin{enumerate}[label=\defaultEnumerateLabel]
- 		\myItem{How many possible ways to select a combination?}
+ 		\MyItem{How many possible ways to select a combination?}
  		
  		As each integer is in the range 1 to 30, there are $30-1+1 = 30$ ways to select the first number. As no constraints are given, we have the same number available at the next and the last number. By the use of the multiplication rule, we have:
  		
@@ -4771,7 +4754,7 @@
  		
  		Which means, we can select among 27000 unique combinations.\\
  		
- 		\myItem{How many possible ways to select a combination with no option for duplicate numbers?}
+ 		\MyItem{How many possible ways to select a combination with no option for duplicate numbers?}
  		
  		The first number gives us 30 possible ways to select a number. The next number only gives us 29 possible ways as we have already used one number. The last number is limited to only 28 ways, so by the multiplication rule we have:
  		
@@ -4783,26 +4766,26 @@
  	\end{enumerate}
  	\Exercise{9.2.21}
  	
- 	\assignmentDescription
+ 	\AssignmentDescription
  	Consider two sets $A$ and $B$ of $m$ and $n$ elements, respectively. Answer each given question.\\
  	
- 	\solution
+ 	\Solution
  	
  	\begin{enumerate}[label=\defaultEnumerateLabel]
- 		\myItem{How many relations from $A$ to $B$?}
+ 		\MyItem{How many relations from $A$ to $B$?}
  		
- 		For a particular element $x \In A$, we can count two relations to every element $y \In B$. That means, the number of relations of each element $a \In A$ are:
+ 		For any particular element $x \In A$, we can count two relations to every element $y \In B$. Thus we can count the number of relations of each element $x\In A$ by:
  		
  		\cent{$2_0 \cdot 2_1 \cdot 2_2 \cdot \dots \cdot 2_n = 2^n$}
  		
  		
- 		Since there are $m$ elements in $A$, the total number of relations can be expressed as:
+ 		Since there are $m$ elements in $A$, we can count the total number of relations by:
  		
  		\cent{$2_0^n \cdot 2_1^n \cdot 2_2^n \cdot \dots \cdot 2_m^n = 2^{n \cdot m}$}
  		
- 		\myItem{How may functions from $A$ to $B$?}
+ 		\MyItem{How may functions from $A$ to $B$?}
  		
- 		If we consider a function $f : A \mapsto B$, we know by definition of the term \textit{function}, that it doesn't relate any element $a \In A$ to more than one element $b \In B$. If we look at all the possible ways to relate  elements in $A$ to elemnts in $B$, we just have to look at all the candidates of each element in $A$. For each element $a \In A$, we can relate that element to at most one element in $B$, which means we can establish $n$ possible relations for each element in $A$. By the multiplication rule we have $n_0 n_1 n_2 \dots n_m$ possibilities, which gives us:
+ 		If we consider a function $f : A \mapsto B$, we know by definition of the term \textit{function}, that it doesn't relate any element $a \In A$ to more than one element $b \In B$. If we look at all the possible ways to relate  elements in $A$ to elements in $B$, we just have to count all the candidates of each element in $A$. For each element $a \In A$, we can relate that element to at most one element in $B$, which means we can count $n$ relations for each element in $A$. By the multiplication rule we have $n_0 n_1 n_2 \dots n_m$ possibilities, which gives us:
  		
  		\cent{$N(f) = n^m$}
  		
@@ -4811,20 +4794,20 @@
  	
  	\Exercise{9.2.33}
  	
- 	\assignmentDescription
+ 	\AssignmentDescription
  	Consider six people visiting a theatre.  They have six seats in a row available. Answer each given question.\\
  	
- 	\solution
+ 	\Solution
  	
- 	\letterEnumeration{
- 		\myItem{How many ways can they be arranged?}
+ 	\LetterEnumeration{
+ 		\MyItem{How many ways can they be arranged?}
  		We can count the total number of arrangements by six steps. First, we count all the possible arrangements for the first person, there are 6 ways, next we proceed to the second person, there are 5, and so forth. Which gives us:
  		
  		\cent{$6! = 6 \cdot 5 \cdot 4 \cdot 3 \cdot 2  = 30 \cdot 4 \cdot 3 \cdot 2  = 120 \cdot 3 \cdot 2 = 360 \cdot 2 = 720$}
  		
  		There are 720 available arrangements.\\
  		
- 		\myItem{Assume one of the people are a doctor. He has to be placed at the aisle of the row.}
+ 		\MyItem{Assume one of the people are a doctor. He has to be placed at the aisle of the row.}
  		
  		If we locate the doctor in one of the two aisles, we only have to count the number of arrangements of the remaining five people:
  		
@@ -4832,7 +4815,7 @@
  		
  		Then we assume there is an aisle on both sides of the row, so we have to double the number of arrangements. We can then arrange them, with the doctor in mind,  $120 \cdot 2 = 240$ ways.
  		
- 		\myItem{Assume the attendants comprise three married couples who wish to sit together with the oldest on the left side.}
+ 		\MyItem{Assume the attendants comprise three married couples who wish to sit together with the oldest on the left side.}
  		
  		Since we are dealing with married couples we can group them in pairs of two. That makes three groups of two people which we consider a unit. We first arrange the first group, there are three possibilities, then the next, there are two, and the last, which only has one option left. That gives:
  		
@@ -4842,13 +4825,13 @@
  	}
  	
  	\Exercise{9.3.7}
- 	\assignmentDescription
+ 	\AssignmentDescription
  	At a certain company, passwords must be from 3-5 symbols long and composed from 26 uppercase letters of the roman alphabet, the ten digits 0-9, and 14 non-letter symbols.\\
  	
- 	\solution
+ 	\Solution
  	Let $G$ be the set of allowed symbols, then we have $|G| =  50$.
- 	\letterEnumeration{
- 		\myItem{How many passwords are possible if repetition of symbols is allowed?\\}
+ 	\LetterEnumeration{
+ 		\MyItem{How many passwords are possible if repetition of symbols is allowed?\\}
  		
  		We have the following number of passwords which range in length from 3 to 5:
  		
@@ -4864,7 +4847,7 @@
  		
  		Hence there are 318875000 passwords.\\
  		
- 		\myItem{How many passwords have no repeated symbols?}
+ 		\MyItem{How many passwords have no repeated symbols?}
  		
  		\mAlign{
  			50 \cdot 49 \cdot 48 &= 117600 \\
@@ -4873,7 +4856,7 @@
  		}
  	Hence there are 259896000 passwords with no repetition of letters.\\
  	
- 	\myItem{How many passwords has at least one repeated symbol?}
+ 	\MyItem{How many passwords has at least one repeated symbol?}
  	
  	This can be determined as the difference between the total number of passwords and the number of passwords that have no repetition of letters:
  	
@@ -4883,16 +4866,16 @@
  	}
  		
  	\Exercise{9.3.12}
- 	\assignmentDescription
+ 	\AssignmentDescription
  	Consider the string \textit{THEORY}. Answer each given question.\\
- 	\solution
+ 	\Solution
  	
- 	\letterEnumeration{
- 		\myItem{How many ways to rearrange the characters in the string?}
+ 	\LetterEnumeration{
+ 		\MyItem{How many ways to rearrange the characters in the string?}
  		
  		Since there are 6 characters, there are $6! = 720$ ways to rearrange the given string.\\
  		
- 		\myItem{What if the characters \textit{T} and \textit{H} must be next to each other as either $TH$ or $HT$?}
+ 		\MyItem{What if the characters \textit{T} and \textit{H} must be next to each other as either $TH$ or $HT$?}
  		
  		If we deal with $TH$ and $HT$ as single characters, then we have 5 characters, which gives $5! = 120 $ rearrangements if we ignore the second criteria. Then we just have to double it, as we can find just as many rearrangements for $HT$. Then we have 240 possible rearrangements.\\
  		
@@ -4900,18 +4883,18 @@
  	
  	\Exercise{9.3.17}
  	
- 	\assignmentDescription
+ 	\AssignmentDescription
  	Answer each given questions.\\
  	
- 	\solution
+ 	\Solution
  	Let $G$ be the set of all symbols of a hexadecimal digit. That is:
  	
  	\cent{$G = \{0,1,2,3,4,5,6,7,8,9,A,B,C,D,E,F\}$}
  	
  	Then we have $|G| = 16$.\\
  	
- 	\letterEnumeration{
- 		\myItem{How many strings of four hexadecimal digits do not have repeated characters?}
+ 	\LetterEnumeration{
+ 		\MyItem{How many strings of four hexadecimal digits do not have repeated characters?}
 		
 		This can be determined by the multiplication rule:
 		 		
@@ -4919,7 +4902,7 @@
  		
  		Hence there are 43680 strings of four hexadecimal digits which do not have any repeated characters.\\
  		
- 		\myItem{How many strings of four hexadecimal digits do have at least one repeated character?}
+ 		\MyItem{How many strings of four hexadecimal digits do have at least one repeated character?}
  		
  		First, we have to determine the total number of strings. There are $16^4 = 65536$  possible strings of four hexadecimal digits available. Then we just have to subtract the number of strings with no repeated characters:
  		
@@ -4927,7 +4910,7 @@
  		
  		Hence there are 21856 strings of four hexadecimal digits with at least one repeated character.\\
  		
- 		\myItem{What is the probability to obtain a string with at least one repeated character, if we select one on  a random basis?}
+ 		\MyItem{What is the probability to obtain a string with at least one repeated character, if we select one on  a random basis?}
  		
  		If we assume we select one string randomly we can calculate the probability by the ordinary formula:
  		
@@ -4938,17 +4921,590 @@
  	}
  	\Exercise{9.4.2}
  	
+ 	\AssignmentDescription
+ 	
+ 	Consider a standard 52 card deck. Answer each given question.\\
+ 	
+ 	
+ 	\Solution
+ 	
+ 	\LetterEnumeration{
+ 		\MyItem{If you select, at random, 13 cards from the deck, must at least 2 be of the same denomination?}
+ 		
+ 		No, as the number of selected cards don't exceed the number of cards of each denominator.\\
+ 		
+ 		\MyItem{If you select, at random, 20 cards from the deck, must at least 2 be of the same denomination?}
+ 		
+ 		Yes, as the number of cards exceeds the number of cards in any denominators. By definition of the \textit{Generalized Pigeonhole Principle}, we have:
+ 		
+ 		\cent{$13k \leq 20 \Leftrightarrow k \leq \dfrac{20}{13}$}
+ 		
+ 		But as we are dealing with integers, we must take the floor of \textit{k}, which is one:
+ 		
+ 		\cent{$13 \leq 20$}
+ 		
+ 		Which leaves us with seven cards of different denominators.\\
+ 	}
+ 	
  	\Exercise{9.4.11}
+ 	
+ 	\AssignmentDescription
+ 	Consider the following set of positive integers:
+ 	
+ 	\cent{$\{1,2,3,\dots,2n\}, \quad n \In \doubleN$}
+ 	
+ 	If you select $n+1$ integers from the set, must at least one be even?\\
+ 	
+ 	\Solution
+ 	Yes indeed. Since the given set contains $2n$ integers, half of them which is even, and the other half which is odd, we can select $n$ odd integers and choose one at own choice between the remaining even integers. 
  	
  	\Exercise{9.4.15}
  	
+ 	Consider the set $\script{S}$:
+ 	
+ 	\cent{$\script{S} = \{0,1,2, \dots,2n\}, \quad n \In \doubleN$}
+ 	
+ 	Answer each given question.\\
+ 	
+ 	\Solution
+ 	\LetterEnumeration{
+ 		\MyItem{How many integers, at random order, must we select in $\script{S}$ to ensure an odd integer?}
+ 		
+ 		Since the last element in the given set is an even integer, there must be $n+1$ even integers(since 0 is included). We must, as of this, select $n+2$ integers to ensure we get an odd integer. \\
+ 		
+ 		\MyItem{How many integers, at random order, must we select in $\script{S}$ to ensure an even integer?}
+ 		
+ 		As the last element of the given set is even, there are $2n+1$ elements in $\script{S}$. Then we can subtract the number of even integers:
+ 		
+ 		\cent{$N(odd)= N(\script{S}) - N(even) = 2n+1 - (n+1) = n$}
+ 		
+ 		Hence we must select $n+1$ integers to ensure at least one even integer.\\
+ 	}
  	\Exercise{9.4.28}
+ 	
+ 	\AssignmentDescription
+ 	
+ 	A programmer writes 500 lines of code in 17 days. Must there have been at least one day when the programmer writes 30 or more lines of code?\\
+ 	
+ 	\Solution
+ 	Yes. Since the average line of work amounts to approximately 29.411 lines of codes per day, by dividing the total number of lines with the days it took. Let's assume that he only managed to write exactly 29 lines of codes per day. By the contrapositive form of the \textit{Generalized Pigeonhole Principle} we have:
+ 	
+ 	\cent{$500 \leq  29 \cdot 17 = 493$}
+ 	
+ 	Which contradicts the total amount of code written. Hence there must be at least one day when 30 lines and more lines of code are written.
+ 	
+ 	
  	
  	\Exercise{9.4.30}
  	
+ 	\AssignmentDescription
+ 	A penny collection contains twelve 1967 pennies, seven 1689 pennies, and eleven 1971 pennies. Selected, at random, how many pennies to select to ensure a collection of five pennies, all from the same year?
+ 	
+ 	\Solution
+ 	
+ 	Let's consider the worst case scenario. That is, we select a penny from a different year at each selection. If we imagine all the coins stacked vertically by year, we have three pillars of each corresponding year. We begin the select from bottom left and proceed from left to right. We terminate temporarily when we have a collection comprises four pennies of each year. That is, we have $3 \cdot 4 = 12$ pennies a total. Then the next penny will ensure a collection of five pennies of one of the three years.\\
+ 	
+ 	
  	\Exercise{9.5.7}
+ 	
+ 	\AssignmentDescription
+ 	Consider a group of 13 computer programmers. Answer each given question.\\
+ 	
+ 	\Solution
+ 	
+	\LetterEnumeration{
+ 		\MyItem{In how many ways can a grop of seven be assembled?}
+ 		
+ 		In how many ways can we select $r$ elements out of a set of $n$ elements? We can count all the possibilities by the following formula:
+ 		
+ 		\cent{$\binom{n}{r} = \dfrac{n!}{r!(n-r)!}$}
+ 		
+ 		By the same logic, we can calculate how many ways we can select $7$ programers out of a group of 13 programmers:
+  		\mAlign{
+ 			\binom{13}{7} &= \dfrac{13!}{7!(13-7)!} = \dfrac{13!}{7!6!} = \dfrac{13 \cdot 12 \cdot11 \cdot 10 \cdot 9 \cdot 8}{6 \cdot 5 \cdot 4 \cdot 3 \cdot 2} \\
+ 			&= \dfrac{13 \cdot 2 \cdot 6 \cdot11 \cdot 2 \cdot 5 \cdot 3 \cdot 3 \cdot 2 \cdot 4}{6 \cdot 5 \cdot 4 \cdot 3 \cdot 2} \\
+ 			&= 13  \cdot 11   \cdot 3 \cdot 4 = 13 \cdot 12  \cdot 11 = 156  \cdot 11 = 1560 + 156 \\
+ 			&= 1716
+ 		}
+	 	We can assemble a team of seven programmers out of a group of thirteen programmer in 1716 different ways.\\
+	 
+	 	\MyItem{Consider this composition: Seven women and six men.}
+	 	
+	 	\subitem{- How many teams of four women and three men can be assembled?}
+	 	\subitem{- How many teams of 7 comprise at least one man can be assembled?}
+	 	\subitem{- How many teams comprise at most three women can be assembled?\\}
+	 	
+	 	Let's first count the ways we can select a group of four women out of a total of seven women:
+	 	
+	 	\mAlign{
+	 		\binom{7}{4} &= \dfrac{7!}{4!(7-4)!} = \dfrac{7 \cdot 6 \cdot  5 }{3 \cdot  2} \\
+	 		&=  \dfrac{7 \cdot 3 \cdot 2 \cdot   5 }{3 \cdot  2} =  7  \cdot   5 = 35
+	 	}
+	 	
+	 	Then we count the ways we can select a group of three men out of a total of six men:
+	 	
+	 	\mAlign{
+	 		\binom{6}{3} &= \dfrac{6!}{3!(6-3)!} = \dfrac{6 \cdot  5 \cdot 4 }{3 \cdot  2} \\
+	 		&=  \dfrac{3 \cdot 2 \cdot   5 \cdot 4 }{3 \cdot  2} =   5 \cdot 4 \\
+	 		&=  20
+	 	}
+	 
+	 	Then we just have to determine the product of the number of ways we can select four women and the number of ways we can select three men:
+	 	
+	 	\cent{$ \binom{7}{4} \binom{6}{3} = 35 \cdot 20 = 700$}
+	 	
+	 	Then we can assemble a team of seven female and three male programmers in 700 ways.\\
+	 	
+	 	Then we can count the ways in which all teams at least comprise one man. \\
+	 	
+	 	First, we count the ways we can assemble a team of seven programmers:
+	 	
+	 	\mAlign{
+	 		\dfrac{13!}{7!(13-7)!} &= \dfrac{13!}{7!6!!} = \dfrac{13 \cdot 12 \cdot 11 \cdot  10 \cdot 9 \cdot  8 }{6!} \\
+	 		&= \dfrac{13 \cdot 6 \cdot 2 \cdot 11 \cdot  5 \cdot 2 \cdot 9 \cdot  4 \cdot 2 }{6 \cdot 5 \cdot 4 \cdot 3 \cdot 2} = 13 \cdot 2 \cdot 11 \cdot 3 \cdot  2 \\
+	 		&= 26 \cdot 11 \cdot 6 = 26 \cdot 66 = 1716
+	 	}
+		
+		There is actually one way we can assemble a team of seven female programmers:
+		
+		\mAlign{
+			\dfrac{7!}{7!(7-7)!} = \dfrac{7!}{7!0!} = \dfrac{7!}{7!} = 1
+		} 	
+		
+		Then by the subtraction rule, we have:
+		
+		\cent{$\binom{13}{7} - \binom{7}{7} = 1716-1 = 1715$}
+		
+		There are 1715 ways to assemble a team that comprise at least one man.\\
+		
+		What about at most three women?\\
+		
+		We have to sum all the counts of teams comprise of one, two, and three women:
+		
+		\cent{$\binom{7}{1}\binom{6}{6}+\binom{7}{2}\binom{6}{5} + \binom{7}{3}\binom{6}{4}$}
+		
+		Let's calculate the addents:
+		
+		\mAlign{
+			\binom{7}{1}\binom{6}{6} &= \dfrac{7!}{(7-1)!} \dfrac{6!}{6!(6-6)!} = \dfrac{7!}{6!} = 7 \\
+			\binom{7}{2} \binom{6}{5} &= \dfrac{7!}{2!(7-2)!} \dfrac{6!}{5!(6-5)!} = \dfrac{7!}{2!5!} \cdot 6 = \dfrac{7 \cdot 6}{2} \cdot 6 = 7 \cdot 3 \cdot 6 = 21 \cdot 6 = 126 \\
+			\binom{7}{3} \binom{6}{4} &= \dfrac{7!}{3!(7-3)!} \dfrac{6!}{4!(6-4)!} = \dfrac{7!}{3!4!} \dfrac{6!}{4!2!} = \dfrac{7 \cdot 6 \cdot 5}{6} \dfrac{6 \cdot 5 }{2} = 7 \cdot 25 \cdot 3 = 525
+		}
+		
+		And sum them up:
+		
+		\cent{$\binom{7}{1}\binom{6}{6}+\binom{7}{2}\binom{6}{5} + \binom{7}{3}\binom{6}{4} = 7 + 126 + 525 = 658$}
+		
+		There are exactly 658 teams comprise at most of three women.\\
+		
+		\MyItem{Assume two programmers, a c++ programmer and a c\# programmer, won't work together. How many teams can be assembled with this in mind?}
+		
+		We know how to assemble a team of seven programmers in 1716 ways. We want to count the ways we can assemble af team comprise both of the programmers. 
+		
+		\cent{$\binom{11}{5} = \dfrac{11!}{5!(11-5)!} = \dfrac{11 \cdot  10 \cdot  9 \cdot 8 \cdot  7}{5 \cdot  4 \cdot  3 \cdot 2} = 11 \cdot  2 \cdot  3  \cdot  7 = 66 \cdot 7 = 462 $}
+		
+		Then the remaining teams, must be teams that only have one of the two programmers, or none. By the subtraction rule, we can count the number of ways we can assemble teams with only one of the programmers:
+		
+		\cent{$\binom{13}{7} - \binom{11}{5} = 1716-462 = 1254$}
+		
+		
+		
+		\MyItem{Assume two programmers, mostly c\# faggots, insists on working together or not at all working. How many teams can be assembled with this in mind?}
+		
+		We already know the number of teams that comprise two troublesome programmers. We just have to find the number of teams that comprise none of them.\\
+		
+		We just count the number of ways we can assemble a team of 7 programmers out of the remaining group:
+		
+		\cent{$\binom{11}{7} = \dfrac{11!}{7!(11-7)!} = \dfrac{11 \cdot 10 \cdot 9 \cdot 8}{4 \cdot 3 \cdot 2} = 11 \cdot 5 \cdot 3 \cdot 2 = 55 \cdot 3 \cdot 2 = 55 \cdot 6 = 330$}
+		
+		And sum it with the number of teams that comprise both of them:
+		
+		\cent{$\binom{11}{5} + \binom{11}{7} = 462 + 330 = 982$}
+		
+		Hence we can count 982 ways to assemble a team that comprise both of them, or none.\\
+ 	}
  	\Exercise{9.5.14}
+ 	\AssignmentDescription
+ 	Consider a bit string of 16 bits. Answer each given questions.\\
+ 	
+ 	\Solution
+ 	
+ 	\LetterEnumeration{
+ 		\MyItem{How many 16 bit strings contain exactly seven 1's?}
+ 		
+ 		\mAlign{
+ 			\binom{16}{7} &= \dfrac{16!}{7!(16-7)! } = \dfrac{16!}{7!9!} = \dfrac{16 \cdot 15 \cdot 14 \cdot 13 \cdot 12 \cdot 11 \cdot 10}{7 \cdot 6 \cdot 5 \cdot 4 \cdot  3 \cdot 2}\\
+ 			&= \dfrac{2 \cdot 2 \cdot 4 \cdot 3 \cdot 5 \cdot 2 \cdot 7 \cdot 13 \cdot 2 \cdot 6 \cdot 11 \cdot 2 \cdot 5}{7 \cdot 6 \cdot 5 \cdot 4 \cdot  3 \cdot 2} = 2  \cdot 5 \cdot 2  \cdot 13 \cdot 2 \cdot  11 \cdot 2 \\
+ 			&= 10 \cdot 26 \cdot 22 \cdot 2 = 11440
+ 		}
+ 	
+ 	\MyItem{How many 16 bit strings contain at least thirteen 1's?}
+ 	
+ 	\mAlign{
+ 		\binom{16}{13} &= \dfrac{16!}{13!(16-13)!} = \dfrac{16!}{13!3!} = \dfrac{16 \cdot 15 \cdot 14}{3 \cdot 2} \\
+ 		&= \dfrac{16 \cdot 3 \cdot 5 \cdot 2 \cdot 7}{3 \cdot 2} = 16 \cdot  5  \cdot 7 = 16 \cdot  35 = 560
+ 	}
+ 	
+ 	\mAlign{
+ 		\binom{16}{14} = \dfrac{16!}{14!(16-14)!} = \dfrac{16!}{14!2!} = \dfrac{16 \cdot 15}{2} = 8 \cdot 15 = 120
+ 	}
+ 
+	\mAlign{
+		\binom{16}{15} = \dfrac{16!}{15!(16-15)!} = 16
+	}
+
+	\mAlign{
+		\binom{16}{16} = \dfrac{16!}{16!(16-16)!} = 1
+	}
+
+	\MyItem{How many 16 bit strings with at least 1?}
+	
+	First, let's count all possible number of 16 bit strings:
+	
+	\cent{$2^{16}=65536$}
+	
+	Since the only string that contains no 1's is the one only comprise 0's, so we have:
+	
+	\cent{$65536 - 1 = 65535$}
+ 	
+ 	\MyItem{How many 16 bit strings with at most 1?}
+ 	
+ 	We consider a string that comprise only one '1' character and 15 '0' characters. There are 16 ways to rearrange that '1' character so we have $1+16=17$ 16 bit strings that contain at most one '1' character. 
+ 	}
+ 	
  	\Exercise{9.5.21}
+ 	
+ 	\AssignmentDescription
+ 	
+ 	Consider a morse code signal that consists of slashes and dots. How many symbols can be represented by a sequence of dots and dashed of a maximum length of seven?\\
+ 	 	
+ 	\Solution
+ 	First, we count the number of symbols we can archieve with a sequence of only one character. Then we count the number of symbols we can archieve with a sequence of two characters, and so on. That gives us the following sum:
+ 	
+ 	\mAlign{
+ 		2^1 + 2^2 + 2^3 + 2^4 + 2^5 + 2^6 + 2^7 &= 2 + 4 +8 +16 +32 + 64 +128 \\
+ 		&= 6+8+16+32+64+128 = 14+16+32+64+128 \\ 
+ 		&= 30 +32+ 64 + 128 = 62+64 +128 = 126+128 \\
+ 		&= 254
+ 	}
+ 	
+ 	Which tells us, that we can express exactly 254 symbols using a morse code of length no more than seven characters.
+ 	
+ 	\Exercise{9.8.5}
+ 	\AssignmentDescription
+ 	Let $A$ and $B$ be events in a sample space $S$. Assume $P(A) = 0.6$, $P(B^c) = 0.4$, and $P(A \cap B) = 0.2$. Determine $P(A \cup B)$.\\
+ 	
+ 	\Solution
+ 	First, we calculate the probability of $P(B)$:
+ 	
+ 	\cent{$P(B^c) = 1 - P( B) = 0.4 \Leftrightarrow P(B) = 1 - 0.4 = 0.6$}
+ 	
+ 	By the formula of \textit{probability of a General Union of Two Events} we have:
+ 	
+ 	\cent{$P(A \cup B) = P(A) + P(B) - P(A \cap B) = 0.6 + 0.6 - 0.2 = 1.2 - 0.2 = 1$}
+ 	
+ 	\QED
+ 	
+ 	\Exercise{9.8.10}
+ 	\AssignmentDescription
+ 	Let $A$ and $B$ be events in a sample space $S$. Then assume $P(A) = 0.7$, $P(B) = 0.3$, $C = S - (A \cup B)$, and $P(A \cap B) = 0.1$. Determine each given probability.\\
+ 	 	
+ 	\Solution
+ 	\LetterEnumeration{
+ 		\MyItem{$P(A \cup B)$}
+ 		By the formula of \textit{probability of a General Union of two events} we have:
+ 		\mAlign{
+ 			P(A \cup B)& = P(A) + P(B) - P(A \cap B) = 0.7 + 0.3 - 0.1\\
+ 			&= 1-0.1 = 0.9
+ 		}
+ 		\QED
+ 		
+ 		\MyItem{$P(C)$}
+ 		We know that $P(S) = 1$, and we have determined $P(A \cup B)$ in the previous part. Then we can determine the probability of $C$ by subtracting the probability of the union of $A$ and $B$ from $S$:
+ 		\cent{$P(C) = P(S) - P(A \cup B) = 1 - 0.9 = 0.1$}
+ 		
+ 		\QED
+ 		
+ 		\MyItem{$P(A^c)$}
+ 		By definition of $P(A^c)$ we have:
+ 		
+ 		\cent{$P(A^c) = 1- P(A) = 1 - 0.7 = 0.3$}
+ 		
+ 		\QED
+ 		
+ 		\MyItem{$P(A^c \cap B^c)$}
+ 		If we express the complement of $A$ and $B$ as sums we have:
+ 		
+ 		\cent{$A^c = (B - A) + C$}
+ 		\cent{$B^c = (A -B) + C$}
+ 		
+ 		Since $(B-A) \cap (A -B) = \emptyset$, the intersection of the two complementary sets must be $C$:
+ 		
+ 		\cent{$A^c \cap B^c = C$}
+ 		
+ 		Hence $P(A^c \cap B^c)  = P(C) = 0.1$.\\
+ 		\QED
+ 		
+ 		\MyItem{$P(A^c \cup B^c)$}
+ 		
+ 		The probability of $B^c$ is:
+ 		
+ 		\cent{$P(B^c) = 1-0.3 = 0.7$}
+ 		
+ 		And then we can determine the probability of the union of $A^c$ and $B^c$:
+ 		\cent{$P(A^c \cup B^c) = P(A^c) + P(B^c) - P(A^c \cap B^c) =0.3 + 0.7 -0.1 = 0.9$}
+ 		
+ 		\QED
+ 		
+ 		\MyItem{$P(B^c \cap C)$}
+ 		Let's consider the complement of $B$ again:
+ 		
+ 		\cent{$B^c = (A -B) + C$}
+ 		
+ 		Since $C$ is disjoint to both $A$ and $B$, it must apply that it is also disjoint to $A-B$. Hence the intersection of $B^c$ and $C$ must be $C$ itself. And the probability of $C$ is $0.1$, as we determined earlier.\\
+ 		\QED
+ 	}
+ 	
+ 	\Exercise{9.8.17}
+ 	\AssignmentDescription
+ 	An urn contains five balls with the numbers 1,2,2,8,8. What is the expected sum if one selects two balls at random?
+ 	
+ 	\Solution
+ 	The number of ways in which we can select a subset of size 2 is equivalent to count the number of ways, we can choose $2$ elements out of a set of $5$ elements:
+ 	
+ 	\cent{$$\binom{5}{2} = \dfrac{5!}{2!(5-2)!} = \dfrac{5!}{2!3!} = \dfrac{5 \cdot 4}{2} = \dfrac{20}{2} = 10$$}
+ 	
+ 	All the subsets of $S$:
+ 	\mAlign{
+ 		S_3 &=  \{\{1,2\},\{1,2\}\} \\
+ 		S_4 &= \{\{2,2\}\} \\
+ 		S_9 &= \{\{1,8\},\{1,8\}\} \\
+ 		S_{10} &= \{\{2,8\},\{2,8\},\{2,8\},\{2,8\}\} \\
+ 		S_{16} &= \{\{8,8\}\}
+ 	}
+ 	
+ 	And the probabilities of $S_k$:
+ 	
+ 	\cent{$P(S_3) = \dfrac{2}{10}, \quad P(S_4) = \dfrac{1}{10}, \quad P(S_9) = \dfrac{2}{10}, \quad P(S_{10}) = \dfrac{4}{10}, \quad P(S_{16}) = \dfrac{1}{10}$}
+ 
+ 	We know that the mean of a set of observations can be determined by the following formula:
+ 	
+ 	\cent{$\bar{m} = h_1 f_1 + h_2 f_2 + \dots + h_n f_n$}
+ 	
+ 	Where $f$ denotes the frequency of an occurence $h$ of a certain event,.\\
+ 	
+ 	Then we have:
+ 	
+ 	\mAlign{
+ 		E(X) &=\dfrac{3 \cdot 2}{10} + \dfrac{4}{10} + \dfrac{9 \cdot 2}{10} + \dfrac{10 \cdot 4}{10} + \dfrac{16}{10} = \dfrac{6}{10} + \dfrac{4}{10} + \dfrac{18}{10} + \dfrac{40}{10} + \dfrac{16}{10} \\
+ 		&= 0.6 + 0.4 + 1.8+ 4 + 1.6 =  8.4
+ 	}
+ 	\QED
+ 	
+ 	\Exercise{9.9.2}
+ 	\AssignmentDescription
+ 	Suppose $P(X|Y) = \dfrac{1}{3}$ and $P(Y) = \dfrac{1}{4}$. What is $P(X \cap Y)$?\\
+ 	
+ 	\Solution
+ 	
+ 	We use \Formula{9.9.1} to determine the probability of the intersection of $X$ and $Y$:
+ 	
+ 	\cent{$P(X \cap Y) = P(X|Y) P(Y) = \dfrac{1}{3} \cdot \dfrac{1}{4} = \dfrac{1}{12}$}
+ 	
+ 	\QED
+ 	
+ 	\Exercise{9.9.7}
+ 	\AssignmentDescription
+ 	An urn contains 30 red balls and 40 blue balls. Two are picked at random. Answer each given question.\\
+ 	
+ 	\Solution
+ 	\LetterEnumeration{
+ 		\MyItem{What is the probability of two red balls? The first ball red and the second not? Neither ball is red?}
+ 		
+ 		First, we calculate the probability, that we get a red ball at first pick, and another red ball at second pick:
+ 		
+ 		\cent{$P(R_1) = \dfrac{30}{70} = \dfrac{15}{35}, \quad P(R_2 | R_1) = \dfrac{29}{69}$}
+ 		
+ 		Then by definition of the formula of probability of intersection we have:
+ 		\cent{$P(R_1 \cap R_2) = P(R_2 | R_1) \cdot P(R_1) = \dfrac{15}{35} \cdot \dfrac{29}{69} = \dfrac{435}{2415} \approxeq 0.180124224 = 18.4\%$}
+ 		
+ 		What about the second ball not red?\\
+ 		
+ 		Again, we calculate the probability, that the second ball we pick is not red, given that the first ball was:
+ 		
+ 		\cent{$P(R_2^c | R_1) = \dfrac{40}{69}$}
+ 		
+ 		Then by the formula of probability of intersection we have:
+ 		
+ 		\cent{$P(R_1 \cap R_2^c) = P(R_2^c | R_1) \cdot P(R_1) = \dfrac{40}{69} \cdot \dfrac{30}{70} = \dfrac{1200}{4830} \approxeq 0.248447205 \approx 24.8\%$}
+ 		
+ 		And for no red balls at all:
+ 		
+		\cent{$P(R_1^c \cap R_2^c) = P(R_2^c | R_1^c) \cdot P(R_1^c)= \dfrac{39}{69} \cdot \dfrac{40}{70} = \dfrac{1560}{4830}  \approxeq 0.322981366 \approx 32.3\%$}
+		
+		\MyItem{What is the probability that the second ball is red?}
+		
+		Since $R_2$ is the event that the second ball is red, we must also recognize the fact, that we can calculate the probability of the union of the two disjoint sets $R_1 \cap R_2$ and $R_2 \cap R_1^c$:
+		\mAlign{
+			P((R_1 \cap R_2) \cup (R_2 \cap R_1^c)) &= P(R_1 \cap R_2) + P(R_2 \cap R_1^c) = \dfrac{435}{2415} + 		   \dfrac{1200}{4830} \\
+			&\approxeq 0.428571429 \approx 42.9\%
+		}
+		 
+		\MyItem{What is the probability of at least one red ball?}
+		
+		The probability of all other events than the event of no red ball is:
+		
+		\cent{$P(S) - P(R_1^c \cap R_2^c)  = 1 - \dfrac{1560}{4830} \approxeq 0.677018634 \approx 67.7\%$}
+ 		
+ 		Which is equivalent to the probability of obtaining at least one red ball in two picks.
+ 	}
+ 	\Exercise{9.9.12}
+ 	\AssignmentDescription
+ 	One urn contains $4$ blue balls and $16$ white balls, and a second urn contains $10$ blue balls and $9$ white balls. Answer each given question.\\
+ 	
+ 	\Solution
+ 	\LetterEnumeration{
+ 		\MyItem{What is the probability that you pick one blue ball at random, given that you select one of the urns at random?}
+ 		
+ 		Let $A$ be the event that we choose the first urn, $A^c$ that we don't choose the first urn, $B$ that the ball is blue, and $B^c$ that the ball is not blue.\\
+ 		
+ 		Since we have 20 balls in the first urn, 4 of them which are blue, and we have 19 balls in the second urn,  10 of them which are blue, we have the following probabilities if we were allowed to select an urn at own choice:
+ 		
+ 		\cent{$P(B | A) = \dfrac{4}{20}, \quad P(B | A^c) = \dfrac{10}{19} $}
+ 		
+ 		But as this is not the case, we must also state the probability that we choose either the first or second urn:
+ 		
+ 		\cent{$P(A) = P(A^c) = \dfrac{1}{2}$}
+ 		
+ 		Then we calculate the probability of the scenario that we select the first urn and pick a blue ball, and the scenario that we select the second urn and pick a blue ball:
+ 		
+ 		\mAlign{
+ 			P(A \cap B) &= P(B|A) \cdot P(A) = \dfrac{4}{20} \cdot \dfrac{1}{2} = \dfrac{4}{40} = \dfrac{1}{10}\\
+ 			P(A^c \cap B) &= P(B|A^c) \cdot P(A^c) = \dfrac{10}{19} \cdot \dfrac{1}{2} = \dfrac{10}{38} = \dfrac{5}{19}
+ 		}
+ 		
+ 		Then the probability of obtaining a blue ball must be the disjoint union of $P(A \cap B)$ and $A^c \cap B$:
+ 		
+ 		\cent{$P(B) = P(B \cap A) \cup P(B \cap A^c) = \dfrac{1}{10} + \dfrac{5}{19}  = \dfrac{69}{190} \approxeq 0.363157895 \approx 36.3\%$}
+ 		
+ 		\MyItem{What is the probability that the blue ball chosen is from the first urn?}
+ 		
+ 		We just have to calculate the probability we select the first urn given that we have a blue ball:
+ 		
+ 		\cent{ $P(A | B) = \dfrac{P(B \cap A)}{P(B)} = \dfrac{\frac{1}{10}}{\frac{69}{190}} = \dfrac{190}{690} \approxeq  0.275362319 \approx 27.6\%$}
+ 	}
+ 	\Exercise{9.9.15}
+ 	\AssignmentDescription
+ 	Two different factories both produce a certain automobile part. The probability that a component from the first factory is defective is 2\%, and the probability that a component from the second factory is defective is 5\%. In a supply of 180 of the parts, 100 were obtained from the first factory and 80 from the second factory. Answer each given question.\\
+ 	
+ 	\Solution
+ 	Let  $D_1$ be the defective rate from the first factory, $D_2$ the defective rate from the second factory, $S$ the probability that a certain component from the supply comes from the first factory, and $S^c$ that it comes from the second factory.
+ 	
+ 	\LetterEnumeration{
+ 		\MyItem{What is the probability, that a certain component at random pick comes from the first factory?}
+ 		
+ 		Since 100 out of the supply of 180 comes from the first factory, the probability must be:
+ 		
+ 		\cent{ $P(S) = \dfrac{100}{180} \cong \dfrac{5}{9}$}
+ 		
+ 		\MyItem{What is the probability, that a certain component at random pick comes from the second factory?}
+ 		
+ 		And likewise for the second factory:
+ 		
+ 		\cent{$P(S^c) = P(S \cup S^c) - P(S) = 1-\dfrac{5}{9} = \dfrac{4}{9} $}
+ 		
+ 		\MyItem{What is the probability of obtaining a defective component?}
+ 		
+ 		The probabilities of obtaining a defective component out of a supply only comprise parts from either the first factory or second factory are:
+ 		
+ 		\cent{$ P(D_1) = \dfrac{2}{100}, \quad P(D_2) = \dfrac{5}{100}$}
+ 		
+ 		\mAlign{
+ 			P(S \cap D_1) &= P(S) \cdot P(D_1) = \dfrac{100}{180} \cdot \dfrac{2}{100} = \dfrac{200}{18000} = \dfrac{1}{90}\\
+ 			P(S^c \cap D_2) &= P(S) \cdot P(D_2) = \dfrac{80}{180} \cdot \dfrac{5}{100} = \dfrac{400}{18000} = \dfrac{1}{45}
+ 		}
+ 	
+ 		Then the probability of obtaining a defective component must be the disjoint union of $S \cap D_1$ and $S^c \cap D_2$:
+ 		
+ 		\mAlign{
+ 			P((S \cap D_1) \cup (S^c \cap D_2)) &= P(S \cap D_1 ) + P(S^c \cap d_2) = \dfrac{1}{90} + \dfrac{1}{45} \\
+ 																		   &= \dfrac{1}{90} + \dfrac{2}{90} = \dfrac{3}{90} \approxeq 0.033333333 \approx 3.3\%
+ 		}
+ 		
+ 		\MyItem{What is the probability that a defective component comes from the first factory?}
+ 		
+ 		By Bayes theorem we have:
+ 		
+ 		\cent{$ P(D_1 | S)  = \dfrac{\frac{1}{90}}{\frac{3}{90}} = \dfrac{90}{90 \cdot 3} = \dfrac{1}{3} \approxeq 33.3333\bar{3} \approx 33.3 \%$}
+ 	}
+ 	
+ 	\Exercise{9.9.20}
+ 	\AssignmentDescription
+ 	Suppose a fair coin is tossed 3 times. Let $A$ be the event that a head appears on the first toss, and let $B$ be the event that an even number of heads  is obtained. Show that $P(A | B) = P(A)$ and $P(B | A) = P(B)$.\\
+ 	
+ 	\Solution
+ 	The sample space $S$:
+ 	\cent{$S = \{HHH,HHT,HTT,HTH, TTT,TTH,THH,THT\}$}
+ 	
+ 	\mAlign{
+ 		A &= \{HHH,HHT,HTT,HTH\} \\
+ 		B &= \{HHT,HTH,THH,TTT\} \\
+ 		A \cap B &= \{HHT,HTH\}
+ 	}
+ 	
+ 	The probabilities for $A$, $B$, and $A \cap B$:
+ 	\cent{$P(A) = \dfrac{1}{2}, \quad P(B) = \dfrac{1}{2}, \quad P(A \cap B) = \dfrac{1}{4}$}
+ 	
+ 	Then by definition of $P(A|B)$ and $P(B | A)$ we have:
+ 	
+ 	\cent{$P(A | B) = \dfrac{P(A \cap B)}{P(B)} = \dfrac{\frac{1}{4}}{\frac{1}{2}} = \dfrac{2}{4} = \dfrac{1}{2} = P(A)$}
+ 	
+ 	\cent{$P(B | A) = \dfrac{P(A \cap B)}{P(A)} = \dfrac{\frac{1}{4}}{\frac{1}{2}} = \dfrac{2}{4} = \dfrac{1}{2} = P(B)$}
+ 	
+ 	\Exercise{9.9.22}
+ 	
+ 	\AssignmentDescription
+ 	Show that, if  $A$ and $B$ are independent events, then $A^c$ and $B$ are also independent, and furthermore,  then $A^c$ and $B^c$ are independent.\\
+ 	
+ 	\Solution
+ 	We can express the assignment mathematically in logical terms:
+ 	
+ 	\cent{$P(A \cap B) = P(A) \cdot P(B) \to P(A^c \cap B) = P(A^c) \cdot P(B) \to P(A^c \cap B^c) = P(A^c ) \cdot P(B^c)$}
+ 	
+ 	We assume the antecedent holds, that is, we assume $A$ and $B$ to be independent, and we will show that the rest of the formula also holds.\\
+ 	
+ 	We have to show that $P(A^c \cap B) = P(A^c) \cdot P(B)$ holds, and for this, we start with the following statements:
+ 	
+ 	\cent{$(A \cap B) \cup (A^c \cap B) = B$}
+ 	\cent{$(A \cap B) \cap (A^c \cap B) = \emptyset$}
+ 	
+ 	By definition of the \textit{probability axiom 3}, and also by the fact, that $A \cap B$ and $A^c \cap B$ are disjoint sets,  we can rewrite the first equation:
+ 	
+ 	\cent{$P((A \cap B) \cup (A^c \cap B)) = P(A \cap B) + P(A^c \cap B) = P(B)$}
+ 	
+ 	Since $A$ and $B$ are independent, and the complement of $A$ with regard to the sample space can be written as $1-A^c$, we can show that $A^c$ and $B$ are independent:
+ 	
+ 	
+ 	\mAlign{
+ 		P(A^c \cap B) &= P(B) -P(A \cap B) = P(B) -P(A)P(B) \\
+ 								 &= P(B) - (1-P(A^c)P(B)) = P(B) -(P(B) - P(A^c)P(B)) \\
+ 								 &= P(B) - P(B) + P(A^c)P(B) = P(A^c)P(B) 
+ 	}
+ 	
+ 	Then we can show the last part, that is,  the consequent also holds, by applying the same approach as we just did with $A^c$ and $B$:
+ 	
+ 	\cent{$P((A^c \cap B) \cup (A^c \cap B^c)) = P(A^c \cap B) + P(A^c \cap B^c) = P(A^c)$}
+ 	
+ 	And as before:
+ 	
+ 	\mAlign{
+ 		P(A^c \cap B^c) &= P(A^c) - P(A^c \cap B) = P(A^c) - P(A^c)P(B) = P(A^c) - P(A^c)(1-P(B^c)) \\
+ 									 &= P(A^c) - (P(A^c) -P(A^c)P(B^c))) = P(A^c) - P(A^c) + P(A^c)P(B^c) \\
+ 									 &= P(A^c)P(B^c)
+ 	}
+ 	
+ 	\QED
+ 	
  	\chapter{Additional exercises}
  	
  	This chapter includes material from other books and documents beside the book used in the previous chapter.
@@ -4959,24 +5515,24 @@
  	
  	\subsection{Geometrical proof}
  	
- 	\assignmentDescription
+ 	\AssignmentDescription
  	
  	Prove the following geometrical identity:
  	
  	\cent{$$\sum_{i=0}^{n} r^i = \dfrac{r^{n+1} - 1}{r-1}$$}
  	
- 	\solution
+ 	\Solution
 	First we establish $p(n)$ as the whole expression we want to proof valid:
 	
 	\cent{$p(n) : 1 + r + r^2 + \dots + i^n = \dfrac{r^{n+1} - 1}{r-1}, \quad r \neq 0$}
 	 	
  	What we want to show is, if $p(0)$ holds, then we'll assume that it also holds for some integer $k$. And then we'll assume, that the formula holds for any integer $n$, if we can show that it holds for $k+1$. We can express this in logical terms as:
  	
- 	\cent{$\phi : p(0) \to p(k), \quad \psi : p(k) \to p(k+1), \quad \delta : \psi \to p(n)$}
+ 	\cent{$\Gamma = \{\phi, \psi , \delta\} =  \{p(0) \to p(k),  p(k) \to p(k+1), p(k+1)  \to p(n)\}$}
  	
- 	Where $\phi$ is our basic assumpion, $\psi$ our inductive hypothesis, and $\delta$ our conclusive hypothesis\footnote{Please note the use of the phrase \textit{hypothesis}. We use this phrase as the proof is made up of several assumptions.}. That is, if we can establish a model for the above set of formulas $\Gamma$, we have proved the given expression valid.\\
+ 	Where $\phi$ is our basic step, $\psi$ our inductive step, and $\delta$ our conclusive step\footnote{Please note the use of the phrase \textit{hypothesis}. We use this phrase as the proof is made up of several assumptions.}. That is, if we establish a model for $\Gamma$, we can prove the given expression valid.\\
  	
- 	Let's start with $\phi$ and evaluate the right-hand side of $p(0)$:
+  	Let's start with $\phi$. We have to show that $p(0)$ holds, and if it does, then we assume $p(k)$ also holds, for any particular, and arbitrary, integer $k$:
  	
  	\cent{$p(0) : \dfrac{r^{0+1} - 1}{r-1} = \dfrac{r-1}{r-1} = 1$}
  	
@@ -4986,9 +5542,9 @@
  	
  	\cent{$p(k) : 1 + r + r^2 + \dots r^k = \dfrac{r^{k+1} - 1}{r-1}$}
  	
- 	Then we'll proceed to $\psi$, which is part of our inductive step.\\
+ 	Then we'll proceed to $\psi$, which is the inductive step.\\
  	
- 	We have to show $p(k) \to p(k+1)$. We assume $p(k)$ holds, so we want to show that both sides of the expression are identical by adding $r^{k+1}$ to the left-hand side and increment $k$ by 1 on the right-hand side. Let's begin by incrementing $k$ on the right-hand side:
+ 	We have to show $p(k) \to p(k+1)$. We assume $p(k)$ holds, so we want to show that  it also holds for an integer $k+1$. Both sides of the expression must be identical after adding $r^{k+1}$ to the left-hand side and increment $k$ by 1 on the right-hand side. Let's begin by incrementing $k$ on the right-hand side:
  	
  	\cent{$p(k+1) : \dfrac{r^{k+1+1} - 1}{r-1} = \dfrac{r^{k+2} - 1}{r-1}$}
  	
@@ -4996,24 +5552,23 @@
  	
  	\cent{$p(k+1) : 1 + r + r^2 + \dots r^k + r^{k+1} $}
  	
- 	Then we substitute the sum up to $r^k$ with the right-hand side of  $p(k)$:
- 	
- 	\cent{$p(k+1) : \dfrac{r^{k+1} - 1}{r-1} + r^{k+1} $}
+ 	Then we notice, that the expression up to the second to last term is actually our inductive hypothesis. We allow us selves to substitute that with $p(k)$:
+ 	\cent{$p(k+1) : p(k) + r^{k+1} = \dfrac{r^{k+1} - 1}{r-1} + r^{k+1} $}
  	
  	And do the arithmetic to show that both sides are identical:
  	
  	\mAlign{
  		p(k+1) : &\dfrac{r^{k+1} - 1}{r-1} + r^{k+1} = \dfrac{r^{k+1} - 1}{r-1} + \dfrac{(r-1)r^{k+1}}{r-1} \\
- 		&=  \dfrac{r^{k+1} - 1 + (r-1)r^{k+1}}{r-1} = \dfrac{r^{k+1} - 1 + r^{k+2} -r^{k+1}}{r-1} \\
+ 		&=  \dfrac{(r^{k+1} - 1) + (r-1)r^{k+1}}{r-1} = \dfrac{(r^{k+1} - 1) + r^{k+2} -r^{k+1}}{r-1} \\
  		&= \dfrac{ r^{k+2}-1}{r-1}
  	}
  	
  	\QED
  	\section{Modulu and integers}
- 	\assignmentDescription Prove the following statement:
+ 	\AssignmentDescription Prove the following statement:
  	\cent{$a \equiv b (\modInline m) \leftrightarrow a \modFunc m = b \modFunc m$}
  	
- 	\solution
+ 	\Solution
  	What we want to show, is, that each expression of both sides can be rewritten into  the same expression by using some known theorems and simple arithmetic.\\
  	
  	Let's first process the lefthand side of the given formula. We know, by definition of congruence, if $a$ is congruent to $b$ modulo $m$, then $m$ divides the difference of $a$ and $b$. Then the difference can be expressed as the product of some integer $k$ and $m$:
@@ -5046,14 +5601,14 @@
 	
 	\subsection{Linear combinations and congruence}
 	
-	\assignmentDescription
+	\AssignmentDescription
 	Prove the following identities:
 	
 	\cent{$a+b \equiv (a+b) (\modInline m), \quad ac \equiv bd (\modInline m)$}
 	
 	Assume $a\equiv b (\modInline m)$ and $c \equiv d (\modInline m)$.\\
 	
-	\solution
+	\Solution
 	Let's first establish some expressions of $a$ and $b$:
 	
 	\cent{$a = b + k_1m, \quad c = d + k_2 m$}
@@ -5080,12 +5635,12 @@
  	\cent{$(a+b) \equiv (a \modFunc m + b \modFunc m) (\modInline m)$}
  	\cent{$(a+b) \modFunc m = (a \modFunc m + b \modFunc m) \modFunc m$}
  	\subsection{System of linear congruences}
- 	\assignmentDescription
+ 	\AssignmentDescription
  	Solve the following system of linear congruences:
  	\mAlign{x &\equiv 8 (\modInline 12) \\
  				  x &\equiv 6 (\modInline 13)}
  	
- 	\solution
+ 	\Solution
  	Let's determine $M$:
  	
  	\cent{$M = 12 \cdot 13 = 156$}
@@ -5118,7 +5673,7 @@
 	\Prove
 	Let $R,S\In A \times A$ be partially ordered lists such that they are reflexive, asymmetric, and transitive. Prove that $R\cap S$ is a partially ordered list.
 	
-	\solution
+	\Solution
 	 
 	Let $A=\{a,b,c\}$, then let $R$ and $S$ be relations on $A$ such that they are partially ordered. That is, we have:
 	 
@@ -5135,13 +5690,13 @@
 	
 	\subsection{Induction}
 	
-	\assignmentDescription
+	\AssignmentDescription
 	
 	Prove the following divisibility by mathematical induction:
 	
 	\cent{$n|(n+1)^m-1, \quad n,m \In \doubleN_0$}
 	
-	\solution
+	\Solution
 	Let $p(m)$ be the property, that  $n$ dividies $(n+1)^m - 1$.\\
 	
 	The basis step: $p(0) \to p(i)$.\\
@@ -5154,25 +5709,25 @@
 	
 	Then we assume it holds for any particular, but arbitrary, integer $k \geq 0$.\\
 	
-	Inductive step: $p(i) \to p(i+1)$.\\
+	Inductive step: $p(k) \to p(k+1)$.\\
 	
-	\cent{$p(i+1) : n | (n+1)^{i+1} - 1 = n | (n+1)^m(n+1) - 1 = n(n+1)^m + (n+1)^m - 1$}
+	\cent{$p(k+1) : n | (n+1)^{k+1} - 1 = n | (n+1)^k(n+1) - 1 = n(n+1)^k + (n+1)^k - 1$}
 	
-	As $(n+1)^m -1$ is our inductive hypothesis, and we assume it is divisibly by $n$, we can express this as $nq$:
+	As $(n+1)^k -1$ is our inductive hypothesis, and we assume it is divisibly by $n$, we can express this as $nq$:
 	
-	\cent{$p(i+1) : n|n(n+1)m + nq = n((n+1)^m + q)$}
+	\cent{$p(k+1) : n|n(n+1)^k + nq = n((n+1)^k + q)$}
 	
 	Hence  $p(m)$ holds.\\
 	\QED
 	
 	\subsection{Greatest common divisor}
 	
-	\assignmentDescription
+	\AssignmentDescription
 	Prove the following consequence:
 	
 	\cent{$a \equiv b ( \modInline m) \wedge b \equiv c (\modInline m) \to a+d \equiv c + d (\modInline m)$}
 	
-	\solution
+	\Solution
 	We can express $a$ and $b$ as:
 	
 	\cent{$a = b+k_1m, \quad b = c + k_2m $}
